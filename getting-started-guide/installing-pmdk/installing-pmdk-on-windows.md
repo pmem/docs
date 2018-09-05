@@ -1,6 +1,6 @@
 # Installing PMDK on Windows
 
-The recommended and easiest way to install PMDK on Windows is to use a Microsoft vcpkg. Vcpkg is an open source tool and ecosystem created for libraries management.  PMDK requires following:
+The recommended and easiest way to install PMDK on Windows is to use a Microsoft vcpkg. Vcpkg is an open source tool and ecosystem created for libraries management. PMDK requires following:
 
 * MS Visual Studio 2015 or later
 * Windows SDK 10.0.16299.15 or later
@@ -18,10 +18,10 @@ To install the latest PMDK release and link it to your Visual Studio solution at
 ```
 
 {% hint style="info" %}
-**Note:** The last command can take several minutes while  it is builds and installs PMDK.
+**Note:** The last command can take several minutes while it is builds and installs PMDK.
 {% endhint %}
 
-After successful completion of all of the above steps, libraries are ready to be used in Visual Studio.  No additional configuration is required. Create a new project or open an existing project within Visual Studio \(remember to use platform **x64**\), then include the PMDK headers in your project.
+After successful completion of all of the above steps, libraries are ready to be used in Visual Studio. No additional configuration is required. Create a new project or open an existing project within Visual Studio \(remember to use platform **x64**\), then include the PMDK headers in your project.
 
 ## Additional Resources
 

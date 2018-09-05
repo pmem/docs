@@ -1,6 +1,6 @@
 # Installing PMDK using Linux Packages
 
-PMDK is upstreamed to many Linux distro package repositories including Fedora and Ubuntu.  Downloadable RPM and DEB packages for manual installation are also available from the [PMDK releases repository](https://github.com/pmem/pmdk/releases).
+PMDK is upstreamed to many Linux distro package repositories including Fedora and Ubuntu. Downloadable RPM and DEB packages for manual installation are also available from the [PMDK releases repository](https://github.com/pmem/pmdk/releases).
 
 ## Installing PMDK Using the Package Repository
 
@@ -8,20 +8,19 @@ PMDK is upstreamed to many Linux distro package repositories including Fedora an
 {% tab title="Fedora" %}
 1. Query the repository to identify if pmdk is delivered:  
 
+Fedora 21 or earlier
 
-   Fedora 21 or earlier
-
-   ```text
+```text
    $ yum search pmdk
-   ```
+```
 
-   Fedora 22 or later
+Fedora 22 or later
 
-   ```text
+```text
    $ dnf repoquery pmdk
-   ```
+```
 
-2. Install the ndctl utility
+1. Install the ndctl utility
 
 Fedora 21 or earlier
 
@@ -74,7 +73,7 @@ The pmdk package is available on Ubuntu 18.10 \(Cosmic Cuttlefish\) or later.
 ```text
 $ aptitude search ndctl 
 $ apt-cache search ndctl 
-$ apt search ndctl 
+$ apt search ndctl
 ```
 
 2\) Install the ndctl package
@@ -87,7 +86,7 @@ $ apt-get install ndctl
 
 ## Installing PMDK from \*.RPM or \*.DEB
 
-PMDK is available in RPM and DEB package formats.  The latest RPM and DEB package bundles can be downloaded from [https://github.com/pmem/pmdk/releases](https://github.com/pmem/pmdk/releases).
+PMDK is available in RPM and DEB package formats. The latest RPM and DEB package bundles can be downloaded from [https://github.com/pmem/pmdk/releases](https://github.com/pmem/pmdk/releases).
 
 ### Installing \*.RPM Packages
 
@@ -100,7 +99,7 @@ $ wget
 $ tar zxf pmdk-1.4-rpms.tar.gz
 ```
 
-2. The download bundle includes an rpm with the source code and an `x86_64` sub-directory with installable packages
+1. The download bundle includes an rpm with the source code and an `x86_64` sub-directory with installable packages
 
 ```text
 $ ls -1R
@@ -115,7 +114,7 @@ libpmemlog-devel-1.4-1.fc25.x86_64.rpm
 <...snip...>
 ```
 
-3. Install the rpm packages with dependencies
+1. Install the rpm packages with dependencies
 
 ```text
 $ cd x86_64
@@ -127,7 +126,7 @@ $ dnf install *.rpm
 If PMDK was previously installed using the downloaded rpm packages, use the following to upgrade the installed packages.
 
 {% hint style="info" %}
-If you are upgrading from PMDK v1.3.1 \(formally NVML\) to PMDK 1.4 or later, the name change may cause package conflicts which causes some packages to fail.  It is recommended to remove all nvml\* packages before trying to upgrade/install pmdk.
+If you are upgrading from PMDK v1.3.1 \(formally NVML\) to PMDK 1.4 or later, the name change may cause package conflicts which causes some packages to fail. It is recommended to remove all nvml\* packages before trying to upgrade/install pmdk.
 
 ```text
 $ dnf remove nvml*
@@ -143,7 +142,7 @@ $ wget
 $ tar zxf pmdk-1.4.1-rpms.tar.gz
 ```
 
-2. The download bundle includes an rpm with the source code and an `x86_64` sub-directory with installable packages
+1. The download bundle includes an rpm with the source code and an `x86_64` sub-directory with installable packages
 
 ```text
 $ ls -1R
@@ -158,7 +157,7 @@ libpmemlog-devel-1.4.1-1.fc25.x86_64.rpm
 <...snip...>
 ```
 
-3. Upgrade the packages using the `upgrade` or `install` sub-command
+1. Upgrade the packages using the `upgrade` or `install` sub-command
 
 ```text
 $ cd x86_64
@@ -178,7 +177,7 @@ $ wget
 $ tar zxf pmdk-1.4-dpkgs.tar.gz
 ```
 
-2. The download bundle includes installable packages in the root
+1. The download bundle includes installable packages in the root
 
 ```text
 $ ls -1
@@ -187,7 +186,7 @@ libpmemblk_1.4-1_amd64.deb
 <...snip...>
 ```
 
-3. Install the packages
+1. Install the packages
 
 ```text
 $ sudo dpkg -i *.deb
@@ -198,7 +197,7 @@ $ sudo dpkg -i *.deb
 If PMDK was previously installed using the downloaded deb packages, use the following to upgrade the installed packages.
 
 {% hint style="info" %}
-If you are upgrading from PMDK v1.3.1 \(formally NVML\) to PMDK 1.4 or later, the name change may cause package conflicts which causes some packages to fail.  It is recommended to remove all nvml\* packages before trying to upgrade/install pmdk.
+If you are upgrading from PMDK v1.3.1 \(formally NVML\) to PMDK 1.4 or later, the name change may cause package conflicts which causes some packages to fail. It is recommended to remove all nvml\* packages before trying to upgrade/install pmdk.
 
 ```text
 $ dpkg -r nvml*
@@ -214,7 +213,7 @@ $ wget
 $ tar zxf pmdk-1.4.1-dpkgs.tar.gz
 ```
 
-2. The download bundle includes installable packages in the root
+1. The download bundle includes installable packages in the root
 
 ```text
 $ ls -1
@@ -223,7 +222,7 @@ libpmemblk_1.4.1-1_amd64.deb
 <...snip...>
 ```
 
-3. Install the packages
+1. Install the packages
 
 ```text
 $ sudo dpkg -u *.deb

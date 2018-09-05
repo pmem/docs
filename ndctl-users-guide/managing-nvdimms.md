@@ -1,6 +1,6 @@
 # Managing NVDIMMs
 
-Managing physical or emulated NVDIMMs using ndctl has no functional difference.  Physical NVDIMM features and options may be controlled through the system BIOS.  The BIOS cannot see emulated NVDIMMs.
+Managing physical or emulated NVDIMMs using ndctl has no functional difference. Physical NVDIMM features and options may be controlled through the system BIOS. The BIOS cannot see emulated NVDIMMs.
 
 Observe the following restrictions when managing NVDIMMs
 
@@ -24,7 +24,7 @@ The `ndct list -D` , or equivalent `ndct list --dimm` , can be used to show acti
 
 ## Listing disabled/inactive NVDIMMs
 
-By default, ndctl only lists enabled/active dimms, regions, and namespaces.  To include previously disabled \(inactive\) NVDIMMs, include the `-i` flag to show both enabled and disabled devices, eg:
+By default, ndctl only lists enabled/active dimms, regions, and namespaces. To include previously disabled \(inactive\) NVDIMMs, include the `-i` flag to show both enabled and disabled devices, eg:
 
 ```text
 # ndctl list -Di
@@ -45,12 +45,12 @@ By default, ndctl only lists enabled/active dimms, regions, and namespaces.  To 
 ```
 
 {% hint style="info" %}
-NVDIMM vendor specific tools can be used to display more information about the NVDIMMs from the operating system layer.  For example, Intel Data Center Optane Memory Modules can be managed using the '[ipmctl](https://github.com/intel/ipmctl)' utility.  These tools are outside the scope for this documentation.  Refer to the vendor specific documentation.
+NVDIMM vendor specific tools can be used to display more information about the NVDIMMs from the operating system layer. For example, Intel Data Center Optane Memory Modules can be managed using the '[ipmctl](https://github.com/intel/ipmctl)' utility. These tools are outside the scope for this documentation. Refer to the vendor specific documentation.
 {% endhint %}
 
 ## Disabling NVDIMMs
 
-NVDIMMs can only be disabled if they have no active Regions or Namespaces.  If an active/enabled namespace and/or region exists, a message is displayed:
+NVDIMMs can only be disabled if they have no active Regions or Namespaces. If an active/enabled namespace and/or region exists, a message is displayed:
 
 ```text
 # ndctl disable-dimm nmem0
@@ -66,7 +66,7 @@ disabled 0 nmem
 
 2\) Verify no fsdax or devdax namespaces are mounted or in-use by running applications
 
-3\) Destroy or disable any active/enabled namespace\(s\).  
+3\) Destroy or disable any active/enabled namespace\(s\).
 
 ```text
 # ndctl disable-namespace <namespaceX.Y>
@@ -134,7 +134,6 @@ disabled 12 nmem
   "phys_id":29,
   "state":"disabled"
 }
-
 ```
 
 2\) Enable the NVDIMM\(s\)
@@ -160,7 +159,7 @@ To enable all disabled NVDIMMs, use:
 enabled 12 nmem
 ```
 
-3\) Verify the state by listing all NVDIMMs 
+3\) Verify the state by listing all NVDIMMs
 
 ```text
 # ndctl list -Di
@@ -173,6 +172,4 @@ A filtered list of NVDIMMs can shown using the `-d <nmemX>` or `-dimm <nmemX>` o
 - or -
 # ndctl list -Di -dimm nmem0
 ```
-
-
 

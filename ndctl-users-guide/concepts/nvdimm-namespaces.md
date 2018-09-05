@@ -1,6 +1,6 @@
 # Namespaces
 
-The capacity of an NVDIMM REGION \(contiguous span of persistent memory\) is accessed via one or more NAMESPACE devices.  A REGION is the Linux term for what ACPI and UEFI call a DIMM-interleave-set, or a system-physical-address-range that is striped \(by the memory controller\) across one or more memory modules.
+The capacity of an NVDIMM REGION \(contiguous span of persistent memory\) is accessed via one or more NAMESPACE devices. A REGION is the Linux term for what ACPI and UEFI call a DIMM-interleave-set, or a system-physical-address-range that is striped \(by the memory controller\) across one or more memory modules.
 
 The UEFI specification defines the 'NVDIMM Label Protocol' as the combination of label area access methods and a data format for provisioning one or more NAMESPACE objects from a REGION. Note that label support is optional and if Linux does not detect the label capability it will automatically instantiate a "label-less" namespace per region. Examples of label-less namespaces are the ones created by the kernel's [memmap ](../../getting-started-guide/creating-development-environments/linux-environments/linux-memmap.md)option, or NVDIMMs without a valid 'namespace index' in their label area.
 
@@ -11,9 +11,9 @@ A namespace can be provisioned to operate in one of 4 modes, 'fsdax', 'devdax', 
 * **sector:** Use this mode to host legacy filesystems that do not checksum metadata or applications that are not prepared for torn sectors after a crash. Expected usage for this mode is for small boot volumes. This mode is compatible with other operating systems.
 * **raw:** Raw mode is effectively just a memory disk that does not support DAX. Typically this indicates a namespace that was created by tooling or another operating system that did not know how to create a Linux 'fsdax' or 'devdax' mode namespace. This mode is compatible with other operating systems, but again, does not support DAX operation.
 
-Figure 1 below shows a typical Filesystem-DAX \(FSDAX\) configuration with three physical NVDIMMs that have been interleaved.  All available capacity has been used to create a single region \(Region0\), namespace \(Namespace0.0\), and dax enabled filesystem created.  Namespace naming convention is commonly X.Y where X is the region number and Y is the namespace
+Figure 1 below shows a typical Filesystem-DAX \(FSDAX\) configuration with three physical NVDIMMs that have been interleaved. All available capacity has been used to create a single region \(Region0\), namespace \(Namespace0.0\), and dax enabled filesystem created. Namespace naming convention is commonly X.Y where X is the region number and Y is the namespace
 
-![Figure 1: FSDAX Configuration](../../.gitbook/assets/ndctl-fsdax-config.png)
+![Figure 1: FSDAX Configuration](https://github.com/pmem/docs/tree/f786ed7c6b0ae701f299a839c07ef9a35a7d3f4f/.gitbook/assets/ndctl-fsdax-config.png)
 
 Refer to '[Managing Namespaces](../managing-namespaces.md)' for information on how to create, delete, edit, and manage the namespace configuration.
 

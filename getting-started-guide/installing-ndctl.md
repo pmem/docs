@@ -1,14 +1,14 @@
 # Installing NDCTL
 
-The `ndctl` utility is used to manage the libnvdimm \(non-volatile memory device\) sub-system in the Linux Kernel.  It is required for several Persistent Memory Developer Kit \(PMDK\) features if compiling from source.  If ndctl is not available, the PMDK may not build all components and features.  This page describes how to install ndctl using the Linux package repository or compiled from source code downloaded from the [ndctl GitHub repository](https://github.com/pmem/ndctl).  
+The `ndctl` utility is used to manage the libnvdimm \(non-volatile memory device\) sub-system in the Linux Kernel. It is required for several Persistent Memory Developer Kit \(PMDK\) features if compiling from source. If ndctl is not available, the PMDK may not build all components and features. This page describes how to install ndctl using the Linux package repository or compiled from source code downloaded from the [ndctl GitHub repository](https://github.com/pmem/ndctl).
 
 {% hint style="info" %}
 Microsoft Windows users can read the [NVM documentation](https://docs.microsoft.com/en-us/windows/desktop/persistent-memory-programming-in-windows---nvml-integration).
 {% endhint %}
 
-## Installing NDCTL Packages on Linux 
+## Installing NDCTL Packages on Linux
 
-The ndctl utility is available in several Linux distro repositories.  
+The ndctl utility is available in several Linux distro repositories.
 
 {% tabs %}
 {% tab title="Fedora" %}
@@ -79,7 +79,7 @@ The ndctl package is available on Ubuntu 18.10 \(Cosmic Cuttlefish\) or later.
 ```text
 $ aptitude search ndctl 
 $ apt-cache search ndctl 
-$ apt search ndctl 
+$ apt search ndctl
 ```
 
 2\) Install the ndctl package
@@ -106,8 +106,6 @@ You must set a complete URL, including the TCP port number. If your proxy server
 proxy_username=YOUR-PROXY-USERNAME-HERE
 proxy_password=YOUR-SUPER-secrete-PASSWORD-HERE
 ```
-
-
 
 ### 1. Install Pre-Requisites
 
@@ -180,15 +178,14 @@ $ sudo apt-get install install -y git gcc gcc-c++ autoconf automake asciidoc xml
 
 1. If you're behind a company proxy, configure git to work with your proxy server first. The following configures a HTTP and HTTPS proxy for all users.  Refer to the [git-config documentation](https://git-scm.com/docs/git-config) for more options and information.  
 
-
-   ```text
+```text
    git config --global http.proxy http://proxyUsername:proxyPassword@proxy.server.com:port
- 
-   git config --global https.proxy https://proxyUsername:proxyPassword@proxy.server.com:port
-   ```
 
-2. Create a working directory to clone the ndctl GitHub repository to, eg: 'downloads' `sudo mkdir /downloads sudo chmod +w /downloads cd /downloads`
-3. Clone the repository `cd /downloads sudo git clone https://github.com/pmem/ndctl cd ndctl`
+   git config --global https.proxy https://proxyUsername:proxyPassword@proxy.server.com:port
+```
+
+1. Create a working directory to clone the ndctl GitHub repository to, eg: 'downloads' `sudo mkdir /downloads sudo chmod +w /downloads cd /downloads`
+2. Clone the repository `cd /downloads sudo git clone https://github.com/pmem/ndctl cd ndctl`
 
 ### 3. Build
 
@@ -222,7 +219,7 @@ For a full list of configure options use:
 ./configure --help
 ```
 
-### 4. Install 
+### 4. Install
 
 Once ndctl has successfully been compiled, it can be installed using the following:
 
@@ -244,7 +241,6 @@ The unit tests run by `make check` require the nfit\_test.ko module to be loaded
 
 The unit tests will validate that the environment is set up correctly before they try to run. If the platform is misconfigured, i.e. the unit test modules are not available, or the test versions of the modules are superseded by the "in-tree/production" version of the modules `make check` will skip tests and report a message like the following in test/test-suite.log:
 
-  
 `SKIP: libndctl`  
 `==============`  
 `test/init: nfit_test_init: nfit.ko: appears to be production version: /lib/modules/4.8.8-200.fc24.x86_64/kernel/drivers/acpi/nfit/nfit.ko.xz`  

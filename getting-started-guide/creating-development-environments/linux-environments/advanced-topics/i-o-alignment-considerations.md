@@ -192,7 +192,7 @@ $ xfs_io -c "extsize 2m" /mnt/dax
 
 ```text
 $ cd /sys/kernel/debug/tracing
-$ echo 1 > events/fs_dax/dax_pmd_fault_done/enable 
+$ echo 1 > events/fs_dax/dax_pmd_fault_done/enable
 ```
 
 Run test which faults in filesystem DAX mappings, eg:

@@ -1,12 +1,12 @@
 # Using the 'MEMMAP' Kernel Option
 
-The `pmem` driver allows users to begin developing software using Direct Access Filesystems \(DAX\) such as EXT4 and XFS.  A new 'memmap' option was added that supports reserving one or more ranged of unassigned memory for use with emulated persistent memory.  The 'memmap' parameter documentation can be found at [https://www.kernel.org/doc/Documentation/admin-guide/kernel-parameters.txt](https://www.kernel.org/doc/Documentation/admin-guide/kernel-parameters.txt).  This feature was upstreamed in the v4.0 Kernel.  Kernel v4.15 introduced performance improvements and is recommended for production environments.
+The `pmem` driver allows users to begin developing software using Direct Access Filesystems \(DAX\) such as EXT4 and XFS. A new 'memmap' option was added that supports reserving one or more ranged of unassigned memory for use with emulated persistent memory. The 'memmap' parameter documentation can be found at [https://www.kernel.org/doc/Documentation/admin-guide/kernel-parameters.txt](https://www.kernel.org/doc/Documentation/admin-guide/kernel-parameters.txt). This feature was upstreamed in the v4.0 Kernel. Kernel v4.15 introduced performance improvements and is recommended for production environments.
 
-### Quick Start
+## Quick Start
 
-The memmap option uses a`memmap=nn[KMG]!ss[KMG]` format; where`nn` is the size of the region to reserve, `ss` is the starting offset, and `[KMG]` specifies the size in Kilobytes, Megabytes, or Gigabytes.  The configuration option is passed to the Kernel using GRUB. Changing GRUB menu entries and kernel arguments vary between Linux distributions and versions of the same distro.  Instructions for some of the common Linux distros can be found below.  Refer to the documentation of the Linux distro and version being used for more information.
+The memmap option uses a`memmap=nn[KMG]!ss[KMG]` format; where`nn` is the size of the region to reserve, `ss` is the starting offset, and `[KMG]` specifies the size in Kilobytes, Megabytes, or Gigabytes. The configuration option is passed to the Kernel using GRUB. Changing GRUB menu entries and kernel arguments vary between Linux distributions and versions of the same distro. Instructions for some of the common Linux distros can be found below. Refer to the documentation of the Linux distro and version being used for more information.
 
-The memory region will be marked as e820 type 12 \(0xc\).  This is visible at boot time.  Use the dmesg command to view these messages.
+The memory region will be marked as e820 type 12 \(0xc\) . This is visible at boot time. Use the dmesg command to view these messages.
 
 ```text
 $ dmesg | grep e820
@@ -49,17 +49,19 @@ $ sudo grub2-mkconfig -o /boot/efi/EFI/centos/grub.cfg
 {% tab title="Ubuntu" %}
 Create a new memory mapping of 4GB starting at the 12GB boundary \(ie from 12GB to 16GB\)
 
-`$ sudo vi /etc/default/grub  
-GRUB_CMDLINE_LINUX="memmap=4G!12G"  
-  
-$ sudo update-grub2`
+\`$ sudo vi /etc/default/grub
+
+GRUB\_CMDLINE\_LINUX="memmap=4G!12G"
+
+$ sudo update-grub2\`
 {% endtab %}
 
 {% tab title="RHEL & CentOS" %}
 Create a new memory mapping of 4GB starting at the 12GB boundary \(ie from 12GB to 16GB\)
 
-`$ sudo vi /etc/default/grub  
-GRUB_CMDLINE_LINUX="memmap=4G!12G"`
+\`$ sudo vi /etc/default/grub
+
+GRUB\_CMDLINE\_LINUX="memmap=4G!12G"\`
 
 Update the grub config using one of the following methods:
 
@@ -74,14 +76,12 @@ On UEFI-based machines:
 {% endtabs %}
 
 {% hint style="info" %}
-**Note:** If more than one persistent memory namespace is required, specify a 'memmap' entry for each namespace.  For example, "memmap=2G!12G memmap=2G!14G" will create two 2GB namespaces, one in the 12GB-14GB memory address offsets, the other at 14GB-16GB.
+**Note:** If more than one persistent memory namespace is required, specify a 'memmap' entry for each namespace. For example, "memmap=2G!12G memmap=2G!14G" will create two 2GB namespaces, one in the 12GB-14GB memory address offsets, the other at 14GB-16GB.
 {% endhint %}
 
-2. Reboot the host
-
-3. After the host has been rebooted, a new `/dev/pmem{N}` device should exist, one for each memmap region specified in the GRUB config.  These can be shown using `ls /dev/pmem*`.  Naming convention starts at `/dev/pmem0` and increments for each device.  The `/dev/pmem{N}` devices can be used to create a DAX filesystem.  
-
-4. Create and mount a filesystem using /dev/pmem device\(s\), then verify the `dax` flag is set for the mount point to confirm the DAX feature is enabled.  The following shows how to create and mount an EXT4 or XFS filesystem.
+1. Reboot the host
+2. After the host has been rebooted, a new `/dev/pmem{N}` device should exist, one for each memmap region specified in the GRUB config. These can be shown using `ls /dev/pmem*`. Naming convention starts at `/dev/pmem0` and increments for each device. The `/dev/pmem{N}` devices can be used to create a DAX filesystem.
+3. Create and mount a filesystem using /dev/pmem device\(s\), then verify the `dax` flag is set for the mount point to confirm the DAX feature is enabled. The following shows how to create and mount an EXT4 or XFS filesystem.
 
 {% tabs %}
 {% tab title="EXT4" %}
@@ -109,9 +109,9 @@ $ sudo mount -v | grep /pmem
 **Note:** Refer to the [Advanced Topics](advanced-topics/) section for information on [Partitioning Namespaces](advanced-topics/partitioning-namespaces.md) and [I/O Alignment Considerations](advanced-topics/i-o-alignment-considerations.md) using hugepages.
 {% endhint %}
 
-### How To Choose the Correct 'memmap' Option for Your System
+## How To Choose the Correct 'memmap' Option for Your System
 
-When selecting values for the `memmap` Kernel parameter, consideration that the start and end addresses represent usable RAM must be made.  Using or overlapping with reserved memory can result in corruption or undefined behaviour.  This information is easily available in the e820 table, available via dmesg.
+When selecting values for the `memmap` Kernel parameter, consideration that the start and end addresses represent usable RAM must be made. Using or overlapping with reserved memory can result in corruption or undefined behaviour. This information is easily available in the e820 table, available via dmesg.
 
 The following shows an example server with 16GiB of memory with "usable" memory between 4GiB \(0x100000000\) and ~16GiB \(0x3ffffffff\):
 
@@ -164,8 +164,6 @@ pmem0 259:0    0  12G  0 disk /pmem
 ```
 
 {% hint style="info" %}
-**Note:** Most Linux distributions ship with Kernel Address Space Layout Randomization \(KASLR\) enabled.  This is defined by `CONFIG_RANDOMIZE_BASE`.  When enabled, the Kernel may potentially use memory previously reserved for persistent memory without warning, resulting in corruption or undefined behaviour.  It is recommended to disable KASLR on systems with 16GiB or less.  Refer to your Linux distribution documentation for details as the procedure varies per distro. 
+**Note:** Most Linux distributions ship with Kernel Address Space Layout Randomization \(KASLR\) enabled. This is defined by `CONFIG_RANDOMIZE_BASE`. When enabled, the Kernel may potentially use memory previously reserved for persistent memory without warning, resulting in corruption or undefined behaviour. It is recommended to disable KASLR on systems with 16GiB or less. Refer to your Linux distribution documentation for details as the procedure varies per distro.
 {% endhint %}
-
-
 

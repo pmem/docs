@@ -8,7 +8,7 @@ This release incorporates functionality up to the 4.19 kernel, and a number of b
 
 Highlights include addition of the 'ndctl monitor' command to monitor for SMART health events, use of the new max\_available\_extent sysfs attribute for namespace creation, verbosity levels for ndctl-list, a udev rule for enabling the LSS latch when supported, a bypass route for making the unsafe shutdown count available for non-privileged users, improvements to ndctl-inject-smart that include an 'uninject' option for all fields, and a new unit test, a number of static analysis fixes, and unit test improvements and fixes.
 
-#### Commands: 
+### Commands:
 
 * monitor: new command for monitoring SMART health events 
 * list: support -v, -vv, -vvv verbosity levels 
@@ -17,7 +17,7 @@ Highlights include addition of the 'ndctl monitor' command to monitor for SMART 
 * list: add new fields to -H for alarm\_enabled 
 * list: always output JSON arrays when --human is absent
 
-#### **Tests:** 
+### **Tests:**
 
 * dax.sh: dax-poisonCheck for availability of MAP\_SYNC 
 * dax.sh: fix return code 
@@ -26,7 +26,7 @@ Highlights include addition of the 'ndctl monitor' command to monitor for SMART 
 * inject-smart: new test 
 * max\_available\_extent\_ns: new test
 
-#### APIs: 
+### APIs:
 
 * ndctl\_cmd\_smart\_inject\_ctrl\_temperature 
 * ndctl\_dimm\_get\_event\_flags 
@@ -38,13 +38,13 @@ Highlights include addition of the 'ndctl monitor' command to monitor for SMART 
 
 ## v61.2 - 6th July, 2018
 
-#### **Fixes:** 
+### **Fixes:**
 
 * libndctl: fix the uninject API \(v1\) actually injecting errors
 
 ## v61.1 - 27th June, 2018
 
-#### **Fixes:** 
+### **Fixes:**
 
 * Add autotools detection for MAP\_SYNC
 
@@ -54,13 +54,13 @@ This release incorporates functionality up to the 4.18 kernel, and a number of b
 
 Highlights include a fix to the error injection APIs to inject fewer bytes of errors per sector, support for building documentation with asciidoctor in addition to asciidoc, multi-arrgument support for util\_\_filter, and a new OPTION\_FILENAME in option parsing. Unit test updates include cleanups to unit test scripts refactoring out a lot of common boilerplate, MADV\_HWPOISON tests, and a new test for capacity vs label locking.
 
-#### Commands:
+### Commands:
 
 * inject-error: add a --saturate option to inject entire sectors 
 * list: display the 'map' location in namespace listings 
 * list: add controller temperature, and its threshold/alarm setting
 
-#### Tests:
+### Tests:
 
 * dax-pmd, device-dax: add a test for MADV\_HWPOISON 
 * sector-mode.sh: fix to work with updated label support in nfit\_test 
@@ -69,7 +69,7 @@ Highlights include a fix to the error injection APIs to inject fewer bytes of er
 * libndctl: update for smart controller temperature 
 * various: disable tests that inject poison with dax until 4.19
 
-#### APIs
+### APIs
 
 * ndctl\_cmd\_ars\_cap\_get\_clear\_unit 
 * ndctl\_cmd\_ars\_stat\_get\_flag\_overflow 
@@ -78,32 +78,32 @@ Highlights include a fix to the error injection APIs to inject fewer bytes of er
 
 ## v60.3 - May 17th, 2018
 
-#### Fixes
+### Fixes
 
 * ndctl: fix libtool versioning
 
 ## v60.2 - May 16th, 2018
 
-#### Fixes
+### Fixes
 
 * inject-error: inject only 'clear\_err\_unit' bytes of error per sector
 
 ## v60.1 - April 23rd, 2018
 
-#### Fixes
+### Fixes
 
 * documentation: add inject-smart to the Makefile 
 * libndctl: fix ABI breakage due to rename of fw\_info\_get\_updated\_version
 
 ## v60 - April 17th, 2018
 
-#### Added
+### Added
 
 This release incorporates functionality up to the 4.17 kernel, and a number of bug fixes and improvements.
 
 Highlights include ack\_shutdown\_count support, fixes to tests that performed error injections, refactor core topology walking into util\_filter\_walk\(\), a new test for partition auto detection for btt/blk namespacees, numa\_node support for regions, cleanups to the firmware update command, removal of daxctl io, support for persistence domains for buses and regions, APIs for retrieving and setting the write\_cache attribute for namespacees, fixes to ARS APIs, new ARS control commands in ndctl, and an API for the deep\_flush attribute for regions.
 
-#### Commands 
+### Commands
 
 * ndctl list: option to display firmware information 
 * ndctl create-namespace: fix minimum alignment detection 
@@ -117,7 +117,7 @@ Highlights include ack\_shutdown\_count support, fixes to tests that performed e
 * ndctl {wait,start}-scrub: new commands for ARS control 
 * ndctl list: add a raw\_uuid field to namespace listings
 
-#### Tests
+### Tests
 
 * ack-shutdown-count-set: new test for the shutdown count APIs 
 * various: ensure we use the locally build 'ndctl' 
@@ -132,7 +132,7 @@ Highlights include ack\_shutdown\_count support, fixes to tests that performed e
 * libndctl: add write\_cache testing in check\_nameespaces\(\) 
 * pmem-errors: fix locking vs new ARS reworks
 
-#### API's
+### API's
 
 * ndctl\_bus\_get\_persistence\_domain 
 * ndctl\_bus\_get\_scrub\_state 
@@ -149,7 +149,7 @@ Highlights include ack\_shutdown\_count support, fixes to tests that performed e
 
 ## v59.3 - March 27th, 2018
 
-#### Fixes
+### Fixes
 
 * create-namespace: fix minimum alignment detection 
 * list: fix sector\_size listing 
@@ -160,13 +160,13 @@ Highlights include ack\_shutdown\_count support, fixes to tests that performed e
 
 ## v59.2 - February 9th, 2018
 
-#### Fixes
+### Fixes
 
 * Unit test fixups for package build environments.
 
 ## v59.1 - February 9th, 2018
 
-#### Fixes
+### Fixes
 
 * Compile fixes for ARM and PowerPC
 
@@ -176,7 +176,7 @@ This release incorporates functionality up to the 4.16 kernel, and a number of b
 
 Highlights include new ACPI error injection DSM support, a variety of smart enhancements that include getting and setting thresholds, injecting smart attribute values and flags, support for firmware update, and fixes for a BTT padding incompatibility.
 
-#### Commands
+### Commands
 
 * ndctl inject-error - new command for media error injection 
 * ndctl disable-region - check for mounted namespaces 
@@ -186,7 +186,7 @@ Highlights include new ACPI error injection DSM support, a variety of smart enha
 * ndctl update-firmware - new command for firmware update 
 * ndctl inject-smart - new command for setting smart thresholds and injecting attributes
 
-#### Tests
+### Tests
 
 * inject-error: new test for the error injection interfaces 
 * btt-errors: new test for media error handling in the BTT 
@@ -196,7 +196,7 @@ Highlights include new ACPI error injection DSM support, a variety of smart enha
 * btt-pad-incompat: regression test for the old and new versions of the btt log padding format 
 * update-firmware: test the firmware update process
 
-#### API's
+### API's
 
 * ndctl\_bb\_get\_block 
 * ndctl\_bb\_get\_count 

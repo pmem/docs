@@ -1,6 +1,6 @@
 # Troubleshooting
 
-The ndctl utility is designed to be user friendly and informative.  This section describes some of the common messages seen when using ndctl.
+The ndctl utility is designed to be user friendly and informative. This section describes some of the common messages seen when using ndctl.
 
 ## "DAX unsupported by block device. Turning off DAX."
 
@@ -22,7 +22,7 @@ $ mount | grep pmem0
 
 **Solution:**
 
-Check the namespace mode using `ndctl list -Nu`.  In the following example the mode is 'raw':
+Check the namespace mode using `ndctl list -Nu`. In the following example the mode is 'raw':
 
 ```text
 # ndctl list -Nu
@@ -49,13 +49,12 @@ From the `ndctl-create-namespace` man page, 'raw' mode does not support DAX \(Di
                to no dax support depending the kernel. In other words operations like direct-I/O targeting a dax buffer may
                fail for a pmem namespace in raw mode or indirect through a page-cache buffer. See "fsdax" and "devdax" mode
                for dax operation.
-
 ```
 
 The namespace needs to be changed to either 'fsdax' or 'devdax' using the following:
 
 {% hint style="warning" %}
-**WARNING:** Changing the namespace mode will destroy any existing data.  Backup all data before changing the mode.
+**WARNING:** Changing the namespace mode will destroy any existing data. Backup all data before changing the mode.
 {% endhint %}
 
 ```text
@@ -113,9 +112,9 @@ ndctl list -NRD
 
 ## "ndctl: error while loading shared libraries: libjson-c.so.2: cannot open shared object file: No such file or directory"
 
-**Issue:** 
+**Issue:**
 
-Executing the `ndctl` utility, with or without commands or options, yields the following missing library error: 
+Executing the `ndctl` utility, with or without commands or options, yields the following missing library error:
 
 ```text
 # ndctl --version
@@ -144,9 +143,9 @@ Verify which libraries are missing from ndctl using the ldd utility and identify
         [...]
 ```
 
-**Solution:** 
+**Solution:**
 
-Verify that the json-c package is installed.  For example, on Fedora use `dnf info --installed json-c`.  If it is installed, information about the package will be displayed, eg:
+Verify that the json-c package is installed. For example, on Fedora use `dnf info --installed json-c`. If it is installed, information about the package will be displayed, eg:
 
 ```text
 # sudo dnf info --installed json-c
@@ -196,24 +195,24 @@ Last metadata expiration check: 2:07:37 ago on Fri 06 Jul 2018 06:18:47 AM MDT.
 /usr/lib/libjson-c.so.4.0.0
 ```
 
-Verify the LD\_LIBRARY\_PATH includes the location of libjson-c.so.\*.  Note: `/usr/lib` and `/usr/lib64` are automatically included.
+Verify the LD\_LIBRARY\_PATH includes the location of libjson-c.so.\*. Note: `/usr/lib` and `/usr/lib64` are automatically included.
 
 ```text
 # echo $LD_LIBRARY_PATH
 /usr/local/lib:/usr/local/lib64
 ```
 
-If the package and LD\_LIBRARY\_PATH are correct, the version of ndctl will need to be updated.  Using `ndctl --version` won't work and will simply return "_ndctl: error while loading shared libraries: libjson-c.so.2: cannot open shared object file: No such file or directory_".  
+If the package and LD\_LIBRARY\_PATH are correct, the version of ndctl will need to be updated. Using `ndctl --version` won't work and will simply return "_ndctl: error while loading shared libraries: libjson-c.so.2: cannot open shared object file: No such file or directory_".
 
-If the ndctl utility was installed using the ndctl package from the operating system's repository, update the package to the latest version.  On Fedora:
+If the ndctl utility was installed using the ndctl package from the operating system's repository, update the package to the latest version. On Fedora:
 
 ```text
 # sudo dnf update -y ndctl
 ```
 
-If the latest version within the package repository is old with no new versions available, download, compile, and install from source code.  Detailed instructions can be found in the '[Installing NDCTL](../getting-started-guide/installing-ndctl.md)' chapter.  
+If the latest version within the package repository is old with no new versions available, download, compile, and install from source code. Detailed instructions can be found in the '[Installing NDCTL](../getting-started-guide/installing-ndctl.md)' chapter.
 
-If the ndctl utility was previously compiled and installed using source code, download the latest version from the [ndctl GitHub repository](https://github.com/pmem/ndctl), compile, and install.  Detailed instructions can be found in the '[Installing NDCTL](../getting-started-guide/installing-ndctl.md)' chapter.
+If the ndctl utility was previously compiled and installed using source code, download the latest version from the [ndctl GitHub repository](https://github.com/pmem/ndctl), compile, and install. Detailed instructions can be found in the '[Installing NDCTL](../getting-started-guide/installing-ndctl.md)' chapter.
 
 ## Error: namespace0.0 is active, specify --force for re-configuration
 
@@ -290,7 +289,7 @@ To delete a namespace without disabling it first, use the -f, --force option:
 destroyed 1 namespace
 ```
 
-Alternatively, disable the namespace then perform the destroy/mode change operation.  Note: Changing a namespace mode automatically activates it.
+Alternatively, disable the namespace then perform the destroy/mode change operation. Note: Changing a namespace mode automatically activates it.
 
 To change the namespace mode from 'raw' to 'fsdax':
 
@@ -367,7 +366,7 @@ There are many potential causes including:
 
 **Solution:**
 
-Use the -v option to print more information to help identify the cause.  A debug version of ndctl may be required to get useful information.  See '[Installing NDCTL](../getting-started-guide/installing-ndctl.md)' for instructions to build ndctl with debug options from source code.
+Use the -v option to print more information to help identify the cause. A debug version of ndctl may be required to get useful information. See '[Installing NDCTL](../getting-started-guide/installing-ndctl.md)' for instructions to build ndctl with debug options from source code.
 
 For a scenario where there's no space left within the region, a message similar to the following will be shown:
 
@@ -387,9 +386,7 @@ validate_namespace_options:473: region0: disabled, skipping...
 failed to create namespace: Resource temporarily unavailable
 ```
 
-Identifying label issues requires more investigation.  Start with '[Validating Labels](managing-label-storage-areas-lsa.md#checking-labels)'.
+Identifying label issues requires more investigation. Start with '[Validating Labels](managing-label-storage-areas-lsa.md#checking-labels)'.
 
 The 'Resource temporarily unavailable' message improvements is being handled by [https://github.com/pmem/ndctl/issues/67](https://github.com/pmem/ndctl/issues/67)
-
-
 

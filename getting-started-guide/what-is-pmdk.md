@@ -1,16 +1,16 @@
 # PMDK Introduction
 
-With persistent memory, applications have a new tier available for data placement as shown in Figure 1.  In addition to the memory and storage tiers, the persistent memory tier offers greater capacity than DRAM and significantly faster performance than storage.  Applications can access persistent memory resident data structures in-place, like they do with traditional memory, eliminating the need to page blocks of data back and forth between memory and storage.
+With persistent memory, applications have a new tier available for data placement as shown in Figure 1. In addition to the memory and storage tiers, the persistent memory tier offers greater capacity than DRAM and significantly faster performance than storage. Applications can access persistent memory resident data structures in-place, like they do with traditional memory, eliminating the need to page blocks of data back and forth between memory and storage.
 
-![Figure 1: Memory-Storage Hierarchy with Persistent Memory Tier](../.gitbook/assets/memory-storage-hierachy-persistent-memory%20%282%29.png)
+![Figure 1: Memory-Storage Hierarchy with Persistent Memory Tier](https://github.com/pmem/docs/tree/f786ed7c6b0ae701f299a839c07ef9a35a7d3f4f/.gitbook/assets/memory-storage-hierachy-persistent-memory%20%282%29.png)
 
-To get this low-latency direct access, a new software architecture is required that allows applications to access ranges of persistent memory.  
+To get this low-latency direct access, a new software architecture is required that allows applications to access ranges of persistent memory.
 
-The [Persistent Memory Development Kit \(PMDK\)](http://pmem.io/pmdk) is a collection of libraries and tools for System Administrators and Application Developers to simplify managing and accessing persistent memory devices.  Tuned and validated on both Linux and Windows, the libraries build on the Direct Access \(DAX\) feature which allows applications to directly access persistent memory as memory-mapped files.  This is described in detail in the [Storage Network Industry Association \(SNIA\) NVM Programming Model](https://www.snia.org/sites/default/files/technical_work/final/NVMProgrammingModel_v1.2.pdf).  Figure 2 shows the model which describes how applications can access persistent memory devices \(NVDIMMs\) using traditional POSIX standard APIs such as read, write, pread, and pwrite, or load/store operations such as memcpy when the data is memory mapped to the application. The 'Persistent Memory' area describes the fastest possible access because the application I/O bypasses existing filesystem page caches and goes directly to/from the persistent memory media.  
+The [Persistent Memory Development Kit \(PMDK\)](http://pmem.io/pmdk) is a collection of libraries and tools for System Administrators and Application Developers to simplify managing and accessing persistent memory devices. Tuned and validated on both Linux and Windows, the libraries build on the Direct Access \(DAX\) feature which allows applications to directly access persistent memory as memory-mapped files. This is described in detail in the [Storage Network Industry Association \(SNIA\) NVM Programming Model](https://www.snia.org/sites/default/files/technical_work/final/NVMProgrammingModel_v1.2.pdf). Figure 2 shows the model which describes how applications can access persistent memory devices \(NVDIMMs\) using traditional POSIX standard APIs such as read, write, pread, and pwrite, or load/store operations such as memcpy when the data is memory mapped to the application. The 'Persistent Memory' area describes the fastest possible access because the application I/O bypasses existing filesystem page caches and goes directly to/from the persistent memory media.
 
-![Fig 2: SNIA Programming Model](../.gitbook/assets/snia_programming_model.png)
+![Fig 2: SNIA Programming Model](https://github.com/pmem/docs/tree/f786ed7c6b0ae701f299a839c07ef9a35a7d3f4f/.gitbook/assets/snia_programming_model.png)
 
-Directly accessing the physical media introduces new programming challenges and paradigms.  The PMDK offers application developers many libraries and features highlighted below to solve some of the more difficult programming issues:
+Directly accessing the physical media introduces new programming challenges and paradigms. The PMDK offers application developers many libraries and features highlighted below to solve some of the more difficult programming issues:
 
 **Available Libraries:**
 
@@ -35,7 +35,7 @@ Directly accessing the physical media introduces new programming challenges and 
 
 **Supporting Videos**
 
-* **Get Started with Persistent Memory Programming \(Series\):** 
+* **Get Started with Persistent Memory Programming \(Series\):**
 
   The non-volatile memory library \(NVML\) is now called the Persistent Memory Developer Kit \(PMDK\). In these videos, its architect, Andy Rudoff, introduces you to persistent memory programming and shows you how to apply it to your application.
 

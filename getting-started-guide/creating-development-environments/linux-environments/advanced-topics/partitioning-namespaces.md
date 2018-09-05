@@ -1,11 +1,11 @@
 # Partitioning Namespaces
 
-It is possible to further divide raw, sector, and fsdax devices \(namespaces\) into partitions using tools such as fdisk, parted, gparted, etc.  This is useful to meet application requirements.
+It is possible to further divide raw, sector, and fsdax devices \(namespaces\) into partitions using tools such as fdisk, parted, gparted, etc. This is useful to meet application requirements.
 
-The following shows how to partition a new namespace with no existing partition table using fdisk and parted.  If an existing partition table exists, delete or modify the entries first.  The example uses a 256GB FSDAX device \(namespace\) and creates 2 x 100GB and 1 x ~50GB partitions on which filesystems can be created.
+The following shows how to partition a new namespace with no existing partition table using fdisk and parted. If an existing partition table exists, delete or modify the entries first. The example uses a 256GB FSDAX device \(namespace\) and creates 2 x 100GB and 1 x ~50GB partitions on which filesystems can be created.
 
 {% hint style="danger" %}
-**WARNING:** Data could or will be lost.  Backup the data before proceeding.
+**WARNING:** Data could or will be lost. Backup the data before proceeding.
 {% endhint %}
 
 Print the current partition table, if any, using `fdisk -l`:
@@ -29,7 +29,7 @@ Device does not contain a recognized partition table. Created a new DOS disklabe
 Command (m for help):
 ```
 
-2\) Create the first new 100GB partition using the '\(n\)ew' command 
+2\) Create the first new 100GB partition using the '\(n\)ew' command
 
 ```text
 Command (m for help): n 
@@ -114,7 +114,7 @@ Welcome to GNU Parted! Type 'help' to view a list of commands.
 (parted)
 ```
 
-2\) Create the first new 100GB partition using the 'mkpart' command 
+2\) Create the first new 100GB partition using the 'mkpart' command
 
 ```text
 (parted) mkpart
@@ -171,7 +171,7 @@ Information: You may need to update /etc/fstab.
 {% endtab %}
 {% endtabs %}
 
-The partitions can now be used with DAX enabled filesystems such as EXT4 and XFS and mounted with the `-o dax` option.  The following shows how to create and mount an EXT4 or XFS filesystem.
+The partitions can now be used with DAX enabled filesystems such as EXT4 and XFS and mounted with the `-o dax` option. The following shows how to create and mount an EXT4 or XFS filesystem.
 
 {% tabs %}
 {% tab title="EXT4" %}
@@ -194,6 +194,4 @@ $ sudo mount -v | grep /pmem1
 ```
 {% endtab %}
 {% endtabs %}
-
-
 

@@ -1,8 +1,8 @@
 # Managing Label Storage Areas \(LSA\)
 
-The namespace label area is a small persistent partition of capacity available on some NVDIMM devices. The label area is used to resolve aliasing between pmem and blk capacity by delineating namespace boundaries. 
+The namespace label area is a small persistent partition of capacity available on some NVDIMM devices. The label area is used to resolve aliasing between pmem and blk capacity by delineating namespace boundaries.
 
-The labels on the NVDIMMs cannot be edited directly.  Changing the configuration can be achieved using the ndctl **create** or **destroy** commands.  See '[Managing Namespaces](managing-namespaces.md)' and '[Managing Regions](managing-regions.md)'.  Ndctl provides several label related commands shown below:
+The labels on the NVDIMMs cannot be edited directly. Changing the configuration can be achieved using the ndctl **create** or **destroy** commands. See '[Managing Namespaces](managing-namespaces.md)' and '[Managing Regions](managing-regions.md)'. Ndctl provides several label related commands shown below:
 
 * [check-labels](managing-label-storage-areas-lsa.md#checking-labels) - determine if the given dimm\(s\) have a valid namespace index block
 * [init-labels](managing-label-storage-areas-lsa.md#initializing-labels) - initialize the label data area on a dimm or set of dimms
@@ -12,7 +12,7 @@ The labels on the NVDIMMs cannot be edited directly.  Changing the configuration
 
 ## Checking Labels
 
-The `check-labels` command validates the index block within the label storage area on the specified NVDIMMs.  If issues are found, running the command in verbose mode using the `-v` option, reports the reason the index block is deemed invalid.
+The `check-labels` command validates the index block within the label storage area on the specified NVDIMMs. If issues are found, running the command in verbose mode using the `-v` option, reports the reason the index block is deemed invalid.
 
 ```text
 usage: ndctl check-labels <nmem0> [<nmem1>..<nmemN>] [<options>]
@@ -45,7 +45,6 @@ usage: ndctl check-labels <nmem0> [<nmem1>..<nmemN>] [<options>]
     "phys_id":56
   }
 ]
-
 ```
 
 2\) Check the labels of one or more devices.
@@ -75,7 +74,7 @@ To display more information, if available, use the -v option:
 ```
 
 {% hint style="info" %}
-Note: The '-v' option may not produce any additional information if the labels are valid or ndctl was not built with 'logging' or 'debug' options.  
+Note: The '-v' option may not produce any additional information if the labels are valid or ndctl was not built with 'logging' or 'debug' options.
 {% endhint %}
 
 ## Initializing Labels
@@ -83,7 +82,7 @@ Note: The '-v' option may not produce any additional information if the labels a
 This command can be used to initialize the namespace index block if it is missing or reinitialize it if it is damaged or was previously zero'd. Note that reinitialization effectively destroys all existing namespace labels on the DIMM.
 
 {% hint style="danger" %}
-This is an expert mode operation.  Overwriting labels will cause data loss.  Backup all data prior to overwriting labels.
+This is an expert mode operation. Overwriting labels will cause data loss. Backup all data prior to overwriting labels.
 {% endhint %}
 
 ```text
@@ -96,7 +95,7 @@ This is an expert mode operation.  Overwriting labels will cause data loss.  Bac
                           namespace label specification version (default: 1.1)
 ```
 
-Before initializing the labels, all namespaces and regions must be destroyed or disabled.  A warning message is displayed when attempting to initialize labels on active regions.
+Before initializing the labels, all namespaces and regions must be destroyed or disabled. A warning message is displayed when attempting to initialize labels on active regions.
 
 ```text
 # ndctl init-labels nmem3 nmem2
@@ -180,7 +179,6 @@ nmem2: regions active, abort label write
     }
   ]
 }
-
 ```
 
 2\) Destroy or disable the namespace\(s\) belonging to the NVDIMMs \(nmem's\) that require re-initializing.
@@ -206,7 +204,7 @@ nmem2: regions active, abort label write
 
 If the init-labels command returns "error: labels already initialized", use the `-f, --force` option
 
-5\) Enable the region\(s\).  After initializing the labels, the region\(s\) may not be brought online automatically.  List the active and disabled regions:
+5\) Enable the region\(s\). After initializing the labels, the region\(s\) may not be brought online automatically. List the active and disabled regions:
 
 ```text
 # ndctl list -iR
@@ -255,14 +253,13 @@ Activate any 'disabled' regions
     "persistence_domain":"memory_controller"
   }
 ]
-
 ```
 
-6\) New namespaces can now be created on the regions.  See '[Managing Namespaces](managing-namespaces.md)' for more information.
+6\) New namespaces can now be created on the regions. See '[Managing Namespaces](managing-namespaces.md)' for more information.
 
 ## Reading Labels
 
-The 'read-labels' command dumps the data in a dimm’s label area to stdout or a file in raw or JSON format. When multiple dimms \(nmem's\) are specified, the data is concatenated.  
+The 'read-labels' command dumps the data in a dimm’s label area to stdout or a file in raw or JSON format. When multiple dimms \(nmem's\) are specified, the data is concatenated.
 
 Usage:
 
@@ -340,7 +337,7 @@ To backup an NVDIMM label using the raw format, use:
 ## Writing Labels
 
 {% hint style="danger" %}
-This is an expert mode operation.  Overwriting labels will cause data loss.  Backup all data prior to overwriting labels.
+This is an expert mode operation. Overwriting labels will cause data loss. Backup all data prior to overwriting labels.
 {% endhint %}
 
 Writing labels overwrites the current label with the contents of the specified file, or stdin, collected from a '[read-labels](managing-label-storage-areas-lsa.md#reading-labels)' operation from a different label, or a previous label backup.
@@ -365,12 +362,12 @@ $ ndctl read-labels nmem0 | ndctl write-labels nmem1
 The 'zero-labels' command resets the device to its default state by deleting all labels.
 
 {% hint style="danger" %}
-This operation cannot be undone unless a previous backup of the labels was created using the '[read-labels](managing-label-storage-areas-lsa.md#reading-labels)' command.  
+This operation cannot be undone unless a previous backup of the labels was created using the '[read-labels](managing-label-storage-areas-lsa.md#reading-labels)' command.
 
-All data on the device will be destroyed.  Create a backup before proceeding.
+All data on the device will be destroyed. Create a backup before proceeding.
 {% endhint %}
 
-Before erasing/zeroing the labels, all namespaces and regions must be destroyed or disabled.  
+Before erasing/zeroing the labels, all namespaces and regions must be destroyed or disabled.
 
 1\) Identify the active/enabled NVDIMM devices, Regions, and Namespaces
 
@@ -448,7 +445,6 @@ Before erasing/zeroing the labels, all namespaces and regions must be destroyed 
     }
   ]
 }
-
 ```
 
 2\) Destroy or disable the namespace\(s\) belonging to the NVDIMMs \(nmem's\) that require re-initializing.
@@ -525,10 +521,7 @@ Activate any 'disabled' regions
     "persistence_domain":"memory_controller"
   }
 ]
-
 ```
 
-6\) New namespaces can now be created on the regions.  See '[Managing Namespaces](managing-namespaces.md)' for more information.
-
-
+6\) New namespaces can now be created on the regions. See '[Managing Namespaces](managing-namespaces.md)' for more information.
 

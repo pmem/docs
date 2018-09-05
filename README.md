@@ -26,5 +26,3 @@ The [NVDIMM Driver Writers Guide](http://pmem.io/documents/NVDIMM_DriverWritersG
 
 The [NVDIMM DSM Interface](http://pmem.io/documents/NVDIMM_DSM_Interface-V1.7.pdf) \[pdf\], Version 1.7, is targeted to writers of BIOS and OS drivers for NVDIMMs whose design adheres to the NFIT Tables in the ACPI specification. The document specifically discusses the NVDIMM Device Specific Method \(\_DSM\) example.
 
-
-

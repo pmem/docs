@@ -15,5 +15,3 @@ The source tree is organized as follows:
 * **CONTRIBUTING.md** -- instructions for people wishing to contribute
 * **CODING\_STYLE.md** -- coding standard and conventions for PMDK
 
-
-
