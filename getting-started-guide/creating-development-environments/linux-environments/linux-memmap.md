@@ -49,19 +49,24 @@ $ sudo grub2-mkconfig -o /boot/efi/EFI/centos/grub.cfg
 {% tab title="Ubuntu" %}
 Create a new memory mapping of 4GB starting at the 12GB boundary \(ie from 12GB to 16GB\)
 
-\`$ sudo vi /etc/default/grub
+`$ sudo vi /etc/default/grub`
 
-GRUB\_CMDLINE\_LINUX="memmap=4G!12G"
+Add or edit the "GRUB\_CMDLINE\_LINUX" entry to include the mapping, eg:
 
-$ sudo update-grub2\`
+`GRUB_CMDLINE_LINUX="memmap=4G!12G"`
+
+Then update grub and reboot
+
+`$ sudo update-grub2`
 {% endtab %}
 
 {% tab title="RHEL & CentOS" %}
 Create a new memory mapping of 4GB starting at the 12GB boundary \(ie from 12GB to 16GB\)
 
-\`$ sudo vi /etc/default/grub
-
-GRUB\_CMDLINE\_LINUX="memmap=4G!12G"\`
+```text
+$ sudo vi /etc/default/grub
+GRUB_CMDLINE_LINUX="memmap=4G!12G"
+```
 
 Update the grub config using one of the following methods:
 
