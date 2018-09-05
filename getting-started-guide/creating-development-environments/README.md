@@ -11,11 +11,15 @@ The following sections describe how to create development environments using a v
 Linux
 
 * [Using the 'MEMMAP' Kernel Option](linux-environments/linux-memmap.md)
-* [Using QEMU Virtualization](virtualization/qemu.md)
 
 Windows
 
 * [Windows Server 2016](windows-environments.md)
 
 [Cloud Environments](cloud-environments.md)
+
+Virtualization
+
+* [Using QEMU Virtualization](virtualization/qemu.md)
+* [Using VMWare VSphere/ESXi](virtualization/vmware-vsphere-esxi.md)
 
