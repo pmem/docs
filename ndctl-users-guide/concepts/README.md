@@ -4,7 +4,7 @@
 
 This section describes the basic concepts when configuring and managing NVDIMMs. The following describes terms used throughout this chapter.
 
-**Interleaved Sets:** two or more NVDIMMs create an N-Way interleave set to provide stripes read/write operations for increased throughput. Commonly 2-Way or 4-Way interleaving.
+**Interleave Sets:** two or more NVDIMMs create an N-Way interleave set to provide stripes read/write operations for increased throughput. Commonly 2-Way or 4-Way interleaving.
 
 **Region:** a grouping of one or more NVDIMMs, or an interleaved set, that can be divided up into one or more Namespaces. Regions are created within interleaved sets.
 
