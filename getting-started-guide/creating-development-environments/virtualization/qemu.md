@@ -184,7 +184,6 @@ For example, the following commands add another 4GB vNVDIMM device to the guest 
 ```
 
 {% hint style="info" %}
-
 **Note:**
 
 1. Each hotplugged vNVDIMM device consumes one memory slot. Users should always ensure the memory option "-m ...,slots=N" specifies enough number of slots, i.e.
@@ -208,6 +207,7 @@ For example, the following commands add another 4GB vNVDIMM device to the guest 
    ```
 
 More detailed information about the HotPlug feature can be found in the [QEMU Memory HotPlug Documentation](https://github.com/qemu/qemu/blob/master/docs/memory-hotplug.txt).
+{% endhint %}
 
 ## NVDIMM IO Alignment
 

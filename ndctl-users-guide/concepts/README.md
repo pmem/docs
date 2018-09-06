@@ -25,15 +25,15 @@ This section discusses some of the common configuration options but does not cov
 
 Using one or more physical NVDIMMs, the available capacity can be configure in many different ways. Figure 1 below shows a typical Filesystem-DAX \(FSDAX\) configuration with three physical NVDIMMs that have been interleaved. All available capacity has been used to create a single region \(Region0\), namespace \(Namespace0.0\), and dax enabled filesystem created. Namespace naming convention is commonly X.Y where X is the region number and Y is the namespace. The persistent memory pool\(s\) are memory mapped to the application, thus allowing direct load/store access to the NVDIMMs.
 
-![Figure 1: Interleaved NVDIMMs with a single Region and Namespace](https://github.com/pmem/docs/tree/f786ed7c6b0ae701f299a839c07ef9a35a7d3f4f/.gitbook/assets/draw.io-gitbook-interleaved-dimms-fsdax.jpg)
+![Figure 1: Interleaved NVDIMMs with a single Region and Namespace](../../.gitbook/assets/draw.io-gitbook-interleaved-dimms-fsdax.jpg)
 
 Figure 2 shows a configuration where the region has been partitioned into two namespaces. Each namespace has a single DAX Filesystem.
 
-![Figure 2: Interleaved NVDIMMs with a single Region and two Namespaces](https://github.com/pmem/docs/tree/f786ed7c6b0ae701f299a839c07ef9a35a7d3f4f/.gitbook/assets/draw.io-gitbook-interleaved-dimms-fsdax-1.jpg)
+![Figure 2: Interleaved NVDIMMs with a single Region and two Namespaces](../../.gitbook/assets/draw.io-gitbook-interleaved-dimms-fsdax-1.jpg)
 
 Figure 3 shows a configuration where NVDIMM interleaving has been disabled. In this mode, each NVDIMM becomes addressable with single regions per device. Regions and Namespaces cannot be striped or interleaved across NVDIMMs. It is possible to use software RAID such as Linux's Device Mapper to implement mirroring, striping, or concatenation of the /dev/pmem{N} devices.
 
-![Figure 3: Non-Interleaved NVDIMMs, each with their own Region and Namespace](https://github.com/pmem/docs/tree/f786ed7c6b0ae701f299a839c07ef9a35a7d3f4f/.gitbook/assets/draw.io-gitbook-non-interleaved-dimm-fsdax-1.jpg)
+![Figure 3: Non-Interleaved NVDIMMs, each with their own Region and Namespace](../../.gitbook/assets/draw.io-gitbook-non-interleaved-dimm-fsdax-1.jpg)
 
 The following sections describe each layer in more detail.
 

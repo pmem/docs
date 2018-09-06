@@ -41,7 +41,7 @@ The pmdk package is available on CentOS and RHEL 7.0 or later.
 1\) Query the repository to identify if pmdk is delivered:
 
 ```text
-yum search pmdk
+$ yum search pmdk
 ```
 
 2\) Install the ndctl package

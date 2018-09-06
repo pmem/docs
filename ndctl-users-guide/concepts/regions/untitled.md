@@ -6,7 +6,24 @@ One of the few reasons to allow multiple BLK namespaces per REGION is so that ea
 
 Figure 1 shows an example platform with four NVDIMMs, two integrated memory controllers \(IMC\), and a single CPU .
 
-\| `(a) (b) DIMM BLK-REGION +-------------------+--------+--------+--------+ +------+ | pm0.0 | blk2.0 | pm1.0 | blk2.1 | 0 region2 | imc0 +--+- - - region0- - - +--------+ +--------+ +--+---+ | pm0.0 | blk3.0 | pm1.0 | blk3.1 | 1 region3 | +-------------------+--------v v--------+ +--+---+ | | | cpu0 | region1 +--+---+ | | | +----------------------------^ ^--------+ +--+---+ | blk4.0 | pm1.0 | blk4.0 | 2 region4 | imc1 +--+----------------------------| +--------+ +------+ | blk5.0 | pm1.0 | blk5.0 | 3 region5 +----------------------------+--------+--------+` \| \| :--- \| \| _Figure 1: Example sysfs layout_ \|
+```text
+                             (a)               (b)           DIMM   BLK-REGION
+          +-------------------+--------+--------+--------+
++------+  |       pm0.0       | blk2.0 | pm1.0  | blk2.1 |    0      region2
+| imc0 +--+- - - region0- - - +--------+        +--------+
++--+---+  |       pm0.0       | blk3.0 | pm1.0  | blk3.1 |    1      region3
+   |      +-------------------+--------v        v--------+
++--+---+                               |                 |
+| cpu0 |                                     region1
++--+---+                               |                 |
+   |      +----------------------------^        ^--------+
++--+---+  |           blk4.0           | pm1.0  | blk4.0 |    2      region4
+| imc1 +--+----------------------------|        +--------+
++------+  |           blk5.0           | pm1.0  | blk5.0 |    3      region5
+          +----------------------------+--------+--------+
+```
+
+_Figure 1: Example sysfs layout_ 
 
 Each unique interface \(BLK or PMEM\) to DPA space is identified by a region device with a dynamically assigned id \(REGION0 - REGION5\).
 

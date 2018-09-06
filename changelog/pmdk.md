@@ -10,13 +10,13 @@ This changelog uses the following conventions
 * Changes are prefixed with a tag denoting the area, if any, they relate to.  For example: 'doc' \(documentation\), 'obj' \(libpmemobj\), 'pool' \(libpmempool\), etc
 * Bugs and new features may link to [PMDK issue repository](https://github.com/pmem/issues/issues) using '\(\#nnn\)' or external bug repositories such as the Red Hat Bugzilla \(RHBZ\).
 
-Version 1.4
+## Version 1.4
 
 Thu Mar 29 2018 Krzysztof Czurylo &lt;krzysztof.czurylo@intel.com&gt;
 
 This is the first release of PMDK under a new name. The NVML project has been renamed to PMDK \(Persistent Memory Development Kit\). This is only the project/repo name change and it does not affect the names of the PMDK packages. See this blog article for more details on the reasons and impact of the name change: [http://pmem.io/2017/12/11/NVML-is-now-PMDK.html](http://pmem.io/2017/12/11/NVML-is-now-PMDK.html)
 
-New features
+**New features**
 
 * common: support for concatenated Device-DAX devices
 
@@ -29,7 +29,7 @@ New features
 * rpmem: add rpmem\_deep\_persist
 * doc: split man pages and add per-function aliases \([\#385](https://github.com/pmem/issues/issues/385)\)
 
-Optimizations
+**Optimizations**
 
 * pmem: skip CPU cache flushing when eADR is available
 
@@ -37,7 +37,7 @@ Optimizations
 
 * pmem: add AVX512F support in pmem\_memcpy/memset \([\#656](https://github.com/pmem/issues/issues/656)\)
 
-### Bug fixes
+**Bug fixes**
 
 * common: fix library dependencies \([\#767](https://github.com/pmem/issues/issues/767), [RHBZ \#1539564](https://bugzilla.redhat.com/show_bug.cgi?id=1539564)\)
 * common: use rpm-config CFLAGS/LDFLAGS when building packages
@@ -64,7 +64,7 @@ Optimizations
 * doc: clarify pmem\_is\_pmem behavior \([\#719](https://github.com/pmem/issues/issues/719)\)
 * doc: clarify pmemobj\_root behavior \([\#733](https://github.com/pmem/issues/issues/733)\)
 
-Experimental features
+**Experimental features**
 
 * common: port PMDK to FreeBSD
 * common: add experimental support for aarch64
@@ -74,18 +74,18 @@ Experimental features
 * obj: implement run-time pool extending \([\#382](https://github.com/pmem/issues/issues/382)\)
 * cto: add close-to-open persistence library \([\#192](https://github.com/pmem/issues/issues/192)\)
 
-Disabled Features
+**Disabled Features**
 
 The following features are disabled by default, until ndctl v60.0 is available:
 
 * daxio: add utility to perform I/O on Device-DAX
 * RAS: unsafe shutdown detection/handling
 
-Version 1.3.1
+## Version 1.3.1
 
 Wed Dec 20 2017 Krzysztof Czurylo &lt;krzysztof.czurylo@intel.com&gt;
 
-### Bug fixes
+**Bug fixes**
 
 * rpmem: fix issues reported by Coverity
 * rpmem: fix read error handling
@@ -111,7 +111,7 @@ Other important changes are related to performance tuning and stabilization of l
 
 NVML for Windows is feature complete \(except for libvmmalloc\). This release includes the support for Unicode, long paths and the NVML installer.
 
-New features
+**New features**
 
 * common: add support for concatenated DAX Devices
 * common: add Unicode support on Windows
@@ -131,14 +131,14 @@ New features
 * benchmark: print 99% and 99.9% percentiles
 * doc: separate Linux/Windows version of web-based man pages
 
-### Optimizations:
+**Optimizations**
 
 * obj: cache \_pobj\_cached\_pool in pmemobj\_direct\(\)
 * obj: optimize thread utilization of buckets
 * obj: stop grabbing a lock when querying pool ptr
 * rpmem: use multiple endpoints
 
-Bug fixes:
+**Bug fixes**
 
 * common: fix issues reported by static code analyzers
 * pmem: fix mmap\(\) implementation on Windows
@@ -159,7 +159,7 @@ Bug fixes:
 * rpmem: persistency method detection
 * benchmark: fix time measurement
 
-### Experimental features & optimizations
+**Experimental features & optimizations**
 
 * obj: pmemobjctl - statistics and control submodule \([\#194](https://github.com/pmem/issues/issues/194), [\#211](https://github.com/pmem/issues/issues/211)\)
 * obj: zero-overhead allocations - customizable alloc header \([\#347](https://github.com/pmem/issues/issues/347)\)
@@ -176,13 +176,13 @@ Bug fixes:
 
 Thu May 18 2017 Krzysztof Czurylo &lt;krzysztof.czurylo@intel.com&gt;
 
-### Bug fixes
+**Bug fixes**
 
 * test: extend timeout for selected tests
 * test: reduce number of operations in obj\_tx\_mt
 * test: define cfree\(\) as free\(\) in vmmalloc\_calloc
 
-### Other changes:
+**Other changes**
 
 * common: move Docker images to new repo
 
@@ -190,7 +190,7 @@ Thu May 18 2017 Krzysztof Czurylo &lt;krzysztof.czurylo@intel.com&gt;
 
 Sat Apr 15 2017 Krzysztof Czurylo &lt;krzysztof.czurylo@intel.com&gt;
 
-### Bug fixes
+**Bug fixes**
 
 * pmempool: fix mapping type in pool\_params\_parse
 * test: limit number of arenas in vmem\_stats
@@ -204,7 +204,7 @@ Tue Feb 21 2017 Krzysztof Czurylo &lt;krzysztof.czurylo@intel.com&gt;
 
 This NVML release changes the behavior of pmem\_is\_pmem\(\) on Linux. The pmem\_is\_pmem\(\) function will now return true only if the entire range is mapped directly from Device DAX \(/dev/daxX.Y\) without an intervening file system, and only if the corresponding file mapping was created with pmem\_map\_file\(\). See libpmem\(3\) for details.
 
-### Bug fixes:
+**Bug fixes**
 
 * jemalloc: fix test compilation on Fedora 26 \(rawhide\)
 * test: fix cpp test compilation on Fedora 26 \(rawhide\)
@@ -213,7 +213,7 @@ This NVML release changes the behavior of pmem\_is\_pmem\(\) on Linux. The pmem\
 * common: fix path handling in build-dpkg.sh
 * test: fix match files in pmempool\_transform/TEST8
 
-Version 1.2 - Windows Technical Preview \#1
+**Version 1.2 - Windows Technical Preview \#1**
 
 Fri Dec 30 2016 Krzysztof Czurylo &lt;krzysztof.czurylo@intel.com&gt;
 
@@ -221,7 +221,7 @@ This is the first Technical Preview release of NVML for Windows. It is based on 
 
 NOTE: This release has not gone through the full validation cycle, but only through some basic tests on Travis and AppVeyor. Thus, it cannot be assumed "Production quality" and should not be used in production environments.
 
-### New Windows Support
+**New Windows Support**
 
 Besides several minor improvements and bug fixes, all the other changes since NVML 1.2 release were related to Windows support:
 
@@ -237,7 +237,7 @@ Besides several minor improvements and bug fixes, all the other changes since NV
 
 * win: add resource files for versioning
 
-### Known Issues
+Known Issues
 
 Known issues and limitations of Windows version of NVML:
 
@@ -275,7 +275,7 @@ Known issues and limitations of Windows version of NVML:
 
    version of NVML in such case.
 
-Version 1.2
+## Version 1.2
 
 Thu Dec 15 2016 Krzysztof Czurylo &lt;krzysztof.czurylo@intel.com&gt;
 
@@ -283,7 +283,7 @@ This NVML release causes a "flag day" for libpmemobj. The pmemobj pools built un
 
 The major version number of the pmemobj pool layout and the version of the libpmemobj API is changed to prevent the use of the potentially incorrect layout.
 
-### Key Changes
+**Key Changes**
 
 * Add Device DAX support, providing that "optimized flush" mechanism
 
@@ -310,14 +310,14 @@ The major version number of the pmemobj pool layout and the version of the libpm
 
    support for remote replicas is also provided by libpmemobj library.
 
-### New features
+**New features**
 
 * common: add Device DAX support \([\#197](https://github.com/pmem/issues/issues/197)\)
 * obj: add C++ bindings package \(libpmemobj++-devel\)
 * obj: add TOID\_OFFSETOF macro
 * pmempool: add "sync" and "transform" commands \([\#172](https://github.com/pmem/issues/issues/172), [\#196](https://github.com/pmem/issues/issues/196)\)
 
-### Bug fixes
+**Bug fixes**
 
 * obj: force alignment of pmem lock structures \([\#358](https://github.com/pmem/issues/issues/358)\)
 * blk: cast translation entry to uint64\_t when calculating data offset
@@ -329,12 +329,12 @@ The major version number of the pmemobj pool layout and the version of the libpm
 * obj: fix status returned by pmemobj\_list\_insert\(\) \([\#226](https://github.com/pmem/issues/issues/226)\)
 * obj: defer allocation of global structures
 
-### Optimizations
+**Optimizations**
 
 * obj: fast path for pmemobj\_pool\_by\_ptr\(\) when inside a transaction
 * obj: simplify and optimize allocation class generation
 
-Experimental features
+**Experimental features**
 
 * rpmem: add support for remote access to persistent memory and basic
 
@@ -358,14 +358,14 @@ Internal undo log structure has been modified to improve performance of pmemobj 
 
 A new "libpmempool" library is available, providing support for off-line pool management and diagnostics. Initially it provides only "check" and "repair" operations for log and blk memory pools, and for BTT devices.
 
-Other changes
+**Other changes**
 
 * pmem: deprecate PCOMMIT
 * blk: match BTT Flog initialization with Linux NVDIMM BTT
 * mem: defer pmem\_is\_pmem\(\) initialization \([\#158](https://github.com/pmem/issues/issues/158)\)
 * obj: add TOID\_TYPEOF macro
 
-Bug fixes
+**Bug fixes**
 
 * doc: update description of valid file size units \([\#133](https://github.com/pmem/issues/issues/133)\)
 * pmempool: fix --version short option in man page \([\#135](https://github.com/pmem/issues/issues/135)\)
@@ -379,7 +379,7 @@ Bug fixes
 * doc: remove duplicated words in man page \([\#164](https://github.com/pmem/issues/issues/164)\)
 * common: always append EXTRA\_CFLAGS after our CFLAGS
 
-Experimental features
+**Experimental features**
 
 * Implementation of C++ bindings for libpmempobj is complete.
 * Web-based documentation for C++ API is available on [http://pmem.io](http://pmem.io).
@@ -421,7 +421,7 @@ For the purpose of new features planned for next releases of NVML there have bee
   * TX\_ADD\_FIELD\_DIRECT
   * TX\_SET\_DIRECT
 
-Other key changes since version 0.4 include:
+**Other key changes since version 0.4 include**
 
 * common: updated/fixed installation scripts
 * common: eliminated dependency on libuuid
@@ -434,7 +434,7 @@ Other key changes since version 0.4 include:
 
 This release also introduces a prototype implementation of C++ bindings for libpmemobj. Note that C++ API is still experimental and should not be used in production environments.
 
-Version 0.4
+## Version 0.4
 
 Fri Dec 04 2015 Krzysztof Czurylo &lt;krzysztof.czurylo@intel.com&gt;
 
@@ -454,7 +454,7 @@ This release is considered "Beta quality" by the team, having been thoroughly va
 
 The pmempool command does not yet support "check" and "repair" operations for pmemobj type pools.
 
-Version 0.3
+## Version 0.3
 
 Sun Sep 13 2015 Andy Rudoff &lt;andy.rudoff@intel.com&gt;
 
@@ -469,7 +469,7 @@ Man pages are all complete.
 
 This release is considered "Alpha quality" by the team, having gone through significant validation but only some performance analysis at this point.
 
-Version 0.2
+## Version 0.2
 
 Tue Jun 30 2015 Andy Rudoff &lt;andy.rudoff@intel.com&gt;
 
@@ -490,7 +490,7 @@ The only things documented in man pages but not implemented are:
 
 The pmempool command does not yet support pmemobj type pools.
 
-Version 0.1
+## Version 0.1
 
 Thu Sep 11 2014 Andy Rudoff &lt;andy.rudoff@intel.com&gt;
 

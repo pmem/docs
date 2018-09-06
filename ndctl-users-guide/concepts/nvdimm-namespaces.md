@@ -13,7 +13,7 @@ A namespace can be provisioned to operate in one of 4 modes, 'fsdax', 'devdax', 
 
 Figure 1 below shows a typical Filesystem-DAX \(FSDAX\) configuration with three physical NVDIMMs that have been interleaved. All available capacity has been used to create a single region \(Region0\), namespace \(Namespace0.0\), and dax enabled filesystem created. Namespace naming convention is commonly X.Y where X is the region number and Y is the namespace
 
-![Figure 1: FSDAX Configuration](https://github.com/pmem/docs/tree/f786ed7c6b0ae701f299a839c07ef9a35a7d3f4f/.gitbook/assets/ndctl-fsdax-config.png)
+![Figure 1: Common FSDAX Configuration](../../.gitbook/assets/draw.io-gitbook-interleaved-dimms-fsdax.jpg)
 
 Refer to '[Managing Namespaces](../managing-namespaces.md)' for information on how to create, delete, edit, and manage the namespace configuration.
 
