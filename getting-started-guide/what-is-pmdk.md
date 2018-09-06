@@ -2,7 +2,7 @@
 
 With persistent memory, applications have a new tier available for data placement as shown in Figure 1. In addition to the memory and storage tiers, the persistent memory tier offers greater capacity than DRAM and significantly faster performance than storage. Applications can access persistent memory resident data structures in-place, like they do with traditional memory, eliminating the need to page blocks of data back and forth between memory and storage.
 
-![Figure 1: Memory-Storage Hierarchy with Persistent Memory Tier](https://github.com/pmem/docs/tree/f786ed7c6b0ae701f299a839c07ef9a35a7d3f4f/.gitbook/assets/memory-storage-hierachy-persistent-memory%20%282%29.png)
+![](../.gitbook/assets/pmem_storage_pyramid.jpg)
 
 To get this low-latency direct access, a new software architecture is required that allows applications to access ranges of persistent memory.
 
