@@ -241,20 +241,25 @@ The unit tests run by `make check` require the nfit\_test.ko module to be loaded
 
 The unit tests will validate that the environment is set up correctly before they try to run. If the platform is misconfigured, i.e. the unit test modules are not available, or the test versions of the modules are superseded by the "in-tree/production" version of the modules `make check` will skip tests and report a message like the following in test/test-suite.log:
 
-`SKIP: libndctl`  
-`==============`  
-`test/init: nfit_test_init: nfit.ko: appears to be production version: /lib/modules/4.8.8-200.fc24.x86_64/kernel/drivers/acpi/nfit/nfit.ko.xz`  
-`__ndctl_test_skip: explicit skip test_libndctl:2684`  
-`nfit_test unavailable skipping tests`
+```text
+SKIP: libndctl
+==============
+test/init: nfit_test_init: nfit.ko: appears to be production version: /lib/modules/4.8.8-200.fc24.x86_64/kernel/drivers/acpi/nfit/nfit.ko.xz
+__ndctl_test_skip: explicit skip test_libndctl:2684
+nfit_test unavailable skipping tests
+```
 
 If the unit test modules are indeed available in the modules 'extra' directory the default depmod policy can be overridden by adding a file to /etc/depmod.d with the following contents:  
-`override nfit * extra`  
-`override device_dax * extra` `override dax_pmem * extra`  
-`override libnvdimm * extra`  
-`override nd_blk * extra`  
-`override nd_btt * extra`  
-`override nd_e820 * extra`  
-`override nd_pmem * extra`
+```text
+override nfit * extra
+override device_dax * extra
+override dax_pmem * extra
+override libnvdimm * extra
+override nd_blk * extra
+override nd_btt * extra
+override nd_e820 * extra
+override nd_pmem * extra
+```
 
 The nfit\_test module emulates pmem with memory allocated via vmalloc\(\). One of the side effects is that this breaks 'physically contiguous' assumptions in the driver. Use the `--align=4K` option to `ndctl create-namespace` to avoid these corner case scenarios.
 
