@@ -2,7 +2,7 @@
 
 The master branch changelog in text format for the current development version can be found at [https://github.com/pmem/pmdk/blob/master/ChangeLog](https://github.com/pmem/pmdk/blob/master/ChangeLog)
 
-### Conventions
+## Conventions
 
 This changelog uses the following conventions
 
