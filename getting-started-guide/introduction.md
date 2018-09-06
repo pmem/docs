@@ -8,7 +8,7 @@ Over the last few decades, computer systems have implemented the memory-storage 
 
 Persistent Memory \(PMEM\), also referred to as Non-Volatile Memory \(NVM\) or Storage Class Memory \(SCM\), provides a new entry in the memory-storage hierarchy shown in Figure 2 that fills the performance/capacity gap.
 
-![Figure 2: Memory-Storage Hierarchy with Persistent Memory Tier](../.gitbook/assets/memory-storage-hierachy-persistent-memory%20%282%29.png)
+![Figure 2: Memory-Storage Hierarchy with Persistent Memory Tier](../.gitbook/assets/pmem_storage_pyramid.jpg)
 
 With persistent memory, applications have a new tier available for data placement. In addition to the memory and storage tiers, the persistent memory tier offers greater capacity than DRAM and significantly faster performance than storage. Applications can access persistent memory like they do with traditional memory, eliminating the need to page blocks of data back and forth between memory and storage.
 
