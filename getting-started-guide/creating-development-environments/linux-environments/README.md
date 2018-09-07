@@ -8,7 +8,7 @@ Linux offers several options to emulate persistent memory for development. The f
 
 |  | NVDIMM | Regions | Namespaces | FSDax | DevDax | Persistent Pools |
 | :--- | :--- | :--- | :--- | :--- | :--- | :--- |
-| ['memmap' Kernel Option](linux-memmap.md) | No | Yes | Yes | Yes | No | Yes |
+| [memmap Kernel Option](linux-memmap.md) | No | Yes | Yes | Yes | No | Yes |
 | [QEMU Virtualization](../virtualization/qemu.md) | Yes | Yes | Yes | Yes | Yes | Yes |
 | Docker Containers | No | No | No | Yes\* | Yes\* | Yes |
 | [VMWare VSphere](../virtualization/vmware-vsphere-esxi.md) | Yes | Yes | Yes | Yes | Yes | Yes |

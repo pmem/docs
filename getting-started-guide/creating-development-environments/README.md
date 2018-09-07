@@ -10,7 +10,7 @@ The following sections describe how to create development environments using a v
 
 Linux
 
-* [Using the 'MEMMAP' Kernel Option](linux-environments/linux-memmap.md)
+* [Using the memmap Kernel Option](linux-environments/linux-memmap.md)
 
 Windows
 

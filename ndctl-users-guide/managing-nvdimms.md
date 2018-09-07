@@ -45,7 +45,7 @@ By default, ndctl only lists enabled/active dimms, regions, and namespaces. To i
 ```
 
 {% hint style="info" %}
-NVDIMM vendor specific tools can be used to display more information about the NVDIMMs from the operating system layer. For example, Intel Data Center Optane Memory Modules can be managed using the '[ipmctl](https://github.com/intel/ipmctl)' utility. These tools are outside the scope for this documentation. Refer to the vendor specific documentation.
+NVDIMM vendor specific tools can be used to display more information about the NVDIMMs from the operating system layer. For example, Intel Optane DC Persistent Memory Modules can be managed using the [ipmctl](https://github.com/intel/ipmctl) utility. These tools are outside the scope for this documentation. Refer to the vendor specific documentation.
 {% endhint %}
 
 ## Disabling NVDIMMs
@@ -74,7 +74,7 @@ disabled 0 nmem
 # ndctl destroy-namespace <namespaceX.Y>
 ```
 
-See '[Destroying Namespaces](managing-namespaces.md#destroying-namespaces)' or '[Disabling Namespaces](managing-namespaces.md#disabling-namespaces)' for more information.
+See [Destroying Namespaces](managing-namespaces.md#destroying-namespaces) or [Disabling Namespaces](managing-namespaces.md#disabling-namespaces) for more information.
 
 4\) Disable the regions used by the NVDIMM \(nmem\) that needs to be disabled
 
@@ -82,7 +82,7 @@ See '[Destroying Namespaces](managing-namespaces.md#destroying-namespaces)' or '
 # ndctl disable-region <region.X>
 ```
 
-See '[Disabling Regions](managing-regions.md#disabling-regions)' for more information.
+See [Disabling Regions](managing-regions.md#disabling-regions) for more information.
 
 5\) Disable a single, subset, or all NVDIMM \(nmem\) devices
 

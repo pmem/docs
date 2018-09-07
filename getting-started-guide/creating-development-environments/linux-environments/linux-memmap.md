@@ -1,6 +1,6 @@
-# Using the 'MEMMAP' Kernel Option
+# Using the memmap Kernel Option
 
-The `pmem` driver allows users to begin developing software using Direct Access Filesystems \(DAX\) such as EXT4 and XFS. A new 'memmap' option was added that supports reserving one or more ranged of unassigned memory for use with emulated persistent memory. The 'memmap' parameter documentation can be found at [https://www.kernel.org/doc/Documentation/admin-guide/kernel-parameters.txt](https://www.kernel.org/doc/Documentation/admin-guide/kernel-parameters.txt). This feature was upstreamed in the v4.0 Kernel. Kernel v4.15 introduced performance improvements and is recommended for production environments.
+The `pmem` driver allows users to begin developing software using Direct Access Filesystems \(DAX\) such as EXT4 and XFS. A new `memmap` option was added that supports reserving one or more ranged of unassigned memory for use with emulated persistent memory. The `memmap` parameter documentation can be found at [https://www.kernel.org/doc/Documentation/admin-guide/kernel-parameters.txt](https://www.kernel.org/doc/Documentation/admin-guide/kernel-parameters.txt). This feature was upstreamed in the v4.0 Kernel. Kernel v4.15 introduced performance improvements and is recommended for production environments.
 
 ## Quick Start
 
@@ -14,7 +14,7 @@ $ dmesg | grep e820
 
 **Example:**
 
-1. A GRUB entry of `memmap=4G!12G` reserves 4GB of memory starting at 12GB through 16GB.  See '[How To Choose the Correct 'memmap' Option for Your System](linux-memmap.md#how-to-choose-the-correct-memmap-option-for-your-system)' for more details.  Each Linux distro has a different method for modifying the GRUB entries.  Follow the documentation for your distro.  A few of the common distros are provided below for quick reference.
+1. A GRUB entry of `memmap=4G!12G` reserves 4GB of memory starting at 12GB through 16GB.  See [How To Choose the Correct memmap Option for Your System](linux-memmap.md#how-to-choose-the-correct-memmap-option-for-your-system) for more details.  Each Linux distro has a different method for modifying the GRUB entries.  Follow the documentation for your distro.  A few of the common distros are provided below for quick reference.
 
 {% tabs %}
 {% tab title="Fedora" %}
@@ -81,7 +81,7 @@ On UEFI-based machines:
 {% endtabs %}
 
 {% hint style="info" %}
-**Note:** If more than one persistent memory namespace is required, specify a 'memmap' entry for each namespace. For example, "memmap=2G!12G memmap=2G!14G" will create two 2GB namespaces, one in the 12GB-14GB memory address offsets, the other at 14GB-16GB.
+**Note:** If more than one persistent memory namespace is required, specify a memmap entry for each namespace. For example, "memmap=2G!12G memmap=2G!14G" will create two 2GB namespaces, one in the 12GB-14GB memory address offsets, the other at 14GB-16GB.
 {% endhint %}
 
 1. Reboot the host
@@ -114,9 +114,9 @@ $ sudo mount -v | grep /pmem
 **Note:** Refer to the [Advanced Topics](advanced-topics/) section for information on [Partitioning Namespaces](advanced-topics/partitioning-namespaces.md) and [I/O Alignment Considerations](advanced-topics/i-o-alignment-considerations.md) using hugepages.
 {% endhint %}
 
-## How To Choose the Correct 'memmap' Option for Your System
+## How To Choose the Correct memmap Option for Your System
 
-When selecting values for the `memmap` Kernel parameter, consideration that the start and end addresses represent usable RAM must be made. Using or overlapping with reserved memory can result in corruption or undefined behaviour. This information is easily available in the e820 table, available via dmesg.
+When selecting values for the `memmap` kernel parameter, consideration that the start and end addresses represent usable RAM must be made. Using or overlapping with reserved memory can result in corruption or undefined behaviour. This information is easily available in the e820 table, available via dmesg.
 
 The following shows an example server with 16GiB of memory with "usable" memory between 4GiB \(0x100000000\) and ~16GiB \(0x3ffffffff\):
 

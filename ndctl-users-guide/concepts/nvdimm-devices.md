@@ -6,5 +6,5 @@ The Linux LIBNVDIMM core provides a built-in driver for these DIMM devices. The 
 
 The kernel performs runtime modifications of that data when namespace provisioning actions are taken, and actively blocks user-space from initiating label data changes while the DIMM is active in any region. Disabling a DIMM, after all the regions it is a member of have been disabled, allows userspace to manually update the label data to be consumed when the DIMM is next enabled.
 
-Refer to '[Managing NVDIMMs](../managing-nvdimms.md)' for more information on administering NVDIMMs.
+Refer to [Managing NVDIMMs](../managing-nvdimms.md) for more information on administering NVDIMMs.
 

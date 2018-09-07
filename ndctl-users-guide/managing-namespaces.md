@@ -1,6 +1,6 @@
 # Managing Namespaces
 
-Regions can be 'partitioned' in to one or more namespaces. Namespace operations include listing, creating, destroying, enabling, disabling, and checking \(validating\) using the following commands:
+Regions can be partitioned in to one or more namespaces. Namespace operations include listing, creating, destroying, enabling, disabling, and checking \(validating\) using the following commands:
 
 * [list ](managing-namespaces.md#listing-namespaces)- dump the platform nvdimm device topology and attributes in json format 
 * [create-namespace](managing-namespaces.md#creating-namespaces) - provision or reconfigure a namespace 
@@ -83,7 +83,7 @@ By default, `ndctl list -N` lists only active/enabled namespaces. In the followi
 #
 ```
 
-Adding the `-i` flag includes both active/enabled and inactive/destroyed/disabled namespaces. The following example shows two previously destroyed namespaces. The 'size' and 'uuid' are clear indications that no information exists about the namespace. The ndctl destroy command simply NULLs the existing namespace entry and does not completely erase it from the metadata. For this reason, it may be possible to see more than one namespace using `ndctl list -Ni`
+Adding the `-i` flag includes both active/enabled and inactive/destroyed/disabled namespaces. The following example shows two previously destroyed namespaces. The `size` and `uuid` are clear indications that no information exists about the namespace. The ndctl destroy command simply NULLs the existing namespace entry and does not completely erase it from the metadata. For this reason, it may be possible to see more than one namespace using `ndctl list -Ni`
 
 ```text
 # ndctl list -Ni
@@ -124,7 +124,7 @@ List all enabled and disabled 'fsdax' mode namespaces
 
 ## Creating Namespaces
 
-The create-namespace command has a lot of options summarized below. The 'ndctl-create-namespace' man page contains further details of each option.
+The create-namespace command has a lot of options summarized below. The `ndctl-create-namespace` man page contains further details of each option.
 
 * **-t, --type:** Set the type of the namespace to either "pmem" or "blk"
 * **-m, mode:** Define the namespace mode - fsdax, devdax, sector, and raw
@@ -141,7 +141,7 @@ The create-namespace command has a lot of options summarized below. The 'ndctl-c
 * **-r, --region:** Limit the operation to a specific region
 * **-b, --bus:** Limit the operation to a specific bus
 
-The 'mode' is the most important feature to get correct. The four modes available are defined as:
+The `mode` is the most important feature to get correct. The four modes available are defined as:
 
 * **fsdax:** Filesystem-DAX mode is the default mode of a namespace when specifying ndctl create-namespace with no options. It creates a block device \(/dev/pmemX\[.Y\]\) that supports the DAX capabilities of Linux filesystems \(xfs and ext4 to date\). DAX removes the page cache from the I/O path and allows mmap\(2\) to establish direct mappings to persistent memory media. The DAX capability enables workloads / working-sets that would exceed the capacity of the page cache to scale up to the capacity of persistent memory. Workloads that fit in page cache or perform bulk data transfers may not see benefit from DAX. When in doubt, pick this mode.
 * **devdax:** Device-DAX mode enables similar mmap\(2\) DAX mapping capabilities as Filesystem-DAX. However, instead of a block-device that can support a DAX-enabled filesystem, this mode emits a single character device file \(/dev/daxX.Y\). Use this mode to assign persistent memory to a virtual-machine, register persistent memory for RDMA, or when gigantic mappings are needed.
@@ -149,14 +149,14 @@ The 'mode' is the most important feature to get correct. The four modes availabl
 * **raw:** Raw mode is effectively just a memory disk that does not support DAX. Typically this indicates a namespace that was created by tooling or another operating system that did not know how to create a Linux fsdax or devdax mode namespace. This mode is compatible with other operating systems, but again, does not support DAX operation.
 
 {% hint style="info" %}
-If the '_-s, --size_' option is used, the value provided to ndctl is used to create the namespace. Depending on the '_mode_', the available capacity may be smaller than the specified size due to the calculated spared required for metadata. This is shown below in the examples.
+If the _-s, --size_ option is used, the value provided to ndctl is used to create the namespace. Depending on the _mode_, the available capacity may be smaller than the specified size due to the calculated spared required for metadata. This is shown below in the examples.
 {% endhint %}
 
 ### FSDAX and DEVDAX Capacity Considerations
 
-The namespace configuration \(label metadata\) is stored at the beginning of the persistent memory address range. See the '[Label Storage Area \(LSA\)](concepts/label-area.md)' and '[Managing Label Storage Area \(LSA\)](managing-label-storage-areas-lsa.md)' sections for more information.
+The namespace configuration \(label metadata\) is stored at the beginning of the persistent memory address range. See the [Label Storage Area \(LSA\)](concepts/label-area.md) and [Managing Label Storage Area \(LSA\)](managing-label-storage-areas-lsa.md) sections for more information.
 
-In addition to the namespace label metadata, both 'fsdax' and 'devdax' modes require space to store the Page Frame Number \(PFN\) metadata \(also known as “struct page” metadata\) for each page within the namespace. A PFN is simply in index within physical memory, or on the NVDIMM, that is counted in page-sized units. For modes with PFN metadata, shown in Table 1 below, the requirement is 64 bytes per 4 KiB of persistent memory. To calculate the estimated space for metadata, use:
+In addition to the namespace label metadata, both fsdax and devdax modes require space to store the Page Frame Number \(PFN\) metadata \(also known as “struct page” metadata\) for each page within the namespace. A PFN is simply in index within physical memory, or on the NVDIMM, that is counted in page-sized units. For modes with PFN metadata, shown in Table 1 below, the requirement is 64 bytes per 4 KiB of persistent memory. To calculate the estimated space for metadata, use:
 
 $$
 metadata _{(bytes)} = (size _{(bytes)}/4096)*64
@@ -441,9 +441,9 @@ brw-rw----. 1 root disk 259, 0 Jul  9 10:52 /dev/pmem0
 
 ## Editing Namespace Properties
 
-Changing properties of existing namespaces can be done online using the `ndctl create-namespace -fe <namespace> <option=value>` command. The `-e, --reconfigure` flag edits existing namespaces. Using the `-f` flag does not require that the namespace be manually disabled. The command may still fail if the namespace is currently being used. Supported options are listed above in the '[Creating Namespaces](managing-namespaces.md#creating-namespaces)' section, or review the ndctl-create-namespace [man page](man-pages.md). Some namespace properties are read-only and cannot be changed using the `ndctl` utility.
+Changing properties of existing namespaces can be done online using the `ndctl create-namespace -fe <namespace> <option=value>` command. The `-e, --reconfigure` flag edits existing namespaces. Using the `-f` flag does not require that the namespace be manually disabled. The command may still fail if the namespace is currently being used. Supported options are listed above in the [Creating Namespaces](managing-namespaces.md#creating-namespaces) section, or review the ndctl-create-namespace [man page](man-pages.md). Some namespace properties are read-only and cannot be changed using the `ndctl` utility.
 
-'[Resizing Namespaces](managing-namespaces.md#resizing-namespaces)' or '[Changing Namespace Modes](managing-namespaces.md#changing-namespace-modes)' can be achieved by changing existing namespace properties. They are discussed below under their own headings to provide additional detail.
+[Resizing Namespaces](managing-namespaces.md#resizing-namespaces) or [Changing Namespace Modes](managing-namespaces.md#changing-namespace-modes) can be achieved by changing existing namespace properties. They are discussed below under their own headings to provide additional detail.
 
 #### Examples
 
@@ -493,7 +493,7 @@ If there is an existing EXT4 or XFS filesystem on this device, the partition tab
 
 ## Changing Namespace Modes
 
-The namespace mode can be changed on any enabled or disabled namespace. Valid modes are raw, sector, fsdax, and devdax. Refer to the 'ndctl-create-namespace' man page or '[Namespaces](concepts/nvdimm-namespaces.md)' chapter for more information on each mode.
+The namespace mode can be changed on any enabled or disabled namespace. Valid modes are raw, sector, fsdax, and devdax. Refer to the `ndctl-create-namespace` man page or [Namespaces](concepts/nvdimm-namespaces.md) chapter for more information on each mode.
 
 {% hint style="warning" %}
 
@@ -590,7 +590,7 @@ destroyed 1 namespace
 disabled 1 namespace
 ```
 
-2\) Verify the namespace is 'disabled'. The `-i` flag is required to display inactive/disabled namespaces otherwise only active/enabled namespaces are shown. The example below filters the output to a specific namespace \(namespace0.0\) to avoid potentially large volumes of output being shown:
+2\) Verify the namespace is _disabled_. The `-i` flag is required to display inactive/disabled namespaces otherwise only active/enabled namespaces are shown. The example below filters the output to a specific namespace \(namespace0.0\) to avoid potentially large volumes of output being shown:
 
 ```text
 # ndctl list -Ni -n namespace0.0
@@ -615,7 +615,7 @@ disabled 1 namespace
 enabled 1 namespace
 ```
 
-2\) Verify the namespace is enabled. The 'state' is only displayed for 'disabled' namespaces. If the 'state' field is not listed, the namespace is assumed to be 'enabled'.
+2\) Verify the namespace is enabled. The state is only displayed for disabled namespaces. If the state field is not listed, the namespace is assumed to be enabled.
 
 ```text
 # ndctl list -N -n namespace0.0
@@ -633,9 +633,9 @@ enabled 1 namespace
 }
 ```
 
-## Checking 'Sector' Namespaces
+## Checking Sector Namespaces
 
-The 'check-namespace' command only works on namespaces in 'sector mode'. Attempting to check namespaces in any other mode will yield an error similar to the following which attempts to check an 'fsdax' mode namespace:
+The `check-namespace` command only works on namespaces in _sector mode_. Attempting to check namespaces in any other mode will yield an error similar to the following which attempts to check an fsdax mode namespace:
 
 ```text
 # ndctl check-namespace namespace0.0
@@ -643,7 +643,7 @@ namespace0.0: namespace_check: namespace0.0: check aborted, namespace online
 error checking namespaces: Device or resource busy
 ```
 
-A namespace in the 'sector' mode will have metadata on it to describe the Kernel BTT \(Block Translation Table\). The check-namespace command can be used to check the consistency of this metadata, and optionally, also attempt to repair it, if it has enough information to do so.
+A namespace in the sector mode will have metadata on it to describe the Kernel BTT \(Block Translation Table\). The check-namespace command can be used to check the consistency of this metadata, and optionally, also attempt to repair it, if it has enough information to do so.
 
 The command usage is:
 

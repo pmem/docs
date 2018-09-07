@@ -210,9 +210,9 @@ If the ndctl utility was installed using the ndctl package from the operating sy
 # sudo dnf update -y ndctl
 ```
 
-If the latest version within the package repository is old with no new versions available, download, compile, and install from source code. Detailed instructions can be found in the '[Installing NDCTL](../getting-started-guide/installing-ndctl.md)' chapter.
+If the latest version within the package repository is old with no new versions available, download, compile, and install from source code. Detailed instructions can be found in the [Installing NDCTL](../getting-started-guide/installing-ndctl.md) chapter.
 
-If the ndctl utility was previously compiled and installed using source code, download the latest version from the [ndctl GitHub repository](https://github.com/pmem/ndctl), compile, and install. Detailed instructions can be found in the '[Installing NDCTL](../getting-started-guide/installing-ndctl.md)' chapter.
+If the ndctl utility was previously compiled and installed using source code, download the latest version from the [ndctl GitHub repository](https://github.com/pmem/ndctl), compile, and install. Detailed instructions can be found in the [Installing NDCTL](../getting-started-guide/installing-ndctl.md) chapter.
 
 ## Error: namespace0.0 is active, specify --force for re-configuration
 
@@ -366,7 +366,7 @@ There are many potential causes including:
 
 **Solution:**
 
-Use the -v option to print more information to help identify the cause. A debug version of ndctl may be required to get useful information. See '[Installing NDCTL](../getting-started-guide/installing-ndctl.md)' for instructions to build ndctl with debug options from source code.
+Use the -v option to print more information to help identify the cause. A debug version of ndctl may be required to get useful information. See [Installing NDCTL](../getting-started-guide/installing-ndctl.md) for instructions to build ndctl with debug options from source code.
 
 For a scenario where there's no space left within the region, a message similar to the following will be shown:
 
@@ -386,7 +386,7 @@ validate_namespace_options:473: region0: disabled, skipping...
 failed to create namespace: Resource temporarily unavailable
 ```
 
-Identifying label issues requires more investigation. Start with '[Validating Labels](managing-label-storage-areas-lsa.md#checking-labels)'.
+Identifying label issues requires more investigation. Start with [Validating Labels](managing-label-storage-areas-lsa.md#checking-labels).
 
-The 'Resource temporarily unavailable' message improvements is being handled by [https://github.com/pmem/ndctl/issues/67](https://github.com/pmem/ndctl/issues/67)
+The `Resource temporarily unavailable` message improvements is being handled by [https://github.com/pmem/ndctl/issues/67](https://github.com/pmem/ndctl/issues/67)
 

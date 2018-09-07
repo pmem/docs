@@ -11,7 +11,7 @@
 
 ## Installing NDCTL
 
-See '[Installing NDCTL](../getting-started-guide/installing-ndctl.md)' in the '[Getting Started](../getting-started-guide/)' Guide.
+See [Installing NDCTL](../getting-started-guide/installing-ndctl.md) in the [Getting Started](../getting-started-guide/) Guide.
 
 ## Basic Usage
 

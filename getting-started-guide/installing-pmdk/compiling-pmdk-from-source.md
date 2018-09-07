@@ -32,7 +32,7 @@ Ubuntu: $ sudo apt-get install autoconf automake pkg-config glib2 glib2-devel li
 The following packages are required only by selected PMDK components or features. If not present, those components or features may not be available:
 
 * **libfabric** \(v1.4.2 or later\) -- required by **librpmem**
-* **ndctl** and **daxctl** \(v60.1 or later\) -- required by **daxio** and RAS features.  See '[Installing NDCTL](../installing-ndctl.md)'
+* **ndctl** and **daxctl** \(v60.1 or later\) -- required by **daxio** and RAS features.  See [Installing NDCTL](../installing-ndctl.md)
   * To build pmdk without ndctl support, set 'NDCTL\_ENABLE=detect' or '=no' using: `$ export NDCTL_ENABLE=detect`
 
 The git utility is required to clone the repository or you can download the source code as a [zip file](https://github.com/pmem/pmdk/archive/master.zip) directly from the [repository ](https://github.com/pmem/pmdk)on GitHub.

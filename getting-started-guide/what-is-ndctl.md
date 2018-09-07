@@ -8,7 +8,7 @@ Operations supported by the tool include provisioning capacity \(namespaces\), a
 
 ## Get Started
 
-To get started with the ndctl utility, first follow the '[Installing NDCTL](installing-ndctl.md)' document then the [NDCTL Users Guide](../ndctl-users-guide/) and [man pages](../ndctl-users-guide/man-pages.md).
+To get started with the ndctl utility, first follow the [Installing NDCTL](installing-ndctl.md) document then the [NDCTL Users Guide](../ndctl-users-guide/) and [man pages](../ndctl-users-guide/man-pages.md).
 
 ## **Supporting Documents**
 

@@ -260,7 +260,7 @@ The nfit\_test module emulates pmem with memory allocated via vmalloc\(\). One o
 
 ### Using ndctl
 
-To learn how to use the `ndctl` utility, continue to the '[NDCTL Users Guide](../ndctl-users-guide/)' within this collection.
+To learn how to use the `ndctl` utility, continue to the [NDCTL Users Guide](../ndctl-users-guide/) within this collection.
 
 ### Additional Documentation
 

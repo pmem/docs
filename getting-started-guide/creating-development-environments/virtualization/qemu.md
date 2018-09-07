@@ -146,7 +146,7 @@ Use a VNC Viewer to access the console to perform a manual installation.
 
 ## NVDIMM Labels
 
-Labels contain metadata to describe the NVDIMM features and namespace configuration. Labels are stored on each NVDIMM in a reserved area called the 'Label Storage Area'. The exact location of the label storage area is NVDIMM-specific. QEMU v2.7.0 and later store labels at the end of backend storage. If a memory backend file, which was previously used as the backend of a vNVDIMM device without labels, is now used for a vNVDIMM device with label, the data in the label area at the end of file will be inaccessible to the guest. If any useful data \(e.g. the meta-data of the file system\) was stored there, the latter usage may result guest data corruption \(e.g. breakage of guest file system\).
+Labels contain metadata to describe the NVDIMM features and namespace configuration. Labels are stored on each NVDIMM in a reserved area called the _label storage area_. The exact location of the label storage area is NVDIMM-specific. QEMU v2.7.0 and later store labels at the end of backend storage. If a memory backend file, which was previously used as the backend of a vNVDIMM device without labels, is now used for a vNVDIMM device with label, the data in the label area at the end of file will be inaccessible to the guest. If any useful data \(e.g. the meta-data of the file system\) was stored there, the latter usage may result guest data corruption \(e.g. breakage of guest file system\).
 
 QEMU v2.7.0 and later implement the label support for vNVDIMM devices. To enable label on vNVDIMM devices, users can simply add "label-size=$LBLSIZE" option to "-device nvdimm", e.g.
 
@@ -160,7 +160,7 @@ QEMU v2.7.0 and later implement the label support for vNVDIMM devices. To enable
 The minimal label size is 128KB. which is enough to store approximately 1000 labels. Labels are never overwritten in-place. New labels or updates to existing labels are written to new labels slots within the label storage area.
 {% endhint %}
 
-Label information can be accessed using the `ndctl` command utility which needs to be installed within the guest. See the '[NDCTL Users Guide](../../../ndctl-users-guide/)' for more details.
+Label information can be accessed using the `ndctl` command utility which needs to be installed within the guest. See the [NDCTL Users Guide](../../../ndctl-users-guide/) for more details.
 
 ## NVDIMM HotPlug Feature
 
@@ -174,7 +174,7 @@ If the guest uses VNC, as Example 1 showed with `-vnc :0`, connect to the guest 
 * Using telnet.  The guest will need to be started with `-qmp tcp:localhost:4444,server --monitor stdio`.  To connect, use `telnet localhost 4444`.
 * Using UNIX Sockets. Start the guest with `-qmp unix:./qmp-sock,server --monitor stdio` and connect using `nc -U ./qmp-sock`.
 
-The QMP protocol used by the monitor is JSON based. When using the telnet or UNIX sockets, commands must be passed in a correctly formatted JSON strings. See the '[QMP](https://wiki.qemu.org/Documentation/QMP)' protocol documentation for more information.
+The QMP protocol used by the monitor is JSON based. When using the telnet or UNIX sockets, commands must be passed in a correctly formatted JSON strings. See the [QMP](https://wiki.qemu.org/Documentation/QMP) protocol documentation for more information.
 
 For example, the following commands add another 4GB vNVDIMM device to the guest using the qemu monitor interface. The `(qemu)` monitor prompt is accessed via a vnc connection to the host using the guest vnc port, then pressing Ctrl-Alt-2, as described above.
 

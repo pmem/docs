@@ -7,9 +7,9 @@ Persistent Memory devices are accessible via the Virtual Memory System. Therefor
 Linux supports several page sizes:
 
 * Default Page Size; is commonly 4KiB by default on all architectures. Linux often refers to these as a Page Table Entry \(PTE\).
-* [Huge Pages](https://www.kernel.org/doc/Documentation/vm/hugetlbpage.txt); requires Kernel support having configured `CONFIG_HUBETLB_PAGE` and `CONFIG_HUGETLBFS`. Often referred to as the ‘Page Middle Directory \(PMD\)’, huge pages are commonly 2MiB in size although modern kernel's also support 1GiB page sizes.
+* [Huge Pages](https://www.kernel.org/doc/Documentation/vm/hugetlbpage.txt); requires Kernel support having configured `CONFIG_HUBETLB_PAGE` and `CONFIG_HUGETLBFS`. Often referred to as the Page Middle Directory \(PMD\), huge pages are commonly 2MiB in size although modern kernel's also support 1GiB page sizes.
 
-More information can be found in “[Chapter 3 Page Table Management](https://www.kernel.org/doc/gorman/html/understand/understand006.html)” of Mel Gorman’s book “[Understanding the Linux Virtual Memory Manager](https://www.kernel.org/doc/gorman/html/understand/)”.
+More information can be found in [Chapter 3 Page Table Management](https://www.kernel.org/doc/gorman/html/understand/understand006.html) of Mel Gorman’s book [Understanding the Linux Virtual Memory Manager](https://www.kernel.org/doc/gorman/html/understand/).
 
 The page size is a compromise between memory usage and speed.
 
@@ -78,7 +78,7 @@ The first requirement is trivial to control since the size of the mapping relate
 
 The procedure to ensure DAX filesystems use PMDs is shown below as an example. It needs to be executed once the dm-linear or dm-stripe has been configured.
 
-1\) Verify the namespace is in ‘fsdax’ mode.
+1\) Verify the namespace is in fsdax mode.
 
 ```text
 $ ndctl list -u
@@ -106,7 +106,7 @@ $ ndctl list -u
 ]
 ```
 
-If the namespace is not in ‘fsdax’ mode, use the following to switch modes.
+If the namespace is not in fsdax mode, use the following to switch modes.
 
 ```text
 $ sudo ndctl create-namespace -f -e namespace0.0 --mode=fsdax

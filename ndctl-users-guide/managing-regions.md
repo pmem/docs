@@ -1,6 +1,6 @@
 # Managing Regions
 
-A region is a grouping of one or more NVDIMMs, or an interleaved set, that can be divided up into one or more Namespaces. Regions are of type PMEM or BLK. See '[PMEM or BLK](concepts/libnvdimm-pmem-and-blk-modes.md)' modes for more information. The type can only be changed using the vendor specific NVDIMM utility that manages the NVDIMMs and/or a BIOS option if available.
+A region is a grouping of one or more NVDIMMs, or an interleaved set, that can be divided up into one or more Namespaces. Regions are of type PMEM or BLK. See [PMEM or BLK](concepts/libnvdimm-pmem-and-blk-modes.md) modes for more information. The type can only be changed using the vendor specific NVDIMM utility that manages the NVDIMMs and/or a BIOS option if available.
 
 ## Disabling Regions
 
