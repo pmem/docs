@@ -37,7 +37,7 @@ Directly accessing the physical media introduces new programming challenges and 
 
 * **Get Started with Persistent Memory Programming \(Series\):**
 
-  The non-volatile memory library \(NVML\) is now called the Persistent Memory Developer Kit \(PMDK\). In these videos, its architect, Andy Rudoff, introduces you to persistent memory programming and shows you how to apply it to your application.
+  The non-volatile memory library \(NVML\) is now called the Persistent Memory Development Kit \(PMDK\). In these videos, its architect, Andy Rudoff, introduces you to persistent memory programming and shows you how to apply it to your application.
 
   * Part 1: [What is Persistent Memory?](https://software.intel.com/en-us/persistent-memory/get-started/series)
   * Part 2: [Describing The SNIA Programming Model](https://software.intel.com/en-us/videos/the-nvm-programming-model-persistent-memory-programming-series)
