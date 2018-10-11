@@ -121,6 +121,7 @@ To successfully compile ndctl from source with documentation, the following pack
 * autoconf 
 * automake 
 * asciidoc 
+* bash-completion
 * xmlto 
 * libtool 
 * pkg-config 
@@ -172,7 +173,7 @@ $ sudo yum -y install epel-release
 Install the required packages
 
 ```text
-$ sudo yum install -y git gcc gcc-c++ autoconf automake asciidoc asciidoctor xmlto libtool pkg-config glib2 glib2-devel libfabric libfabric-devel doxygen graphviz pandoc ncurses kmod kmod-devel libudev-devel libuuid-devel json-c-devel rubygem-asciidoctor 
+$ sudo yum install -y git gcc gcc-c++ autoconf automake asciidoc asciidoctor bash-completion xmlto libtool pkg-config glib2 glib2-devel libfabric libfabric-devel doxygen graphviz pandoc ncurses kmod kmod-devel libudev-devel libuuid-devel json-c-devel rubygem-asciidoctor 
 ```
 {% endtab %}
 
@@ -194,28 +195,40 @@ $ sudo apt-get install -y git gcc gcc-c++ autoconf automake asciidoc asciidoctor
 1. If you're behind a company proxy, configure git to work with your proxy server first. The following configures a HTTP and HTTPS proxy for all users.  Refer to the [git-config documentation](https://git-scm.com/docs/git-config) for more options and information.  
 
 ```text
-   git config --global http.proxy http://proxyUsername:proxyPassword@proxy.server.com:port
+$ git config --global http.proxy http://proxyUsername:proxyPassword@proxy.server.com:port
 
-   git config --global https.proxy https://proxyUsername:proxyPassword@proxy.server.com:port
+$ git config --global https.proxy https://proxyUsername:proxyPassword@proxy.server.com:port
 ```
 
-1. Create a working directory to clone the ndctl GitHub repository to, eg: 'downloads' `sudo mkdir /downloads sudo chmod +w /downloads cd /downloads`
-2. Clone the repository `cd /downloads sudo git clone https://github.com/pmem/ndctl cd ndctl`
+    2. Create a working directory to clone the ndctl GitHub repository to, eg: 'downloads'
+
+```text
+$ sudo mkdir /downloads
+$ sudo chmod +w /downloads
+```
+
+    3. Clone the repository:
+
+```text
+$ cd /downloads
+$ sudo git clone https://github.com/pmem/ndctl
+$ cd ndctl
+```
 
 ### 3. Build
 
 The following configures ndctl to be installed in to the /usr/local directory.
 
 ```text
-./autogen.sh
-./configure CFLAGS='-g -O2' --prefix=/usr/local --sysconfdir=/etc --libdir=/usr/local/lib64
-make
+$ ./autogen.sh
+$ ./configure CFLAGS='-g -O2' --prefix=/usr/local --sysconfdir=/etc --libdir=/usr/local/lib64
+$ make
 ```
 
 **Note:** If you want to compile with a different compiler other than gcc, you have to provide the CC and CXX environment variables. For example:
 
 ```text
-sudo make CC=clang CXX=clang++
+$ sudo make CC=clang CXX=clang++
 ```
 
 These variables are independent and setting CC=clang does not set CXX=clang++.
@@ -223,15 +236,15 @@ These variables are independent and setting CC=clang does not set CXX=clang++.
 To compile ndctl with debugging, use the `--enable-debug` option:
 
 ```text
-./autogen.sh
-./configure CFLAGS='-g -O2' --enable-debug --prefix=/usr/local --sysconfdir=/etc --libdir=/usr/local/lib64
-make
+$ ./autogen.sh
+$ ./configure CFLAGS='-g -O2' --enable-debug --prefix=/usr/local --sysconfdir=/etc --libdir=/usr/local/lib64
+$ make
 ```
 
 For a full list of configure options use:
 
 ```text
-./configure --help
+$ ./configure --help
 ```
 
 ### 4. Install
@@ -239,7 +252,7 @@ For a full list of configure options use:
 Once ndctl has successfully been compiled, it can be installed using the following:
 
 ```text
-sudo make install
+$ sudo make install
 ```
 
 ### 5. Build and Run Unit Tests \(Optional\)
