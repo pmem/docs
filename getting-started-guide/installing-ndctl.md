@@ -115,30 +115,30 @@ There are a number of packages required for the build steps that may not be inst
 
 To successfully compile ndctl from source with documentation, the following packages are required
 
-* git
-* gcc 
-* gcc-c++
 * autoconf 
 * automake 
 * asciidoc 
 * bash-completion
-* xmlto 
-* libtool 
-* pkg-config 
+* doxygen 
+* gcc 
+* gcc-c++
+* git
 * glib2 
 * glib2-devel 
-* libfabric 
-* libfabric-devel 
-* doxygen 
 * graphviz 
-* pandoc 
-* ncurses 
+* json-c-devel
 * kmod 
 * kmod-devel 
+* libfabric 
+* libfabric-devel 
+* libtool 
 * libudev-devel 
 * libuuid-devel
-* json-c-devel
+* ncurses 
+* pandoc 
+* pkg-config 
 * rubygem-asciidoctor \(asciidoctor\)
+* xmlto
 
 To install these prerequisites, use:
 
