@@ -121,7 +121,6 @@ To successfully compile ndctl from source with documentation, the following pack
 * autoconf 
 * automake 
 * asciidoc 
-* asciidoctor
 * xmlto 
 * libtool 
 * pkg-config 
@@ -138,6 +137,7 @@ To successfully compile ndctl from source with documentation, the following pack
 * libudev-devel 
 * libuuid-devel
 * json-c-devel
+* rubygem-asciidoctor \(asciidoctor\)
 
 To install these prerequisites, use:
 
@@ -157,14 +157,28 @@ sudo dnf install -y git gcc gcc-c++ autoconf automake asciidoc asciidoctor xmlto
 {% endtab %}
 
 {% tab title="RHEL & CentOS" %}
+Some of the required packages can be found in the EPEL repository.  Verify the EPEL repository is active:
+
 ```text
-$ sudo yum install -y git gcc gcc-c++ autoconf automake asciidoc asciidoctor xmlto libtool pkg-config glib2 glib2-devel libfabric libfabric-devel doxygen graphviz pandoc ncurses kmod kmod-devel libudev-devel libuuid-devel json-c-devel
+$ yum repolist
+```
+
+If the EPEL repository is not listed, install and activate it using:
+
+```text
+$ sudo yum -y install epel-release
+```
+
+Install the required packages
+
+```text
+$ sudo yum install -y git gcc gcc-c++ autoconf automake asciidoc asciidoctor xmlto libtool pkg-config glib2 glib2-devel libfabric libfabric-devel doxygen graphviz pandoc ncurses kmod kmod-devel libudev-devel libuuid-devel json-c-devel rubygem-asciidoctor 
 ```
 {% endtab %}
 
 {% tab title="SLES & OpenSUSE" %}
 ```text
-$ sudo zypper install -y git gcc gcc-c++ autoconf automake asciidoc asciidoctor xmlto libtool pkg-config glib2 glib2-devel libfabric libfabric-devel doxygen graphviz pandoc ncurses kmod kmod-devel libudev-devel libuuid-devel json-c-devel
+$ sudo zypper install -y git gcc gcc-c++ autoconf automake asciidoc xmlto libtool pkg-config glib2 glib2-devel libfabric libfabric-devel doxygen graphviz pandoc ncurses kmod kmod-devel libudev-devel libuuid-devel json-c-devel rubygem-asciidoctor
 ```
 {% endtab %}
 
