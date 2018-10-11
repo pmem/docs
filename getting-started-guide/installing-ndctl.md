@@ -121,6 +121,7 @@ To successfully compile ndctl from source with documentation, the following pack
 * autoconf 
 * automake 
 * asciidoc 
+* asciidoctor
 * xmlto 
 * libtool 
 * pkg-config 
@@ -145,31 +146,31 @@ To install these prerequisites, use:
 Fedora 21 or earlier
 
 ```text
-sudo yum install -y git gcc gcc-c++ autoconf automake asciidoc xmlto libtool pkg-config glib2 glib2-devel libfabric libfabric-devel doxygen graphviz pandoc ncurses kmod kmod-devel libudev-devel libuuid-devel json-c-devel
+sudo yum install -y git gcc gcc-c++ autoconf automake asciidoc asciidoctor xmlto libtool pkg-config glib2 glib2-devel libfabric libfabric-devel doxygen graphviz pandoc ncurses kmod kmod-devel libudev-devel libuuid-devel json-c-devel
 ```
 
 Fedora 22 or later
 
 ```text
-sudo dnf install -y git gcc gcc-c++ autoconf automake asciidoc xmlto libtool pkg-config glib2 glib2-devel libfabric libfabric-devel doxygen graphviz pandoc ncurses kmod kmod-devel libudev-devel libuuid-devel json-c-devel
+sudo dnf install -y git gcc gcc-c++ autoconf automake asciidoc asciidoctor xmlto libtool pkg-config glib2 glib2-devel libfabric libfabric-devel doxygen graphviz pandoc ncurses kmod kmod-devel libudev-devel libuuid-devel json-c-devel
 ```
 {% endtab %}
 
 {% tab title="RHEL & CentOS" %}
 ```text
-$ sudo yum install install -y git gcc gcc-c++ autoconf automake asciidoc xmlto libtool pkg-config glib2 glib2-devel libfabric libfabric-devel doxygen graphviz pandoc ncurses kmod kmod-devel libudev-devel libuuid-devel json-c-devel
+$ sudo yum install install -y git gcc gcc-c++ autoconf automake asciidoc asciidoctor xmlto libtool pkg-config glib2 glib2-devel libfabric libfabric-devel doxygen graphviz pandoc ncurses kmod kmod-devel libudev-devel libuuid-devel json-c-devel
 ```
 {% endtab %}
 
 {% tab title="SLES & OpenSUSE" %}
 ```text
-$ sudo zypper install install -y git gcc gcc-c++ autoconf automake asciidoc xmlto libtool pkg-config glib2 glib2-devel libfabric libfabric-devel doxygen graphviz pandoc ncurses kmod kmod-devel libudev-devel libuuid-devel json-c-devel
+$ sudo zypper install install -y git gcc gcc-c++ autoconf automake asciidoc asciidoctor xmlto libtool pkg-config glib2 glib2-devel libfabric libfabric-devel doxygen graphviz pandoc ncurses kmod kmod-devel libudev-devel libuuid-devel json-c-devel
 ```
 {% endtab %}
 
 {% tab title="Ubuntu" %}
 ```text
-$ sudo apt-get install install -y git gcc gcc-c++ autoconf automake asciidoc xmlto libtool pkg-config glib2 glib2-devel libfabric libfabric-devel doxygen graphviz pandoc ncurses kmod kmod-devel libudev-devel libuuid-devel json-c-devel
+$ sudo apt-get install install -y git gcc gcc-c++ autoconf automake asciidoc asciidoctor xmlto libtool pkg-config glib2 glib2-devel libfabric libfabric-devel doxygen graphviz pandoc ncurses kmod kmod-devel libudev-devel libuuid-devel json-c-devel
 ```
 {% endtab %}
 {% endtabs %}
