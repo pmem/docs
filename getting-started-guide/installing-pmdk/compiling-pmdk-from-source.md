@@ -121,6 +121,35 @@ $ make CC=clang CXX=clang++
 ```
 
 These variables are independent and setting `CC=clang` does not set `CXX=clang++`.
+
+{% hint style="info" %}
+If the `make` command returns an error similar to the following, this is caused by pkg-config being unable to find the required "libndctl.pc" file.  
+
+```text
+$ make
+src/common.inc:370: *** libndctl(version >= 60.1) is missing -- see README.  Stop.
+```
+
+This can occur when ndctl was installed in a directory other than the /usr/bin default location.
+
+To resolve this issue, the PKG\_CONFIG\_PATH is a environment variable that specifies additional paths in which pkg-config will search for its .pc files.
+
+This variable is used to augment pkg-config's default search path. On a typical Unix system, it will search in the directories /usr/lib/pkgconfig and /usr/share/pkgconfig. This will usually cover system installed modules. However, some local modules may be installed in a different prefix such as /usr/local. In that case, it's necessary to prepend the search path so that pkg-config can locate the .pc files.
+
+The pkg-config program is used to retrieve information about installed libraries in the system. The primary use of pkg-config is to provide the necessary details for compiling and linking a program to a library. This metadata is stored in pkg-config files. These files have the suffix .pc and reside in specific locations known to the pkg-config tool.
+
+To check the PKG\_CONFIG\_PATH value use this command:
+
+`$ echo $PKG_CONFIG_PATH` 
+
+To set the PKG\_CONFIG\_PATH value use:
+
+```text
+$ export PKG_CONFIG_PATH=/usr/local/lib64/pkgconfig:/usr/local/lib/pkgconfig: /usr/lib64/pkgconfig:/usr/lib/pkgconfig
+```
+
+Now execute the `make` command again.
+{% endhint %}
 {% endtab %}
 {% endtabs %}
 
