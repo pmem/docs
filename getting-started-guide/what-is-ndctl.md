@@ -17,6 +17,7 @@ To get started with the ndctl utility, first follow the [Installing NDCTL](insta
 * ACPI v6.0: [http://www.uefi.org/sites/default/files/resources/ACPI\_6.0.pdf](http://www.uefi.org/sites/default/files/resources/ACPI_6.0.pdf) 
 * Latest ACPI & UEFI Specifications: [http://uefi.org/specifications](http://uefi.org/specifications)
 * NVDIMM Namespace: [http://pmem.io/documents/NVDIMM\_Namespace\_Spec.pdf](http://pmem.io/documents/NVDIMM_Namespace_Spec.pdf) 
+* DSM Interface Specification \(v1.8\): [http://pmem.io/documents/NVDIMM\_DSM\_Interface-V1.8.pdf](http://pmem.io/documents/NVDIMM_DSM_Interface-V1.8.pdf)
 * DSM Interface Example: [http://pmem.io/documents/NVDIMM\_DSM\_Interface\_Example.pdf](http://pmem.io/documents/NVDIMM_DSM_Interface_Example.pdf) 
 * Driver Writer's Guide: [http://pmem.io/documents/NVDIMM\_Driver\_Writers\_Guide.pdf](http://pmem.io/documents/NVDIMM_Driver_Writers_Guide.pdf)
 

@@ -8,7 +8,7 @@ ACPI v6.0: [http://www.uefi.org/sites/default/files/resources/ACPI\_6.0.pdf ](ht
 
 ACPI Specification \(Latest\): [http://www.uefi.org/specifications](http://www.uefi.org/specifications)
 
-NVDIMM DSM Interface \(v1.8\): [http://pmem.io/documents/NVDIMM\_DSM\_Interface-V1.8.pdf](http://pmem.io/documents/NVDIMM_DSM_Interface-V1.8.pdf)
+NVDIMM DSM Interface Specification \(v1.8\): [http://pmem.io/documents/NVDIMM\_DSM\_Interface-V1.8.pdf](http://pmem.io/documents/NVDIMM_DSM_Interface-V1.8.pdf)
 
 NVDIMM DSM Interface Example: [http://pmem.io/documents/NVDIMM\_DSM\_Interface\_Example.pdf ](http://pmem.io/documents/NVDIMM_DSM_Interface_Example.pdf)
 
