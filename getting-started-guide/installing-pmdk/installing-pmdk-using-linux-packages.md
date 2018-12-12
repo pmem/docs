@@ -6,7 +6,7 @@ PMDK is upstreamed to many Linux distro package repositories including Fedora an
 
 {% tabs %}
 {% tab title="Fedora" %}
-1. Query the repository to identify if pmdk is delivered:  
+1\) Query the repository to identify if pmdk is available:  
 
 Fedora 21 or earlier
 
@@ -20,7 +20,7 @@ Fedora 22 or later
    $ dnf repoquery pmdk
 ```
 
-1. Install the ndctl utility
+2\) Install pmdk
 
 Fedora 21 or earlier
 
@@ -44,7 +44,7 @@ The pmdk package is available on CentOS and RHEL 7.0 or later.
 $ yum search pmdk
 ```
 
-2\) Install the ndctl package
+2\) Install the pmdk package
 
 ```text
 $ yum install pmdk
@@ -55,13 +55,13 @@ $ yum install pmdk
 1\) Query the repository to identify if ndctl is delivered:
 
 ```text
-$ zypper search ndctl
+$ zypper search pmdk
 ```
 
 2\) Install the ndctl package
 
 ```text
-$ zypper install ndctl
+$ zypper install pmdk
 ```
 {% endtab %}
 
@@ -71,15 +71,15 @@ The pmdk package is available on Ubuntu 18.10 \(Cosmic Cuttlefish\) or later.
 1\) Query the repository to identify if ndctl is delivered using either the aptitude, apt-cache, or apt utilities
 
 ```text
-$ aptitude search ndctl 
-$ apt-cache search ndctl 
-$ apt search ndctl
+$ aptitude search pmdk
+$ apt-cache search pmdk
+$ apt search pmdk
 ```
 
-2\) Install the ndctl package
+2\) Install the pmdk package
 
 ```text
-$ apt-get install ndctl
+$ apt-get install pmdk
 ```
 {% endtab %}
 {% endtabs %}
