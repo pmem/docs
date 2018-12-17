@@ -20,7 +20,7 @@ The [Storage Network Industry Association \(SNIA\)](http://www.snia.org) and sev
 
 The introduction of a persistent memory tier offers application developers a choice of where to put data and data structures. Traditionally data was read and written to volatile memory and flushed to non-volatile persistent storage. When the application is started, data has to be read from storage into volatile memory before it can be accessed. Depending on the size of the working dataset, this can take seconds, minutes, or hours. With clever application design, developers and application architects can now take advantage of this new technology to improve performance and reduce application startup times.
 
-Persistent Memory introduces some new programming concerns, which did not apply to traditional, volartile memory. These include:
+Persistent Memory introduces some new programming concerns, which did not apply to traditional, volatile memory. These include:
 
 * Data Persistence:
   * Stores are not guaranteed to be persistent until flushed.  Although this is also true for the decades-old memory-mapped file APIs \(like mmap\(\) and msync\(\) on Linux\), many programmers have not dealt with the need to flush to persistence for memory.  Following the standard API \(like msync\(\) to flush changes to persistence\) will work as expected.  But more optimal flushing, where the application flushes stores from the CPU caches directly, instead of calling into the kernel, is also possible.

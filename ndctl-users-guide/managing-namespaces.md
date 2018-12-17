@@ -83,7 +83,7 @@ By default, `ndctl list -N` lists only active/enabled namespaces. In the followi
 #
 ```
 
-Adding the `-i` flag includes both active/enabled and inactive/destroyed/disabled namespaces. The following example shows two previously destroyed namespaces. The `size` and `uuid` are clear indications that no information exists about the namespace. The ndctl destroy command simply NULLs the existing namespace entry and does not completely erase it from the metadata. For this reason, it may be possible to see more than one namespace using `ndctl list -Ni`
+Adding the `-i` flag includes both active/enabled and inactive/destroyed/disabled namespaces. The following example shows two previously destroyed namespaces. The `size` and `uuid` are clear indications that no information exists about the namespace. The `ndctl destroy` command simply NULLs the existing namespace entry and does not completely erase it from the metadata. For this reason, it may be possible to see more than one namespace using `ndctl list -Ni`
 
 ```text
 # ndctl list -Ni
@@ -143,7 +143,7 @@ The create-namespace command has a lot of options summarized below. The `ndctl-c
 
 The `mode` is the most important feature to get correct. The four modes available are defined as:
 
-* **fsdax:** Filesystem-DAX mode is the default mode of a namespace when specifying ndctl create-namespace with no options. It creates a block device \(/dev/pmemX\[.Y\]\) that supports the DAX capabilities of Linux filesystems \(xfs and ext4 to date\). DAX removes the page cache from the I/O path and allows mmap\(2\) to establish direct mappings to persistent memory media. The DAX capability enables workloads / working-sets that would exceed the capacity of the page cache to scale up to the capacity of persistent memory. Workloads that fit in page cache or perform bulk data transfers may not see benefit from DAX. When in doubt, pick this mode.
+* **fsdax:** Filesystem-DAX mode is the default mode of a namespace when specifying `ndctl create-namespace` with no options. It creates a block device \(/dev/pmemX\[.Y\]\) that supports the DAX capabilities of Linux filesystems \(xfs and ext4 to date\). DAX removes the page cache from the I/O path and allows mmap\(2\) to establish direct mappings to persistent memory media. The DAX capability enables workloads / working-sets that would exceed the capacity of the page cache to scale up to the capacity of persistent memory. Workloads that fit in page cache or perform bulk data transfers may not see benefit from DAX. When in doubt, pick this mode.
 * **devdax:** Device-DAX mode enables similar mmap\(2\) DAX mapping capabilities as Filesystem-DAX. However, instead of a block-device that can support a DAX-enabled filesystem, this mode emits a single character device file \(/dev/daxX.Y\). Use this mode to assign persistent memory to a virtual-machine, register persistent memory for RDMA, or when gigantic mappings are needed.
 * **sector:** Use this mode to host legacy filesystems that do not checksum metadata or applications that are not prepared for torn sectors after a crash. Expected usage for this mode is for small boot volumes. This mode is compatible with other operating systems.
 * **raw:** Raw mode is effectively just a memory disk that does not support DAX. Typically this indicates a namespace that was created by tooling or another operating system that did not know how to create a Linux fsdax or devdax mode namespace. This mode is compatible with other operating systems, but again, does not support DAX operation.
