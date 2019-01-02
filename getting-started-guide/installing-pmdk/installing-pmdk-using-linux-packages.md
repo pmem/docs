@@ -1,8 +1,29 @@
 # Installing PMDK using Linux Packages
 
-PMDK is upstreamed to many Linux distro package repositories including Fedora and Ubuntu. Downloadable RPM and DEB packages for manual installation are also available from the [PMDK releases repository](https://github.com/pmem/pmdk/releases).
+PMDK is upstreamed to many Linux distro package repositories including Fedora and Ubuntu.  Older versions of PMDK in RPM and DEB format are available from the [PMDK releases repository](https://github.com/pmem/pmdk/releases).
 
-## Installing PMDK Using the Package Repository
+## Installing PMDK Using the Linux Distro Package Repository
+
+The PMDK is a collection of different libraries, each one provides different functionality.  This provides greater flexibility for developers as only the required runtime or header files need to be installed without installing unnecessary libraries.  Libraries are available in runtime, development header files \(\*-devel\), and debug \(\*-debug\) versions.  For example:
+
+| Library | Description |
+| :--- | :--- |
+| libpmem | Low-level persistent memory support library |
+| libpmem-debug | Debug variant of the libpmem low-level persistent memory library |
+| libpmem-devel | Development files for the low-level persistent memory library |
+
+The following table shows the list of available libraries:
+
+| Library | Description |
+| :--- | :--- |
+| libpmem | Low-level persistent memory support library |
+| librpmem | Remote Access to Persistent Memory library |
+| libpmemblk | Persistent Memory Resident Array of Blocks library |
+| libpmemcto | Close-to-Open Persistence library \(Deprecated in PMDK v1.5\) |
+| libpmemlog | Persistent Memory Resident Log File library |
+| libpmemobj | Persistent Memory Transactional Object Store library |
+| libpmempool | Persistent Memory pool management library |
+| pmempool | Utilities for Persistent Memory |
 
 {% tabs %}
 {% tab title="Fedora" %}
@@ -11,27 +32,34 @@ PMDK is upstreamed to many Linux distro package repositories including Fedora an
 Fedora 21 or earlier
 
 ```text
-   $ yum search pmdk
+   $ yum search pmem
 ```
 
 Fedora 22 or later
 
 ```text
-   $ dnf repoquery pmdk
+   $ dnf search pmem
 ```
 
-2\) Install pmdk
+2\) Install the pmdk packages
 
 Fedora 21 or earlier
 
 ```text
-$ yum install pmdk
+$ yum install <library>
 ```
 
 Fedora 22 or later
 
 ```text
-$ dnf install pmdk
+$ dnf install <library>
+
+All Runtime: 
+$ dnf install libpmem librpmem libpmemblk libpmemlog libpmemobj libpmempool pmempool
+All Development: 
+$ dnf install libpmem-devel librpmem-devel libpmemblk-devel libpmemlog-devel libpmemobj-devel libpmemobj++-devel libpmempool-devel
+All Debug:
+$ dnf install libpmem-debug librpmem-debug libpmemblk-debug libpmemlog-debug libpmemobj-debug libpmempool-debug
 ```
 {% endtab %}
 
@@ -41,13 +69,20 @@ The pmdk package is available on CentOS and RHEL 7.0 or later.
 1\) Query the repository to identify if pmdk is delivered:
 
 ```text
-$ yum search pmdk
+$ yum search pmem
 ```
 
-2\) Install the pmdk package
+2\) Install the pmdk packages
 
 ```text
-$ yum install pmdk
+$ yum install <library>
+
+All Runtime: 
+$ yum install libpmem librpmem libpmemblk libpmemlog libpmemobj libpmempool pmempool
+All Development: 
+$ yum install libpmem-devel librpmem-devel libpmemblk-devel libpmemlog-devel libpmemobj-devel libpmemobj++-devel libpmempool-devel
+All Debug:
+$ yum install libpmem-debug librpmem-debug libpmemblk-debug libpmemlog-debug libpmemobj-debug libpmempool-debug
 ```
 {% endtab %}
 
@@ -55,13 +90,20 @@ $ yum install pmdk
 1\) Query the repository to identify if ndctl is delivered:
 
 ```text
-$ zypper search pmdk
+$ zypper search pmem
 ```
 
-2\) Install the ndctl package
+2\) Install the ndctl packages
 
 ```text
-$ zypper install pmdk
+$ zypper install <library>
+
+All Runtime: 
+$ zypper install libpmem librpmem libpmemblk libpmemlog libpmemobj libpmempool pmempool
+All Development: 
+$ zypper install libpmem-devel librpmem-devel libpmemblk-devel libpmemlog-devel libpmemobj-devel libpmemobj++-devel libpmempool-devel
+All Debug:
+$ zypper install libpmem-debug librpmem-debug libpmemblk-debug libpmemlog-debug libpmemobj-debug libpmempool-debug
 ```
 {% endtab %}
 
@@ -71,22 +113,33 @@ The pmdk package is available on Ubuntu 18.10 \(Cosmic Cuttlefish\) or later.
 1\) Query the repository to identify if ndctl is delivered using either the aptitude, apt-cache, or apt utilities
 
 ```text
-$ aptitude search pmdk
-$ apt-cache search pmdk
-$ apt search pmdk
+$ aptitude search pmem
+$ apt-cache search pmem
+$ apt search pmem
 ```
 
-2\) Install the pmdk package
+2\) Install the pmdk packages
 
 ```text
-$ apt-get install pmdk
+$ apt-get install <library>
+
+All Runtime: 
+$ apt-get install libpmem librpmem libpmemblk libpmemlog libpmemobj libpmempool pmempool
+All Development: 
+$ apt-get install libpmem-devel librpmem-devel libpmemblk-devel libpmemlog-devel libpmemobj-devel libpmemobj++-devel libpmempool-devel
+All Debug:
+$ apt-get install libpmem-debug librpmem-debug libpmemblk-debug libpmemlog-debug libpmemobj-debug libpmempool-debug
 ```
 {% endtab %}
 {% endtabs %}
 
 ## Installing PMDK from \*.RPM or \*.DEB
 
-PMDK is available in RPM and DEB package formats. The latest RPM and DEB package bundles can be downloaded from [https://github.com/pmem/pmdk/releases](https://github.com/pmem/pmdk/releases).
+PMDK is available in RPM and DEB package formats. The latest RPM and DEB package bundles can be downloaded from [https://github.com/pmem/pmdk/releases](https://github.com/pmem/pmdk/releases).  
+
+{% hint style="info" %}
+Since libraries are available in most Linux Distro repositories, the PMDK RPM and DEB packages will no longer be built for each release.  The following refers to PMDK v1.4 and earlier.
+{% endhint %}
 
 ### Installing \*.RPM Packages
 

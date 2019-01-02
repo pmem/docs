@@ -18,11 +18,11 @@ The [ACPI Specification](http://www.uefi.org/specifications), starting with vers
 
 The [UEFI Specification](http://www.uefi.org/specifications), covers other NVDIMM-related topics such as the _Block Translation Table_ \(BTT\) which allows an NVDIMM to provide block device semantics.
 
-Before the above two standards were developed, the [NVDIMM Namespace Specification](http://pmem.io/documents/NVDIMM_Namespace_Spec.pdf) \[pdf\] described the namespace and BTT mechanisms. The link to the outdated document is maintained here for reference.
+Before the above two standards were developed, the [NVDIMM Namespace Specification](http://pmem.io/documents/NVDIMM_Namespace_Spec.pdf) described the namespace and BTT mechanisms. The link to the outdated document is maintained here for reference.
 
 **Related Specifications**
 
-The [NVDIMM Driver Writers Guide](http://pmem.io/documents/NVDIMM_DriverWritersGuide-July-2016.pdf) \[pdf\] is targeted to driver writers for NVDIMMs that adhere to the NFIT tables in the Advanced Configuration and Power Interface \(ACPI\) V6.0 specification, the Device Specific Method \(DSM\) specification and the NVDIMM Namespace Specification. This document specifically discusses the block window HW interface and persistent memory interface that Intel is proposing for NVDIMMs. A version of the document with [change bars](http://pmem.io/documents/NVDIMM_DriverWritersGuide-July-2016_wChanges.pdf) \[pdf\] from the previous version is also available.
+The [NVDIMM Driver Writers Guide](http://pmem.io/documents/NVDIMM_DriverWritersGuide-July-2016.pdf) is targeted to driver writers for NVDIMMs that adhere to the NFIT tables in the Advanced Configuration and Power Interface \(ACPI\) V6.0 specification, the Device Specific Method \(DSM\) specification, and the NVDIMM Namespace Specification. This document specifically discusses the block window HW interface and persistent memory interface that Intel is proposing for NVDIMMs. A version of the document with [change bars](http://pmem.io/documents/NVDIMM_DriverWritersGuide-July-2016_wChanges.pdf) \[pdf\] from the previous version is also available.
 
-The [NVDIMM DSM Interface](http://pmem.io/documents/NVDIMM_DSM_Interface-V1.8.pdf) \[pdf\], Version 1.8, is targeted to writers of BIOS and OS drivers for NVDIMMs whose design adheres to the NFIT Tables in the ACPI specification. The document specifically discusses the NVDIMM Device Specific Method \(\_DSM\) example.
+The [NVDIMM DSM Interface](http://pmem.io/documents/NVDIMM_DSM_Interface-V1.8.pdf), Version 1.8, is targeted to writers of BIOS and OS drivers for NVDIMMs whose design adheres to the NFIT Tables in the ACPI specification. The document specifically discusses the NVDIMM Device Specific Method \(\_DSM\) example.
 

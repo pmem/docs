@@ -89,7 +89,7 @@ The following uses the `git` utility to clone the repository.
 $ sudo mkdir /downloads
 $ sudo chmod +w /downloads
 $ cd /downloads
-$ git clone 
+$ git clone https://github.com/pmem/pmdk
 $ cd pmdk
 ```
 

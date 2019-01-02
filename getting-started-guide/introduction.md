@@ -2,11 +2,11 @@
 
 ## Persistent Memory Overview
 
-Over the last few decades, computer systems have implemented the memory-storage hierarchy shown in Figure 1. The memory-storage hierarchy utilizes the principle of locality which keeps frequently accessed data closest to the CPU. Successive generations of technologies have iterated on the number, size, and speed of caches to ensure the CPUs have access to the most frequently used data. CPU speeds have continued to get faster, adding more cores and threads with each new CPU generations as they try to maintain [Moore's Law](https://en.wikipedia.org/wiki/Moore's_law). The capacity, price and speed of volatile DRAM and non-volatile storage such as NAND SSDs or Hard Disk Drives have not kept pace and quickly become a bottleneck for system and application performance.
+Over the last few decades, computer systems have implemented the memory-storage hierarchy shown in Figure 1. The memory-storage hierarchy utilizes the principle of locality which keeps frequently accessed data closest to the CPU. Successive generations of technologies have iterated on the number, size, and speed of caches to ensure the CPUs have access to the most frequently used data. CPU speeds have continued to get faster, adding more cores and threads with each new CPU generations as they try to maintain [Moore's Law](https://en.wikipedia.org/wiki/Moore's_law). The capacity, price, and speed of volatile DRAM and non-volatile storage such as NAND SSDs or Hard Disk Drives have not kept pace and quickly become a bottleneck for system and application performance.
 
 ![Figure 1: Memory Storage Hierarchy](../.gitbook/assets/memory-storage-hierachy-default.png)
 
-Persistent Memory \(PMEM\), also referred to as Non-Volatile Memory \(NVM\) or Storage Class Memory \(SCM\), provides a new entry in the memory-storage hierarchy shown in Figure 2 that fills the performance/capacity gap.
+Persistent Memory \(PMEM\), also referred to as Non-Volatile Memory \(NVM\), or Storage Class Memory \(SCM\), provides a new entry in the memory-storage hierarchy shown in Figure 2 that fills the performance/capacity gap.
 
 ![Figure 2: Memory-Storage Hierarchy with Persistent Memory Tier](../.gitbook/assets/pmem_storage_pyramid.jpg)
 

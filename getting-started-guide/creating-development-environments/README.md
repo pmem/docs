@@ -16,7 +16,7 @@ Windows
 
 * [Windows Server 2016](windows-environments.md)
 
-[Cloud Environments](cloud-environments.md)
+[Cloud Environments](cloud-environments/)
 
 Virtualization
 
