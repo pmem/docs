@@ -124,11 +124,11 @@ $ apt search pmem
 $ apt-get install <library>
 
 All Runtime: 
-$ apt-get install libpmem librpmem libpmemblk libpmemlog libpmemobj libpmempool pmempool
+$ sudo apt-get install libpmem1 librpmem1 libpmemblk1 libpmemlog1 libpmemobj1 libpmempool1
 All Development: 
-$ apt-get install libpmem-devel librpmem-devel libpmemblk-devel libpmemlog-devel libpmemobj-devel libpmemobj++-devel libpmempool-devel
+$ sudo apt-get install libpmem-dev librpmem-dev libpmemblk-dev libpmemlog-dev libpmemobj-dev libpmempool-dev libpmempool-dev
 All Debug:
-$ apt-get install libpmem-debug librpmem-debug libpmemblk-debug libpmemlog-debug libpmemobj-debug libpmempool-debug
+$ sudo apt-get install libpmem1-debug librpmem1-debug libpmemblk1-debug libpmemlog1-debug libpmemobj1-debug libpmempool1-debug
 ```
 {% endtab %}
 {% endtabs %}
