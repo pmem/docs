@@ -143,7 +143,7 @@ Since libraries are available in most Linux Distro repositories, the PMDK RPM an
 
 ### Installing \*.RPM Packages
 
-1. Download the RPM bundle.
+1\) Download the RPM bundle.
 
 ```text
 $ mkdir -p /downloads/pmdk1.4
@@ -152,7 +152,7 @@ $ wget
 $ tar zxf pmdk-1.4-rpms.tar.gz
 ```
 
-1. The download bundle includes an rpm with the source code and an `x86_64` sub-directory with installable packages
+2\) The download bundle includes an rpm with the source code and an `x86_64` sub-directory with installable packages
 
 ```text
 $ ls -1R
@@ -167,7 +167,7 @@ libpmemlog-devel-1.4-1.fc25.x86_64.rpm
 <...snip...>
 ```
 
-1. Install the rpm packages with dependencies
+3\) Install the rpm packages with dependencies
 
 ```text
 $ cd x86_64
@@ -186,7 +186,7 @@ $ dnf remove nvml*
 ```
 {% endhint %}
 
-1. Download the latest RPM bundle from [https://github.com/pmem/pmdk/releases](https://github.com/pmem/pmdk/releases), eg 1.4.1
+1\) Download the latest RPM bundle from [https://github.com/pmem/pmdk/releases](https://github.com/pmem/pmdk/releases), eg 1.4.1
 
 ```text
 $ mkdir -p /downloads/pmdk1.4.1
@@ -195,7 +195,7 @@ $ wget
 $ tar zxf pmdk-1.4.1-rpms.tar.gz
 ```
 
-1. The download bundle includes an rpm with the source code and an `x86_64` sub-directory with installable packages
+2\) The download bundle includes an rpm with the source code and an `x86_64` sub-directory with installable packages
 
 ```text
 $ ls -1R
@@ -210,7 +210,7 @@ libpmemlog-devel-1.4.1-1.fc25.x86_64.rpm
 <...snip...>
 ```
 
-1. Upgrade the packages using the `upgrade` or `install` sub-command
+3\) Upgrade the packages using the `upgrade` or `install` sub-command
 
 ```text
 $ cd x86_64
@@ -221,7 +221,7 @@ $ dnf install *.rpm
 
 ### Installing \*.DEB Packages
 
-1. Download the pmdk-{version}-dpkgs.tar.gz from [https://github.com/pmem/pmdk/releases](https://github.com/pmem/pmdk/releases), eg to download PMDK v1.4:
+1\) Download the pmdk-{version}-dpkgs.tar.gz from [https://github.com/pmem/pmdk/releases](https://github.com/pmem/pmdk/releases), eg to download PMDK v1.4:
 
 ```text
 $ mkdir -p /downloads/pmdk1.4
@@ -230,7 +230,7 @@ $ wget
 $ tar zxf pmdk-1.4-dpkgs.tar.gz
 ```
 
-1. The download bundle includes installable packages in the root
+2\) The download bundle includes installable packages in the root
 
 ```text
 $ ls -1
@@ -239,7 +239,7 @@ libpmemblk_1.4-1_amd64.deb
 <...snip...>
 ```
 
-1. Install the packages
+3\) Install the packages
 
 ```text
 $ sudo dpkg -i *.deb
@@ -257,7 +257,7 @@ $ dpkg -r nvml*
 ```
 {% endhint %}
 
-1. Download the pmdk-{version}-dpkgs.tar.gz from [https://github.com/pmem/pmdk/releases](https://github.com/pmem/pmdk/releases), eg to download PMDK v1.4.1:
+1\) Download the pmdk-{version}-dpkgs.tar.gz from [https://github.com/pmem/pmdk/releases](https://github.com/pmem/pmdk/releases), eg to download PMDK v1.4.1:
 
 ```text
 $ mkdir -p /downloads/pmdk1.4.1
@@ -266,7 +266,7 @@ $ wget
 $ tar zxf pmdk-1.4.1-dpkgs.tar.gz
 ```
 
-1. The download bundle includes installable packages in the root
+2\) The download bundle includes installable packages in the root
 
 ```text
 $ ls -1
@@ -275,7 +275,7 @@ libpmemblk_1.4.1-1_amd64.deb
 <...snip...>
 ```
 
-1. Install the packages
+3\) Install the packages
 
 ```text
 $ sudo dpkg -u *.deb
