@@ -82,10 +82,16 @@ $ apt-cache search ndctl
 $ apt search ndctl
 ```
 
-2\) Install the ndctl package
+2\) Verify if the ndctl package is currently installed and check the version
 
 ```text
-$ apt-get install ndctl
+$ apt list --installed ndctl
+```
+
+3\) Install the ndctl package or update an installed package
+
+```text
+$ sudo apt-get install ndctl
 ```
 {% endtab %}
 {% endtabs %}
@@ -107,7 +113,7 @@ proxy_username=YOUR-PROXY-USERNAME-HERE
 proxy_password=YOUR-SUPER-secrete-PASSWORD-HERE
 ```
 
-### 1. Install Pre-Requisites
+### 1. Install Prerequisites
 
 There are a number of packages required for the build steps that may not be installed by default. For information about the required packages, see the "BuildRequires:" lines in ndctl.spec.in.
 
@@ -121,7 +127,7 @@ To successfully compile ndctl from source with documentation, the following pack
 * bash-completion
 * doxygen 
 * gcc 
-* gcc-c++
+* gcc-c++ \(g++\)
 * git
 * glib2 
 * glib2-devel 
@@ -185,7 +191,7 @@ $ sudo zypper install -y git gcc gcc-c++ autoconf automake asciidoc xmlto libtoo
 
 {% tab title="Ubuntu" %}
 ```text
-$ sudo apt-get install -y git gcc gcc-c++ autoconf automake asciidoc asciidoctor xmlto libtool pkg-config glib2 glib2-devel libfabric libfabric-devel doxygen graphviz pandoc ncurses kmod kmod-devel libudev-devel libuuid-devel json-c-devel
+$ sudo apt-get install -y git gcc g++ autoconf automake asciidoc asciidoctor xmlto libtool pkg-config libglib2.0-0 libglib2.0-dev libfabric1 libfabric-dev doxygen graphviz pandoc libncurses5 libkmod2 libkmod-dev libudev-dev uuid-dev libjson-c-dev
 ```
 {% endtab %}
 {% endtabs %}
