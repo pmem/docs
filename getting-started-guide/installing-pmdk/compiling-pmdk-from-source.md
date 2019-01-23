@@ -24,10 +24,19 @@ To build the PMDK libraries on Linux, you may need to install the following requ
 * pkg-config
 * ncurses
 
+{% tabs %}
+{% tab title="Fedora" %}
 ```text
-Fedora: $ sudo dnf install autoconf automake pkg-config glib2 glib2-devel libfabric libfabric-devel doxygen graphviz pandoc ncurses
-Ubuntu: $ sudo apt-get install autoconf automake pkg-config glib2 glib2-devel libfabric libfabric-devel doxygen graphviz pandoc ncurses
+$ sudo dnf install autoconf automake pkg-config glib2 glib2-devel libfabric libfabric-devel doxygen graphviz pandoc ncurses
 ```
+{% endtab %}
+
+{% tab title="Ubuntu" %}
+```text
+$ sudo apt-get install autoconf automake pkg-config libglib2.0-0 libglib2.0-dev libfabric1 libfabric-dev doxygen graphviz pandoc libncurses5
+```
+{% endtab %}
+{% endtabs %}
 
 The following packages are required only by selected PMDK components or features. If not present, those components or features may not be available:
 
