@@ -48,10 +48,19 @@ The git utility is required to clone the repository or you can download the sour
 
 A C/C++ Compiler is required. GCC/G++ will be used in this documentation but you may use a different compiler then set the `CC` and `CXX` shell environments accordingly.
 
+{% tabs %}
+{% tab title="Fedora" %}
 ```text
-Fedora: $ sudo dnf install gcc gcc-c++
-Ubuntu: $ sudo apt-get install gcc gcc-c++
+$ sudo dnf install gcc gcc-c++
 ```
+{% endtab %}
+
+{% tab title="Ubuntu" %}
+```text
+$ sudo apt-get install gcc g++
+```
+{% endtab %}
+{% endtabs %}
 
 To build PMDK and run the tests you need:
 
