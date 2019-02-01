@@ -135,10 +135,8 @@ $ sudo apt-get install libpmem1-debug librpmem1-debug libpmemblk1-debug libpmeml
 
 ## Installing PMDK from \*.RPM or \*.DEB
 
-PMDK is available in RPM and DEB package formats. The latest RPM and DEB package bundles can be downloaded from [https://github.com/pmem/pmdk/releases](https://github.com/pmem/pmdk/releases).  
-
 {% hint style="info" %}
-Since libraries are available in most Linux Distro repositories, the PMDK RPM and DEB packages will no longer be built for each release.  The following refers to PMDK v1.4 and earlier.
+Since libraries are available in most Linux Distro repositories, the PMDK RPM and DEB packages will no longer be built for each release.  The following refers to PMDK v1.4 and earlier available from [https://github.com/pmem/pmdk/releases](https://github.com/pmem/pmdk/releases).
 {% endhint %}
 
 ### Installing \*.RPM Packages
