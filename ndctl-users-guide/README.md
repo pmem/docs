@@ -1,4 +1,4 @@
-# NDCTL Users Guide
+# NDCTL User Guide
 
 ## Introduction
 

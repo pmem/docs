@@ -27,7 +27,7 @@
 * [Changelogs](changelog/README.md)
   * [PMDK Changelog](changelog/pmdk.md)
   * [NDCTL Changelog](changelog/ndctl.md)
-* [NDCTL Users Guide](ndctl-users-guide/README.md)
+* [NDCTL User Guide](ndctl-users-guide/README.md)
   * [Concepts](ndctl-users-guide/concepts/README.md)
     * [NVDIMM Devices](ndctl-users-guide/concepts/nvdimm-devices.md)
     * [PMEM and BLK Modes](ndctl-users-guide/concepts/libnvdimm-pmem-and-blk-modes.md)
