@@ -94,6 +94,32 @@ $ apt list --installed ndctl
 $ sudo apt-get install ndctl
 ```
 {% endtab %}
+
+{% tab title="Debian" %}
+{% hint style="info" %}
+The ndctl package is currently in testing and is not available in the master repository.  See [https://tracker.debian.org/pkg/ndctl](https://tracker.debian.org/pkg/ndctl) for up to date information.
+{% endhint %}
+
+1\) Enable the 'testing' repository using these instructions - [https://wiki.debian.org/DebianTesting](https://wiki.debian.org/DebianTesting).  Do this at your own risk!
+
+2\) Query the repository to identify if ndctl is delivered using either the aptitude, apt-cache, or apt utilities
+
+```text
+$ apt search ndctl
+```
+
+3\) Verify if the ndctl package is currently installed and check the version
+
+```text
+$ apt list --installed ndctl
+```
+
+4\) Install the ndctl package or update an installed package
+
+```text
+$ sudo apt install ndctl
+```
+{% endtab %}
 {% endtabs %}
 
 ## Installing NDCTL from Source on Linux
@@ -185,13 +211,13 @@ $ sudo yum install -y git gcc gcc-c++ autoconf automake asciidoc asciidoctor bas
 
 {% tab title="SLES & OpenSUSE" %}
 ```text
-$ sudo zypper install -y git gcc gcc-c++ autoconf automake asciidoc xmlto libtool pkg-config glib2 glib2-devel libfabric libfabric-devel doxygen graphviz pandoc ncurses kmod kmod-devel libudev-devel libuuid-devel json-c-devel rubygem-asciidoctor
+$ sudo zypper install -y git gcc gcc-c++ autoconf automake asciidoc bash-completion xmlto libtool pkg-config glib2 glib2-devel libfabric libfabric-devel doxygen graphviz pandoc ncurses kmod kmod-devel libudev-devel libuuid-devel json-c-devel rubygem-asciidoctor
 ```
 {% endtab %}
 
-{% tab title="Ubuntu" %}
+{% tab title="Ubuntu & Debian" %}
 ```text
-$ sudo apt-get install -y git gcc g++ autoconf automake asciidoc asciidoctor xmlto libtool pkg-config libglib2.0-0 libglib2.0-dev libfabric1 libfabric-dev doxygen graphviz pandoc libncurses5 libkmod2 libkmod-dev libudev-dev uuid-dev libjson-c-dev
+$ sudo apt-get install -y git gcc g++ autoconf automake asciidoc asciidoctor bash-completion xmlto libtool pkg-config libglib2.0-0 libglib2.0-dev libfabric1 libfabric-dev doxygen graphviz pandoc libncurses5 libkmod2 libkmod-dev libudev-dev uuid-dev libjson-c-dev
 ```
 {% endtab %}
 {% endtabs %}
@@ -231,6 +257,8 @@ $ ./configure CFLAGS='-g -O2' --prefix=/usr/local --sysconfdir=/etc --libdir=/us
 $ make
 ```
 
+#### **Build using an alternative compiler**
+
 **Note:** If you want to compile with a different compiler other than gcc, you have to provide the CC and CXX environment variables. For example:
 
 ```text
@@ -238,6 +266,8 @@ $ sudo make CC=clang CXX=clang++
 ```
 
 These variables are independent and setting CC=clang does not set CXX=clang++.
+
+#### Build a Debug Version
 
 To compile ndctl with debugging, use the `--enable-debug` option:
 
