@@ -31,9 +31,9 @@ $ sudo dnf install autoconf automake pkg-config glib2 glib2-devel libfabric libf
 ```
 {% endtab %}
 
-{% tab title="Ubuntu" %}
+{% tab title="Ubuntu & Debian" %}
 ```text
-$ sudo apt-get install autoconf automake pkg-config libglib2.0-0 libglib2.0-dev libfabric1 libfabric-dev doxygen graphviz pandoc libncurses5
+$ sudo apt install autoconf automake pkg-config libglib2.0-0 libglib2.0-dev libfabric1 libfabric-dev doxygen graphviz pandoc libncurses5
 ```
 {% endtab %}
 {% endtabs %}
@@ -44,7 +44,7 @@ The following packages are required only by selected PMDK components or features
 * **ndctl** and **daxctl** \(v60.1 or later\) -- required by **daxio** and RAS features.  See [Installing NDCTL](../installing-ndctl.md)
   * To build pmdk without ndctl support, set 'NDCTL\_ENABLE=detect' or '=no' using: `$ export NDCTL_ENABLE=detect`
 
-The git utility is required to clone the repository or you can download the source code as a [zip file](https://github.com/pmem/pmdk/archive/master.zip) directly from the [repository ](https://github.com/pmem/pmdk)on GitHub.
+The `git` utility is required to clone the repository or you can download the source code as a [zip file](https://github.com/pmem/pmdk/archive/master.zip) directly from the [repository ](https://github.com/pmem/pmdk)on GitHub.
 
 A C/C++ Compiler is required. GCC/G++ will be used in this documentation but you may use a different compiler then set the `CC` and `CXX` shell environments accordingly.
 
@@ -55,20 +55,13 @@ $ sudo dnf install gcc gcc-c++
 ```
 {% endtab %}
 
-{% tab title="Ubuntu" %}
+{% tab title="Ubuntu & Debian" %}
 ```text
-$ sudo apt-get install gcc g++
+$ sudo apt install gcc g++
 ```
 {% endtab %}
-{% endtabs %}
 
-To build PMDK and run the tests you need:
-
-* **MS Visual Studio 2015** or later
-* [Windows SDK 10.0.16299.15](https://developer.microsoft.com/en-us/windows/downloads/windows-10-sdk) or later
-* **perl** \(i.e. [ActivePerl](http://www.activestate.com/activeperl/downloads)\)
-* **PowerShell 5** or later
-
+{% tab title="FreeBSD" %}
 To build and test the PMDK library on FreeBSD, you may need to install the following required packages on the build system:
 
 * autoconf
@@ -96,8 +89,19 @@ The git utility is required to clone the repository or you can download the sour
 A C/C++ Compiler is required. GCC/G++ will be used in this documentation but you may use a different compiler then set the `CC` and `CXX` shell environments accordingly.
 
 ```text
-$ pkg install gcc gcc-c++
+$ sudo pkg install gcc gcc-c++
 ```
+{% endtab %}
+
+{% tab title="Windows" %}
+To build PMDK and run the tests you need:
+
+* **MS Visual Studio 2015** or later
+* [Windows SDK 10.0.16299.15](https://developer.microsoft.com/en-us/windows/downloads/windows-10-sdk) or later
+* **perl** \(i.e. [ActivePerl](http://www.activestate.com/activeperl/downloads)\)
+* **PowerShell 5** or later
+{% endtab %}
+{% endtabs %}
 
 ## Clone the PMDK GitHub Repository
 
