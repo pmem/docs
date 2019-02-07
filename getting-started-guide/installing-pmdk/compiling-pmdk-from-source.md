@@ -42,7 +42,7 @@ The following packages are required only by selected PMDK components or features
 
 * **libfabric** \(v1.4.2 or later\) -- required by **librpmem**
 * **libndctl** and **libdaxctl** \(v60.1 or later\) -- required by **daxio** and RAS features.  See [Installing NDCTL](../installing-ndctl.md)
-  * To build pmdk without ndctl support, set 'NDCTL\_ENABLE=detect' or '=no' using: `$ export NDCTL_ENABLE=detect`
+  * To build pmdk without ndctl support, set 'NDCTL\_ENABLE=n' using: `$ export NDCTL_ENABLE=n`
 
 The `git` utility is required to clone the repository or you can download the source code as a [zip file](https://github.com/pmem/pmdk/archive/master.zip) directly from the [repository ](https://github.com/pmem/pmdk)on GitHub.
 
