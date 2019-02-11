@@ -1,6 +1,18 @@
 # Windows Environments
 
-## Emulating Persistent Memory NVDIMMs on Windows Server 2016
+## Windows Server 2019
+
+### Storage Spaces Direct
+
+Storage Spaces Direct has [native support for persistent memory](https://docs.microsoft.com/en-us/windows-server/storage/whats-new-in-storage#storage-spaces-direct).  ****Unlock unprecedented performance with native Storage Spaces Direct support for persistent memory modules, including Intel® Optane™ DC PM and NVDIMM-N. Use persistent memory as cache to accelerate the active working set, or as capacity to guarantee consistent low latency on the order of microseconds. Manage persistent memory just as you would any other drive in PowerShell or Windows Admin Center
+
+Microsoft demonstrated Windows Server 2019 with Intel Optane DC Persistent Memory at Microsoft Ignite 2018 - [https://www.youtube.com/watch?v=8WMXkMLJORc](https://www.youtube.com/watch?v=8WMXkMLJORc)
+
+### Hyper-V
+
+Cmdlets for configuring persistent memory devices for Hyper-V VMs - [https://docs.microsoft.com/en-us/windows-server/virtualization/hyper-v/manage/persistent-memory-cmdlets](https://docs.microsoft.com/en-us/windows-server/virtualization/hyper-v/manage/persistent-memory-cmdlets)
+
+## Windows Server 2016
 
 Step-by-step details are not available at this time. Microsoft will provide detailed documentation. See the resources listed below for information and a state of the ecosphere by Microsoft.
 

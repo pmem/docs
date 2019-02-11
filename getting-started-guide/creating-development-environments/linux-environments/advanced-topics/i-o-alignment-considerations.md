@@ -135,7 +135,7 @@ Both namespaces are 2MiB \(0x200000\) aligned since namespace0.0 starts at 0x140
 When creating filesystems using the namespaces, it’s important to maintain the 2MiB alignment \(4096 sectors\). Depending upon the VTOC type, fdisk creates 1MiB alignment \(2048 sectors\). For a non-device mapped /dev/pmem0 a partition aligned at the 2MiB boundary can be created using the following:
 
 ```text
-$ fdisk /dev/pmem0
+$ sudo fdisk /dev/pmem0
 
 Welcome to fdisk (util-linux 2.32).
 Changes will remain in memory only, until you decide to write them.
@@ -159,7 +159,7 @@ Calling ioctl() to re-read partition table.
 Syncing disks.
 
 
-$ fdisk -l /dev/pmem0
+$ sudo fdisk -l /dev/pmem0
 Disk /dev/pmem0: 4 GiB, 4223664128 bytes, 8249344 sectors
 Units: sectors of 1 * 512 = 512 bytes
 Sector size (logical/physical): 512 bytes / 4096 bytes
@@ -173,26 +173,28 @@ Device       Start     End Sectors Size Type
 
 3\) Create an XFS or EXT4 filesystem. The commands below show how this can be achieved. See the `mkfs.xfs` and `mkfs.ext4` man pages for more information.
 
-EXT4:
-
+{% tabs %}
+{% tab title="EXT4" %}
 ```text
-$ mkfs.ext4 -b 4096 -E stride=512 -F /dev/pmem0
-$ mount /dev/pmem0 /mnt/dax
+$ sudo mkfs.ext4 -b 4096 -E stride=512 -F /dev/pmem0
+$ sudo mount /dev/pmem0 /mnt/dax
 ```
+{% endtab %}
 
-XFS:
-
+{% tab title="XFS" %}
 ```text
-$ mkfs.xfs -f -d su=2m,sw=1 /dev/pmem0
-$ mount /dev/pmem0 /mnt/dax
-$ xfs_io -c "extsize 2m" /mnt/dax
+$ sudo mkfs.xfs -f -d su=2m,sw=1 /dev/pmem0
+$ sudo mount /dev/pmem0 /mnt/dax
+$ sudo xfs_io -c "extsize 2m" /mnt/dax
 ```
+{% endtab %}
+{% endtabs %}
 
 4\) \[Optional\] Watch IO allocations. Without enabling filesystem debug options, it is possible to confirm the filesystem is allocating in 2MiB blocks using FTrace:
 
 ```text
 $ cd /sys/kernel/debug/tracing
-$ echo 1 > events/fs_dax/dax_pmd_fault_done/enable
+$ sudo echo 1 > events/fs_dax/dax_pmd_fault_done/enable
 ```
 
 Run test which faults in filesystem DAX mappings, eg:
@@ -219,5 +221,5 @@ WRITE|ALLOW_RETRY|KILLABLE|USER address 0x10420000 vm_start 0x10200000 vm_end
 
 You can see that this fault resulted in a fallback to 4 KiB faults via the **FALLBACK** return code at the end of the line. The rest of the data in this line can help you determine why the fallback happened. In this example an intentional mmap\(\) smaller than 2 MiB was created. vm\_end \(0x10500000\) - vm\_start \(0x10420000\) == 0xE0000 \(896 KiB\).
 
-To disable tracing run `echo 0 > events/fs_dax/dax_pmd_fault_done/enable` .
+To disable tracing run `sudo echo 0 > events/fs_dax/dax_pmd_fault_done/enable` .
 
