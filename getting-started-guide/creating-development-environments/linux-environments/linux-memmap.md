@@ -101,7 +101,7 @@ $ sudo mount -v | grep /pmem
 
 {% tab title="XFS" %}
 ```text
-$ sudo mkfs.xfs
+$ sudo mkfs.xfs /dev/pmem0
 $ sudo mkdir /pmem
 $ sudo mount -o dax /dev/pmem0 /mnt/dax
 $ sudo mount -v | grep /pmem

@@ -4,7 +4,7 @@ Managing physical or emulated NVDIMMs using ndctl has no functional difference. 
 
 Observe the following restrictions when managing NVDIMMs
 
-* DO NOT change the memory slot of physical NVDIMMs when they are part of an Interleave Set.  Doing so changes the order of interleaving so data access will be compromised or corrupted.  If interleaving is disabled, moving NVDIMMs to slot locations is okay, but not recommended.
+* DO NOT change the memory slot of physical NVDIMMs when they are part of an Interleave Set.  Doing so changes the order of interleaving so data access will be compromised or corrupted.  If interleaving is disabled, moving NVDIMMs to different slot locations is okay, but not recommended.
 * DO NOT disable NVDIMMs when they are part of an active Region and/or Namespace as this will prevent data access and may corrupt data.
 * ALWAYS backup the data and make a copy of the configuration layout prior to any changes.
 
