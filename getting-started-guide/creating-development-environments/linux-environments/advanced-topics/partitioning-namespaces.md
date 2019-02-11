@@ -1,6 +1,6 @@
 # Partitioning Namespaces
 
-It is possible to further divide raw, sector, and fsdax devices \(namespaces\) into partitions using tools such as fdisk, parted, gparted, etc. This is useful to meet application requirements.
+It is possible to partition raw, sector, and fsdax devices \(namespaces\) using tools such as fdisk, parted, or gparted, etc. This is useful to meet application space requirements.
 
 The following shows how to partition a new namespace with no existing partition table using fdisk and parted. If an existing partition table exists, delete or modify the entries first. The example uses a 256GB FSDAX device \(namespace\) and creates 2 x 100GB and 1 x ~50GB partitions on which filesystems can be created.
 
@@ -11,7 +11,7 @@ The following shows how to partition a new namespace with no existing partition 
 Print the current partition table, if any, using `fdisk -l`:
 
 ```text
-# fdisk -l /dev/pmem0
+$ sudo fdisk -l /dev/pmem0
 Disk /dev/pmem0: 245.1 GiB, 263182090240 bytes, 514027520 sectors
 Units: sectors of 1 * 512 = 512 bytes
 Sector size (logical/physical): 512 bytes / 4096 bytes
@@ -23,7 +23,7 @@ I/O size (minimum/optimal): 4096 bytes / 4096 bytes
 1\) Launch fdisk for the device \(/dev/pmem0\)
 
 ```text
-# sudo fdisk /dev/pmem0
+$ sudo fdisk /dev/pmem0
 Welcome to fdisk (util-linux 2.32.1). Changes will remain in memory only, until you decide to write them. Be careful before using the write command.
 Device does not contain a recognized partition table. Created a new DOS disklabel with disk identifier 0xc637b85f.
 Command (m for help):
@@ -107,7 +107,7 @@ Syncing disks.
 1\) Launch parted and select the device \(/dev/pmem0\)
 
 ```text
-# parted /dev/pmem0
+$ sudo parted /dev/pmem0
 GNU Parted 3.2
 Using /dev/pmem0
 Welcome to GNU Parted! Type 'help' to view a list of commands.
@@ -186,7 +186,7 @@ $ sudo mount -v | grep /pmem1
 
 {% tab title="XFS" %}
 ```text
-$ sudo mkfs.xfs
+$ sudo mkfs.xfs /dev/pmem0p1
 $ sudo mkdir /pmem1
 $ sudo mount -o dax /dev/pmem0p1 /mnt/dax
 $ sudo mount -v | grep /pmem1
