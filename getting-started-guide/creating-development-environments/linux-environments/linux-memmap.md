@@ -123,7 +123,7 @@ When selecting values for the `memmap` kernel parameter, consideration that the 
 The following shows an example server with 16GiB of memory with "usable" memory between 4GiB \(0x100000000\) and ~16GiB \(0x3ffffffff\):
 
 ```text
-# dmesg | grep BIOS-e820
+$ dmesg | grep BIOS-e820
 [    0.000000] BIOS-e820: [mem 0x0000000000000000-0x000000000009fbff] usable
 [    0.000000] BIOS-e820: [mem 0x000000000009fc00-0x000000000009ffff] reserved
 [    0.000000] BIOS-e820: [mem 0x00000000000f0000-0x00000000000fffff] reserved
@@ -143,7 +143,7 @@ memmap=12G!4G
 After rebooting a new user defined e820 table entry shows the range is now "persistent \(type 12\)":
 
 ```text
-# dmesg | grep user:
+$ dmesg | grep user:
 [    0.000000] user: [mem 0x0000000000000000-0x000000000009fbff] usable
 [    0.000000] user: [mem 0x000000000009fc00-0x000000000009ffff] reserved
 [    0.000000] user: [mem 0x00000000000f0000-0x00000000000fffff] reserved
@@ -157,7 +157,7 @@ After rebooting a new user defined e820 table entry shows the range is now "pers
 The `fdisk` or `lsblk` utilities can be used to show the capacity, eg:
 
 ```text
-# fdisk -l /dev/pmem0 
+# sudo fdisk -l /dev/pmem0 
 Disk /dev/pmem0: 12 GiB,  12884901888 bytes, 25165824 sectors
 Units: sectors of 1 * 512 = 512 bytes
 Sector size (logical/physical): 512 bytes / 4096 bytes
@@ -165,7 +165,7 @@ I/O size (minimum/optimal): 4096 bytes / 4096 bytes
 ```
 
 ```text
-# lsblk /dev/pmem0
+$ sudo lsblk /dev/pmem0
 NAME  MAJ:MIN RM SIZE RO TYPE MOUNTPOINT
 pmem0 259:0    0  12G  0 disk /pmem
 ```
