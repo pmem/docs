@@ -60,10 +60,6 @@ $ sudo pkg install autoconf automake bash coreutils doxygen e2fsprogs-libuuid gr
 
 \(\*\) The pkg version of ncurses is required for proper operation; the base version included in FreeBSD is not sufficient.
 {% endtab %}
-
-{% tab title="Windows" %}
-Refer to '[Installing PMDK on Windows](installing-pmdk-on-windows.md)'.
-{% endtab %}
 {% endtabs %}
 
 The `git` utility is required to clone the repository or you can download the source code as a [zip file](https://github.com/pmem/pmdk/archive/master.zip) directly from the [repository ](https://github.com/pmem/pmdk)on GitHub.
@@ -158,10 +154,6 @@ $ export PKG_CONFIG_PATH=/usr/local/lib64/pkgconfig:/usr/local/lib/pkgconfig:/us
 Now execute the `make` command again.
 {% endhint %}
 {% endtab %}
-
-{% tab title="Windows" %}
-Refer to '[Installing PMDK on Windows](installing-pmdk-on-windows.md)'.
-{% endtab %}
 {% endtabs %}
 
 ## Install
@@ -190,10 +182,6 @@ export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/local/lib:/usr/local/lib64
 ```
 
 Otherwise add to the users profile or .bashrc \(or the users shell equivalent environment file\)
-{% endtab %}
-
-{% tab title="Windows" %}
-Refer to '[Installing PMDK on Windows](installing-pmdk-on-windows.md)'.
 {% endtab %}
 {% endtabs %}
 
