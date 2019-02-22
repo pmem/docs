@@ -97,10 +97,10 @@ $ sudo apt-get install ndctl
 
 {% tab title="Debian" %}
 {% hint style="info" %}
-The ndctl package is currently in testing and is not available in the master repository.  See [https://tracker.debian.org/pkg/ndctl](https://tracker.debian.org/pkg/ndctl) for up to date information.
+The ndctl package is currently in testing and is not available in the master repository. See [https://tracker.debian.org/pkg/ndctl](https://tracker.debian.org/pkg/ndctl) for up to date information.
 {% endhint %}
 
-1\) Enable the 'testing' repository using these instructions - [https://wiki.debian.org/DebianTesting](https://wiki.debian.org/DebianTesting).  Do this at your own risk!
+1\) Enable the 'testing' repository using these instructions - [https://wiki.debian.org/DebianTesting](https://wiki.debian.org/DebianTesting). Do this at your own risk!
 
 2\) Query the repository to identify if ndctl is delivered using either the aptitude, apt-cache, or apt utilities
 
@@ -190,7 +190,7 @@ sudo dnf install -y git gcc gcc-c++ autoconf automake asciidoc asciidoctor xmlto
 {% endtab %}
 
 {% tab title="RHEL & CentOS" %}
-Some of the required packages can be found in the EPEL repository.  Verify the EPEL repository is active:
+Some of the required packages can be found in the EPEL repository. Verify the EPEL repository is active:
 
 ```text
 $ yum repolist
@@ -205,7 +205,7 @@ $ sudo yum -y install epel-release
 Install the required packages
 
 ```text
-$ sudo yum install -y git gcc gcc-c++ autoconf automake asciidoc asciidoctor bash-completion xmlto libtool pkg-config glib2 glib2-devel libfabric libfabric-devel doxygen graphviz pandoc ncurses kmod kmod-devel libudev-devel libuuid-devel json-c-devel rubygem-asciidoctor 
+$ sudo yum install -y git gcc gcc-c++ autoconf automake asciidoc asciidoctor bash-completion xmlto libtool pkg-config glib2 glib2-devel libfabric libfabric-devel doxygen graphviz pandoc ncurses kmod kmod-devel libudev-devel libuuid-devel json-c-devel rubygem-asciidoctor
 ```
 {% endtab %}
 
@@ -232,14 +232,14 @@ $ git config --global http.proxy http://proxyUsername:proxyPassword@proxy.server
 $ git config --global https.proxy https://proxyUsername:proxyPassword@proxy.server.com:port
 ```
 
-    2. Create a working directory to clone the ndctl GitHub repository to, eg: 'downloads'
+1. Create a working directory to clone the ndctl GitHub repository to, eg: 'downloads'
 
 ```text
 $ sudo mkdir /downloads
 $ sudo chmod +w /downloads
 ```
 
-    3. Clone the repository:
+1. Clone the repository:
 
 ```text
 $ cd /downloads
@@ -313,7 +313,8 @@ __ndctl_test_skip: explicit skip test_libndctl:2684
 nfit_test unavailable skipping tests
 ```
 
-If the unit test modules are indeed available in the modules 'extra' directory the default depmod policy can be overridden by adding a file to /etc/depmod.d with the following contents:  
+If the unit test modules are indeed available in the modules 'extra' directory the default depmod policy can be overridden by adding a file to /etc/depmod.d with the following contents:
+
 ```text
 override nfit * extra
 override device_dax * extra

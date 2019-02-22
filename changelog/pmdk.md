@@ -10,6 +10,83 @@ This changelog uses the following conventions
 * Changes are prefixed with a tag denoting the area, if any, they relate to.  For example: 'doc' \(documentation\), 'obj' \(libpmemobj\), 'pool' \(libpmempool\), etc
 * Bugs and new features may link to [PMDK issue repository](https://github.com/pmem/issues/issues) using '\(\#nnn\)' or external bug repositories such as the Red Hat Bugzilla \(RHBZ\).
 
+## Version 1.5.1
+
+Tue Feb 19 2018 Marcin Ślusarz &lt;marcin.slusarz@intel.com&gt;
+
+This release fixes minor bugs and improves compatibility with newer tool chains.
+
+**Notable bug fixes:**
+
+* common: make detection of device-dax instances more robust
+* obj: fix pmemobj\_check for pools with some sizes
+* obj: don't use anon struct in an union \(public header\)
+* obj: fix pmemobj\_tx\_lock error handling
+* obj: don't use braces in an expression with clang \(public header\)
+* obj: suppress pmemcheck warnings for statistics
+* pmreorder: fix markers nontype issue
+
+## Version 1.5
+
+Fri Oct 26 2018 Marcin Ślusarz &lt;marcin.slusarz@intel.com&gt;
+
+This release has had two major focus areas - performance and RAS \(Reliability, Availability and Serviceability\). Beyond that, it introduces new APIs, new tools and many other improvements. As a side effect of performance optimizations, the libpmemobj on-media layout had to be changed, which means that old pools have to be converted using pmdk-convert. libpmemcto experiment has been finished and removed from the tree.
+
+For more details, please see [http://pmem.io/2018/10/22/release-1-5.html](http://pmem.io/2018/10/22/release-1-5.html).
+
+**New features:**
+
+* common: unsafe shutdown detection \(SDS\)
+* common: detection and repair of uncorrectable memory errors \(bad blocks\)
+* pool: new "feature" subcommand for enabling and disabling detection of
+
+  unsafe shutdown and uncorrectable memory errors
+
+* common: auto flush detection on Windows \(on Linux since 1.4\)
+* pmreorder: new tool for verification of persistent memory algorithms
+* obj: new on media layout
+* pmem/obj: new flexible memcpy\|memmove\|memset API
+* obj: new flushing APIs: pmemobj\_xpersist, pmemobj\_xflush
+
+  \(PMEMOBJ\_F\_RELAXED\)
+
+* rpmem: new flag RPMEM\_PERSIST\_RELAXED for rpmem\_persist
+* obj: lazily initialized volatile variables \(pmemobj\_volatile\)
+
+  \(EXPERIMENTAL\)
+
+* obj: allocation classes with alignment
+* obj: new action APIs: pmemobj\_defer\_free, POBJ\_XRESERVE\_NEW,
+
+  POBJ\_XRESERVE\_ALLOC
+
+* blk/log: new "ctl" API
+
+**Optimizations:**
+
+* obj: major performance improvements for AEP NVDIMMs
+* obj: better space utilization for small allocations
+* common: call msync only on one page for deep drain
+
+**Other changes:**
+
+* cto: removed
+* obj: remove actions limit
+* common: new dependency on libndctl on Linux
+* pmempool: "convert" subcommand is now a wrapper around pmdk-convert
+
+  \(please see [https://github.com/pmem/pmdk-convert](https://github.com/pmem/pmdk-convert)\)
+
+* obj: C++ bindings have been moved to a new repository \(please see [https://github.com/pmem/libpmemobj-cpp](https://github.com/pmem/libpmemobj-cpp)\)
+
+**Bug fixes:**
+
+* obj: fix type numbers for pmemobj\_list\_insert\_new
+* pmem: fix inconsistency in pmem\_is\_pmem
+* common: fix windows mmap destruction
+* daxio: fix checking and adjusting length
+* common: fix long paths support on Windows
+
 ## Version 1.4
 
 Thu Mar 29 2018 Krzysztof Czurylo &lt;krzysztof.czurylo@intel.com&gt;

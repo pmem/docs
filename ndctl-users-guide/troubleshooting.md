@@ -99,6 +99,7 @@ The message indicates there's at least one active/enabled Region and/or Namespac
 All active/enabled Regions and Namespaces must be destroyed an/or disabled prior to disabling the dimm.
 
 1\) List the current configuration:
+
 ```text
 # ndctl list -NRD
 ```

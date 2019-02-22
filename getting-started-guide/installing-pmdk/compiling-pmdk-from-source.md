@@ -48,20 +48,14 @@ The `git` utility is required to clone the repository or you can download the so
 
 A C/C++ Compiler is required. GCC/G++ will be used in this documentation but you may use a different compiler then set the `CC` and `CXX` shell environments accordingly.
 
-{% tabs %}
-{% tab title="Fedora" %}
 ```text
 $ sudo dnf install gcc gcc-c++
 ```
-{% endtab %}
 
-{% tab title="Ubuntu & Debian" %}
 ```text
 $ sudo apt install gcc g++
 ```
-{% endtab %}
 
-{% tab title="FreeBSD" %}
 To build and test the PMDK library on FreeBSD, you may need to install the following required packages on the build system:
 
 * autoconf
@@ -91,17 +85,15 @@ A C/C++ Compiler is required. GCC/G++ will be used in this documentation but you
 ```text
 $ sudo pkg install gcc gcc-c++
 ```
-{% endtab %}
 
-{% tab title="Windows" %}
+
+
 To build PMDK and run the tests you need:
 
 * **MS Visual Studio 2015** or later
 * [Windows SDK 10.0.16299.15](https://developer.microsoft.com/en-us/windows/downloads/windows-10-sdk) or later
 * **perl** \(i.e. [ActivePerl](http://www.activestate.com/activeperl/downloads)\)
 * **PowerShell 5** or later
-{% endtab %}
-{% endtabs %}
 
 ## Clone the PMDK GitHub Repository
 
@@ -145,7 +137,7 @@ $ make CC=clang CXX=clang++
 These variables are independent and setting `CC=clang` does not set `CXX=clang++`.
 
 {% hint style="info" %}
-If the `make` command returns an error similar to the following, this is caused by pkg-config being unable to find the required "libndctl.pc" file.  
+If the `make` command returns an error similar to the following, this is caused by pkg-config being unable to find the required "libndctl.pc" file.
 
 ```text
 $ make
@@ -162,7 +154,7 @@ The pkg-config program is used to retrieve information about installed libraries
 
 To check the PKG\_CONFIG\_PATH value use this command:
 
-`$ echo $PKG_CONFIG_PATH` 
+`$ echo $PKG_CONFIG_PATH`
 
 To set the PKG\_CONFIG\_PATH value use:
 

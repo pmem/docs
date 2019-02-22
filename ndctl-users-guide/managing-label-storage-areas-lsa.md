@@ -474,7 +474,7 @@ To erase labels on multiple devices, use:
 $ ndctl zero-labels nmem0 nmem2 nmem3
 ```
 
-5\) Enable the region(s).  After initializing the labels, the region(s) may not be brought online automatically.  List the active and disabled regions:
+5\) Enable the region\(s\). After initializing the labels, the region\(s\) may not be brought online automatically. List the active and disabled regions:
 
 ```text
 # ndctl list -iR
