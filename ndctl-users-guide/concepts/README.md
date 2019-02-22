@@ -8,11 +8,11 @@ This section describes the basic concepts when configuring and managing NVDIMMs.
 
 **Region:** a grouping of one or more NVDIMMs, or an interleaved set, that can be divided up into one or more Namespaces. Regions are created within interleaved sets.
 
-**Label Storage Area \(LSA\):** Namespaces are defined by Labels which are stored in the Label Storage Area\(s\)
+**Label Storage Area \(LSA\):** Namespaces are defined by Labels which are stored in the Label Storage Area\(s\).
 
 **Namespace:** defines a contiguously-addressed range of Non-Volatile Memory conceptually similar to a hard disk partition, SCSI Logical Unit \(LUN\), or an NVM Express namespace. It is the unit of persistent memory storage that appears in /dev as a device usable for I/O.
 
-**Type:** defines the way in which the persistent memory associated with a Namespace or Region can be accessed. Valid Types are PMEM and BLK
+**Type:** defines the way in which the persistent memory associated with a Namespace or Region can be accessed. Valid Types are PMEM and BLK:
 
 * **PMEM:** Direct access to the media via load/store operations. DAX Supported.
 * **BLK:** Direct access to the media via Apertures \(sliding memory windows\). DAX is not supported.

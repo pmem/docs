@@ -2,7 +2,7 @@
 
 The namespace label area is a small persistent partition of capacity available on some NVDIMM devices. The label area is used to store the definition of any NVDIMM namespaces.
 
-The labels on the NVDIMMs cannot be edited directly. Changing the configuration can be achieved using the ndctl **create** or **destroy** commands. See [Managing Namespaces](managing-namespaces.md) and [Managing Regions](managing-regions.md). Ndctl provides several label related commands shown below:
+The labels on the NVDIMMs cannot be edited directly. Changing the configuration can be achieved using the ndctl **create** or **destroy** commands. See [Managing Namespaces](managing-namespaces.md) and [Managing Regions](managing-regions.md). `ndctl` provides several label related commands shown below:
 
 * [check-labels](managing-label-storage-areas-lsa.md#checking-labels) - determine if the given dimm\(s\) have a valid namespace index block
 * [init-labels](managing-label-storage-areas-lsa.md#initializing-labels) - initialize the label data area on a dimm or set of dimms
@@ -67,7 +67,7 @@ To check the labels on all devices:
 # ndctl check-labels all
 ```
 
-To display more information, if available, use the -v option:
+To display more information, if available, use the `-v` option:
 
 ```text
 # ndctl check-labels nmem3 -v
@@ -202,7 +202,7 @@ nmem2: regions active, abort label write
 # ndctl init-labels nmem2 nmem3
 ```
 
-If the init-labels command returns "error: labels already initialized", use the `-f, --force` option
+If the `init-labels` command returns "error: labels already initialized", use the `-f`, `--force` option.
 
 5\) Enable the region\(s\). After initializing the labels, the region\(s\) may not be brought online automatically. List the active and disabled regions:
 
@@ -351,7 +351,7 @@ $ ndctl read-labels nmem0 -o nmem0.label.backup.raw
 $ ndctl write-labels nmem1 -i nmem0.label.backup.raw
 ```
 
-The above can read-label raw output can be piped directly to the write-label command using:
+The above read-label raw output can be piped directly to the write-label command using:
 
 ```text
 $ ndctl read-labels nmem0 | ndctl write-labels nmem1
@@ -471,8 +471,10 @@ $ ndctl zero-labels nmem0
 To erase labels on multiple devices, use:
 
 ```text
-$ ndctl zero-labels nmem0 nmem2 nmem35) Enable the region(s).  After initializing the labels, the region(s) may not be brought online automatically.  List the active and disabled regions:
+$ ndctl zero-labels nmem0 nmem2 nmem3
 ```
+
+5\) Enable the region(s).  After initializing the labels, the region(s) may not be brought online automatically.  List the active and disabled regions:
 
 ```text
 # ndctl list -iR

@@ -1,6 +1,6 @@
 # Managing NVDIMMs
 
-Managing physical or emulated NVDIMMs using ndctl has no functional difference. Physical NVDIMM features and options may be controlled through the system BIOS. The BIOS cannot see emulated NVDIMMs.
+Managing physical or emulated NVDIMMs using `ndctl` has no functional difference. Physical NVDIMM features and options may be controlled through the system BIOS. The BIOS cannot see emulated NVDIMMs.
 
 Observe the following restrictions when managing NVDIMMs
 
@@ -24,7 +24,7 @@ The `ndct list -D` , or equivalent `ndct list --dimm` , can be used to show acti
 
 ## Listing disabled/inactive NVDIMMs
 
-By default, ndctl only lists enabled/active dimms, regions, and namespaces. To include previously disabled \(inactive\) NVDIMMs, include the `-i` flag to show both enabled and disabled devices, eg:
+By default, `ndctl` only lists enabled/active dimms, regions, and namespaces. To include previously disabled \(inactive\) NVDIMMs, include the `-i` flag to show both enabled and disabled devices, eg:
 
 ```text
 # ndctl list -Di

@@ -1,12 +1,12 @@
 # Troubleshooting
 
-The ndctl utility is designed to be user friendly and informative. This section describes some of the common messages seen when using ndctl.
+The `ndctl` utility is designed to be user friendly and informative. This section describes some of the common messages seen when using `ndctl`.
 
 ## "DAX unsupported by block device. Turning off DAX."
 
 **Issue:**
 
-During system boot or mounting of an EXT4 or XFS filesystem, the following message may be seen in dmesg
+During system boot or mounting of an EXT4 or XFS filesystem, the following message may be seen in dmesg:
 
 ```text
 [125.755367] XFS (pmem0): DAX enabled. Warning: EXPERIMENTAL, use at your own risk
@@ -98,17 +98,18 @@ The message indicates there's at least one active/enabled Region and/or Namespac
 
 All active/enabled Regions and Namespaces must be destroyed an/or disabled prior to disabling the dimm.
 
-1\) List the current configuration
+1\) List the current configuration:
+```text
+# ndctl list -NRD
+```
 
-ndctl list -NRD
+2\) Verify no fsdax or devdax namespaces are mounted or in-use by running applications.
 
-2\) Verify no fsdax or devdax namespaces are mounted or in-use by running applications
+3\) Destroy or disable the namespace\(s\).
 
-3\) Destroy or disable the namespace\(s\)
+4\) Disable the regions used by the NVDIMM \(nmem\) that needs to be disabled.
 
-4\) Disable the regions used by the NVDIMM \(nmem\) that needs to be disabled
-
-5\) Disable the NVDIMM \(nmem\)
+5\) Disable the NVDIMM \(nmem\).
 
 ## "ndctl: error while loading shared libraries: libjson-c.so.2: cannot open shared object file: No such file or directory"
 
@@ -129,7 +130,7 @@ The issue could be caused by one of the following issues:
 * A version mis-match between the `json-c` and `ndctl`.  More recent versions of json-c deliver `libjson-c.so.4` rather than `libjson-c.so.2`. 
 * The json-c library is installed in a non-default location and the LD\_LIBRARY\_PATH environment variable needs to be updated.
 
-Verify which libraries are missing from ndctl using the ldd utility and identifying libraries that are 'not found':
+Verify which libraries are missing from `ndctl` using the `ldd` utility and identifying libraries that are 'not found':
 
 ```text
 # ldd `which ndctl`
@@ -204,7 +205,7 @@ Verify the LD\_LIBRARY\_PATH includes the location of libjson-c.so.\*. Note: `/u
 
 If the package and LD\_LIBRARY\_PATH are correct, the version of ndctl will need to be updated. Using `ndctl --version` won't work and will simply return "_ndctl: error while loading shared libraries: libjson-c.so.2: cannot open shared object file: No such file or directory_".
 
-If the ndctl utility was installed using the ndctl package from the operating system's repository, update the package to the latest version. On Fedora:
+If the `ndctl` utility was installed using the ndctl package from the operating system's repository, update the package to the latest version. On Fedora:
 
 ```text
 # sudo dnf update -y ndctl
@@ -212,7 +213,7 @@ If the ndctl utility was installed using the ndctl package from the operating sy
 
 If the latest version within the package repository is old with no new versions available, download, compile, and install from source code. Detailed instructions can be found in the [Installing NDCTL](../getting-started-guide/installing-ndctl.md) chapter.
 
-If the ndctl utility was previously compiled and installed using source code, download the latest version from the [ndctl GitHub repository](https://github.com/pmem/ndctl), compile, and install. Detailed instructions can be found in the [Installing NDCTL](../getting-started-guide/installing-ndctl.md) chapter.
+If the `ndctl` utility was previously compiled and installed using source code, download the latest version from the [ndctl GitHub repository](https://github.com/pmem/ndctl), compile, and install. Detailed instructions can be found in the [Installing NDCTL](../getting-started-guide/installing-ndctl.md) chapter.
 
 ## Error: namespace0.0 is active, specify --force for re-configuration
 
@@ -263,9 +264,9 @@ If the namespace mode is 'devdax', verify any application using the device is st
 The 'fuser' command on Linux can be used to identify any running processes with the /dev/dax\* or /dev/pmem\* devices open.
 {% endhint %}
 
-2\) Either disable the namespace prior to deleting it or changing the mode or use the -f, --force options to override the active status checks.
+2\) Either disable the namespace prior to deleting it or changing the mode or use the `-f`, `--force` options to override the active status checks.
 
-To change the mode of an active namespace without disabling it first, use the -f, --force option:
+To change the mode of an active namespace without disabling it first, use the `-f`, `--force` option:
 
 ```text
 # ndctl create-namespace -f -e namespace0.0 -m fsdax
@@ -282,7 +283,7 @@ To change the mode of an active namespace without disabling it first, use the -f
 }
 ```
 
-To delete a namespace without disabling it first, use the -f, --force option:
+To delete a namespace without disabling it first, use the `-f`, `--force` option:
 
 ```text
 # ndctl destroy-namespace -f namespace0.0
@@ -361,12 +362,12 @@ failed to create namespace: Resource temporarily unavailable
 There are many potential causes including:
 
 * There's no available capacity within the region because one or more namespaces exist and have consumed all the space.
-* The region is disabled
-* There's an issue with the labels for the NVDIMMs belonging to the region
+* The region is disabled.
+* There's an issue with the labels for the NVDIMMs belonging to the region.
 
 **Solution:**
 
-Use the -v option to print more information to help identify the cause. A debug version of ndctl may be required to get useful information. See [Installing NDCTL](../getting-started-guide/installing-ndctl.md) for instructions to build ndctl with debug options from source code.
+Use the `-v` option to print more information to help identify the cause. A debug version of `ndctl` may be required to get useful information. See [Installing NDCTL](../getting-started-guide/installing-ndctl.md) for instructions to build `ndctl` with debug options from source code.
 
 For a scenario where there's no space left within the region, a message similar to the following will be shown:
 
