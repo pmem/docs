@@ -12,6 +12,12 @@ Microsoft demonstrated Windows Server 2019 with Intel Optane DC Persistent Memor
 
 Cmdlets for configuring persistent memory devices for Hyper-V VMs - [https://docs.microsoft.com/en-us/windows-server/virtualization/hyper-v/manage/persistent-memory-cmdlets](https://docs.microsoft.com/en-us/windows-server/virtualization/hyper-v/manage/persistent-memory-cmdlets)
 
+Dell has published step-by-step guides for provisioning NVDIMMs within Windows Server 2019 for use with Hyper-V Guest OS's:
+
+{% embed url="https://www.dell.com/support/article/us/en/19/how16843/configuring-nvdimm-n-on-poweredge-servers-with-windows-server-2019?lang=en" %}
+
+{% embed url="https://www.dell.com/support/article/us/en/19/how16794/how-to-configure-persistent-memory-nvdimm-on-windows-server-2019-guest-os?lang=en" %}
+
 ## Windows Server 2016
 
 Step-by-step details are not available at this time. Microsoft will provide detailed documentation. See the resources listed below for information and a state of the ecosphere by Microsoft.

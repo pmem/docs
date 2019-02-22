@@ -14,6 +14,7 @@
         * [I/O Alignment Considerations](getting-started-guide/creating-development-environments/linux-environments/advanced-topics/i-o-alignment-considerations.md)
     * [Windows Environments](getting-started-guide/creating-development-environments/windows-environments.md)
     * [Virtualization](getting-started-guide/creating-development-environments/virtualization/README.md)
+      * [Windows Server Hyper-V](getting-started-guide/creating-development-environments/virtualization/windows-server-hyper-v.md)
       * [Using QEMU Virtualization](getting-started-guide/creating-development-environments/virtualization/qemu.md)
       * [VMware VSphere/ESXi](getting-started-guide/creating-development-environments/virtualization/vmware-vsphere-esxi.md)
     * [Cloud Environments](getting-started-guide/creating-development-environments/cloud-environments/README.md)
