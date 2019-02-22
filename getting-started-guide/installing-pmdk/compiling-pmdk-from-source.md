@@ -36,26 +36,8 @@ $ sudo dnf install autoconf automake pkg-config glib2 glib2-devel libfabric libf
 $ sudo apt install autoconf automake pkg-config libglib2.0-0 libglib2.0-dev libfabric1 libfabric-dev doxygen graphviz pandoc libncurses5
 ```
 {% endtab %}
-{% endtabs %}
 
-The following packages are required only by selected PMDK components or features. If not present, those components or features may not be available:
-
-* **libfabric** \(v1.4.2 or later\) -- required by **librpmem**
-* **libndctl** and **libdaxctl** \(v60.1 or later\) -- required by **daxio** and RAS features.  See [Installing NDCTL](../installing-ndctl.md)
-  * To build pmdk without ndctl support, set 'NDCTL\_ENABLE=n' using: `$ export NDCTL_ENABLE=n`
-
-The `git` utility is required to clone the repository or you can download the source code as a [zip file](https://github.com/pmem/pmdk/archive/master.zip) directly from the [repository ](https://github.com/pmem/pmdk)on GitHub.
-
-A C/C++ Compiler is required. GCC/G++ will be used in this documentation but you may use a different compiler then set the `CC` and `CXX` shell environments accordingly.
-
-```text
-$ sudo dnf install gcc gcc-c++
-```
-
-```text
-$ sudo apt install gcc g++
-```
-
+{% tab title="FreeBSD" %}
 To build and test the PMDK library on FreeBSD, you may need to install the following required packages on the build system:
 
 * autoconf
@@ -77,23 +59,34 @@ $ sudo pkg install autoconf automake bash coreutils doxygen e2fsprogs-libuuid gr
 ```
 
 \(\*\) The pkg version of ncurses is required for proper operation; the base version included in FreeBSD is not sufficient.
+{% endtab %}
 
-The git utility is required to clone the repository or you can download the source code as a [zip ](https://github.com/pmem/pmdk/archive/master.zip)file directly from the [repository ](https://github.com/pmem/pmdk)on GitHub.
+{% tab title="Windows" %}
+Refer to '[Installing PMDK on Windows](installing-pmdk-on-windows.md)'.
+{% endtab %}
+{% endtabs %}
+
+The `git` utility is required to clone the repository or you can download the source code as a [zip file](https://github.com/pmem/pmdk/archive/master.zip) directly from the [repository ](https://github.com/pmem/pmdk)on GitHub.
+
+### Optional Prerequisites
+
+The following packages are required only by selected PMDK components or features. If not present, those components or features may not be available:
+
+* **libfabric** \(v1.4.2 or later\) -- required by **librpmem**
+* **libndctl** and **libdaxctl** \(v60.1 or later\) -- required by **daxio** and RAS features.  See [Installing NDCTL](../installing-ndctl.md)
+  * To build pmdk without ndctl support, set 'NDCTL\_ENABLE=n' using: `$ export NDCTL_ENABLE=n`
+
+### Compiler Requirements
 
 A C/C++ Compiler is required. GCC/G++ will be used in this documentation but you may use a different compiler then set the `CC` and `CXX` shell environments accordingly.
 
 ```text
-$ sudo pkg install gcc gcc-c++
+$ sudo dnf install gcc gcc-c++
 ```
 
-
-
-To build PMDK and run the tests you need:
-
-* **MS Visual Studio 2015** or later
-* [Windows SDK 10.0.16299.15](https://developer.microsoft.com/en-us/windows/downloads/windows-10-sdk) or later
-* **perl** \(i.e. [ActivePerl](http://www.activestate.com/activeperl/downloads)\)
-* **PowerShell 5** or later
+```text
+$ sudo apt install gcc g++
+```
 
 ## Clone the PMDK GitHub Repository
 
@@ -165,9 +158,11 @@ $ export PKG_CONFIG_PATH=/usr/local/lib64/pkgconfig:/usr/local/lib/pkgconfig:/us
 Now execute the `make` command again.
 {% endhint %}
 {% endtab %}
-{% endtabs %}
 
-Once the make completes, all the libraries are built along with the examples under `src/examples`. You can experiment with the library within the build tree, or install it locally on your machine.
+{% tab title="Windows" %}
+Refer to '[Installing PMDK on Windows](installing-pmdk-on-windows.md)'.
+{% endtab %}
+{% endtabs %}
 
 ## Install
 
@@ -195,6 +190,10 @@ export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/local/lib:/usr/local/lib64
 ```
 
 Otherwise add to the users profile or .bashrc \(or the users shell equivalent environment file\)
+{% endtab %}
+
+{% tab title="Windows" %}
+Refer to '[Installing PMDK on Windows](installing-pmdk-on-windows.md)'.
 {% endtab %}
 {% endtabs %}
 
