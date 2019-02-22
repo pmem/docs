@@ -17,14 +17,17 @@ See [Installing NDCTL](../getting-started-guide/installing-ndctl.md) in the [Get
 
 The `ndctl` command is designed to be user friendly. Once installed, a list of commands can be shown using any of the following:
 
-1\) With no arguments or options, `ndctl` lists available commands in rows and columns:
+1\) With no arguments or options, `ndctl` shows a simple usage message:
 
 ```text
 # ndctl
-check-labels        disable-dimm        enable-namespace    inject-error        start-scrub         write-labels
-check-namespace     disable-namespace   enable-region       inject-smart        update-firmware     zero-labels
-create-namespace    disable-region      help                list                version
-destroy-namespace   enable-dimm         init-labels         read-labels         wait-scrub
+
+ usage: ndctl [--version] [--help] COMMAND [ARGS]
+
+
+ See 'ndctl help COMMAND' for more information on a specific command.
+ ndctl --list-cmds to see all available commands
+
 ```
 
 2\) Using `ndctl help` displays basic help and syntax:
@@ -62,7 +65,15 @@ update-firmware
 inject-smart
 wait-scrub
 start-scrub
+setup-passphrase
+update-passphrase
+remove-passphrase
+freeze-security
+sanitize-dimm
+load-keys
+wait-overwrite
 list
+monitor
 help
 ```
 
@@ -103,12 +114,20 @@ ndctl-init-labels (1) - initialize the label data area on a dimm or set of dimms
 ndctl-inject-error (1) - inject media errors at a namespace offset
 ndctl-inject-smart (1) - perform smart threshold/injection operations on a DIMM
 ndctl-list (1)       - dump the platform nvdimm device topology and attributes in json
+ndctl-monitor (1)    - Monitor the smart events of nvdimm objects
 ndctl-read-labels (1) - read out the label area on a dimm or set of dimms
 ndctl-start-scrub (1) - start an Address Range Scrub (ARS) operation
 ndctl-update-firmware (1) - provides for updating the firmware on an NVDIMM
 ndctl-wait-scrub (1) - wait for an Address Range Scrub (ARS) operation to complete
 ndctl-write-labels (1) - write data to the label area on a dimm
 ndctl-zero-labels (1) - zero out the label area on a dimm or set of dimms
+ndctl-freeze-security (1) - Set the given DIMM(s) to reject future security operations
+ndctl-load-keys (1)  - load the kek and encrypted passphrases into the keyring
+ndctl-remove-passphrase (1) - Stop a DIMM from locking at power-loss and requiring a passphrase to access media
+ndctl-sanitize-dimm (1) - Perform a cryptographic destruction or overwrite of the contents of the given NVDIMM(s)
+ndctl-setup-passphrase (1) - setup and enable the security passphrase for an NVDIMM
+ndctl-update-passphrase (1) - update the security passphrase for an NVDIMM
+ndctl-wait-overwrite (1) - wait for an overwrite operation to complete
 ```
 
 Additionally, executing `ndctl help <command>` can be used to display the man page for the command, eg:
