@@ -2,9 +2,9 @@
 
 The recommended and easiest way to install PMDK on Windows is to use a Microsoft vcpkg. Vcpkg is an open source tool and ecosystem created for libraries management. PMDK requires following:
 
-* MS Visual Studio 2015 or later
-* Windows SDK 10.0.16299.15 or later
-* perl \(i.e. ActivePerl\)
+* [MS Visual Studio 2015](https://visualstudio.microsoft.com/) or later
+* [Windows SDK 10.0.16299.15 ](https://developer.microsoft.com/en-us/windows/downloads/windows-10-sdk)or later
+* perl \(i.e. [ActivePerl ](https://www.activestate.com/products/activeperl/)or [StrawberryPerl](http://strawberryperl.com/)\)
 * PowerShell 5 or later
 
 To install the latest PMDK release and link it to your Visual Studio solution at first you need to clone and set up vcpkg on your machine as described on the [vcpkg github page](https://github.com/Microsoft/vcpkg) in **Quick Start** section. Run the following within the powershell:
