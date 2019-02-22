@@ -40,6 +40,7 @@
   * [Managing Regions](ndctl-users-guide/managing-regions.md)
   * [Managing Label Storage Areas \(LSA\)](ndctl-users-guide/managing-label-storage-areas-lsa.md)
   * [Managing Namespaces](ndctl-users-guide/managing-namespaces.md)
+  * [Managing NVDIMM Security](ndctl-users-guide/managing-nvdimm-security.md)
   * [NDCTL Man Pages](ndctl-users-guide/man-pages.md)
   * [Troubleshooting](ndctl-users-guide/troubleshooting.md)
   * [Glossary](ndctl-users-guide/glossary.md)

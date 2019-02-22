@@ -212,3 +212,37 @@ To list all active/enabled and disabled/inactive \(idle\) NVDIMMs, Regions, and 
 # ndctl list -iNuRD
 ```
 
+## Displaying Platform and NVDIMM Feature Support
+
+Different server platforms, operating system distributions, kernel versions, and ndctl versions provide a variety of features.  To list the available features for the current platform, run:
+
+```text
+$ sudo ipmctl show -a -system -capabilities
+
+PlatformConfigSupported=1
+Alignment=1.0 GiB
+AllowedVolatileMode=Memory Mode
+CurrentVolatileMode=1LM
+AllowedAppDirectMode=App Direct
+ModesSupported=1LM, Memory Mode, App Direct
+MinNamespaceSize=1.0 GiB
+AppDirectMirrorSupported=0
+DimmSpareSupported=0
+AppDirectMigrationSupported=0
+RenameNamespaceSupported=1
+GrowAppDirectNamespaceSupported=0
+ShrinkAppDirectNamespaceSupported=0
+InitiateScrubSupported=0
+AdrSupported=1
+EraseDeviceDataSupported=0
+EnableDeviceSecuritySupported=0
+DisableDeviceSecuritySupported=1
+UnlockDeviceSecuritySupported=0
+FreezeDeviceSecuritySupported=0
+ChangeDevicePassphraseSupported=0
+ChangeMasterPassphraseSupported=1
+MasterEraseDeviceDataSupported=0
+SupportedAppDirectSettings=x1 (ByOne), x2 - 4KB iMC x 4KB Channel (4KB_4KB), x3 - 4KB iMC x 4KB Channel (4KB_4KB), x4 - 4KB iMC x 4KB Channel (4KB_4KB), x6 - 4KB iMC x 4KB Channel (4KB_4KB)
+RecommendedAppDirectSettings=x1 (ByOne), x2 - 4KB iMC x 4KB Channel (4KB_4KB), x3 - 4KB iMC x 4KB Channel (4KB_4KB), x4 - 4KB iMC x 4KB Channel (4KB_4KB), x6 - 4KB iMC x 4KB Channel (4KB_4KB)
+```
+
