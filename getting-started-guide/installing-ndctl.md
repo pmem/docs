@@ -159,6 +159,7 @@ To successfully compile ndctl from source with documentation, the following pack
 * glib2-devel 
 * graphviz 
 * json-c-devel
+* keyutils-libs-devel \(libkeyutils-dev\)
 * kmod 
 * kmod-devel 
 * libfabric 
@@ -179,13 +180,13 @@ To install these prerequisites, use:
 Fedora 21 or earlier
 
 ```text
-sudo yum install -y git gcc gcc-c++ autoconf automake asciidoc asciidoctor xmlto libtool pkg-config glib2 glib2-devel libfabric libfabric-devel doxygen graphviz pandoc ncurses kmod kmod-devel libudev-devel libuuid-devel json-c-devel
+sudo yum install -y git gcc gcc-c++ autoconf automake asciidoc asciidoctor xmlto libtool pkg-config glib2 glib2-devel libfabric libfabric-devel doxygen graphviz pandoc ncurses kmod kmod-devel libudev-devel libuuid-devel json-c-devel keyutils-libs-devel
 ```
 
 Fedora 22 or later
 
 ```text
-sudo dnf install -y git gcc gcc-c++ autoconf automake asciidoc asciidoctor xmlto libtool pkg-config glib2 glib2-devel libfabric libfabric-devel doxygen graphviz pandoc ncurses kmod kmod-devel libudev-devel libuuid-devel json-c-devel
+sudo dnf install -y git gcc gcc-c++ autoconf automake asciidoc asciidoctor xmlto libtool pkg-config glib2 glib2-devel libfabric libfabric-devel doxygen graphviz pandoc ncurses kmod kmod-devel libudev-devel libuuid-devel json-c-devel keyutils-libs-devel
 ```
 {% endtab %}
 
@@ -205,19 +206,19 @@ $ sudo yum -y install epel-release
 Install the required packages
 
 ```text
-$ sudo yum install -y git gcc gcc-c++ autoconf automake asciidoc asciidoctor bash-completion xmlto libtool pkg-config glib2 glib2-devel libfabric libfabric-devel doxygen graphviz pandoc ncurses kmod kmod-devel libudev-devel libuuid-devel json-c-devel rubygem-asciidoctor
+$ sudo yum install -y git gcc gcc-c++ autoconf automake asciidoc asciidoctor bash-completion xmlto libtool pkg-config glib2 glib2-devel libfabric libfabric-devel doxygen graphviz pandoc ncurses kmod kmod-devel libudev-devel libuuid-devel json-c-devel rubygem-asciidoctor keyutils-libs-devel
 ```
 {% endtab %}
 
 {% tab title="SLES & OpenSUSE" %}
 ```text
-$ sudo zypper install -y git gcc gcc-c++ autoconf automake asciidoc bash-completion xmlto libtool pkg-config glib2 glib2-devel libfabric libfabric-devel doxygen graphviz pandoc ncurses kmod kmod-devel libudev-devel libuuid-devel json-c-devel rubygem-asciidoctor
+$ sudo zypper install -y git gcc gcc-c++ autoconf automake asciidoc bash-completion xmlto libtool pkg-config glib2 glib2-devel libfabric libfabric-devel doxygen graphviz pandoc ncurses kmod kmod-devel libudev-devel libuuid-devel json-c-devel rubygem-asciidoctor keyutils-libs-devel
 ```
 {% endtab %}
 
 {% tab title="Ubuntu & Debian" %}
 ```text
-$ sudo apt-get install -y git gcc g++ autoconf automake asciidoc asciidoctor bash-completion xmlto libtool pkg-config libglib2.0-0 libglib2.0-dev libfabric1 libfabric-dev doxygen graphviz pandoc libncurses5 libkmod2 libkmod-dev libudev-dev uuid-dev libjson-c-dev
+$ sudo apt-get install -y git gcc g++ autoconf automake asciidoc asciidoctor bash-completion xmlto libtool pkg-config libglib2.0-0 libglib2.0-dev libfabric1 libfabric-dev doxygen graphviz pandoc libncurses5 libkmod2 libkmod-dev libudev-dev uuid-dev libjson-c-dev libkeyutils-dev
 ```
 {% endtab %}
 {% endtabs %}
