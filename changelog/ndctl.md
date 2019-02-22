@@ -2,6 +2,49 @@
 
 The master index can be found at [https://github.com/pmem/ndctl/releases](https://github.com/pmem/ndctl/releases)
 
+## v64.1 - 5th February, 2019
+
+**Fixes:** 
+
+* Fix build issues around keyutils inclusion
+
+## v64.0 - 2nd February, 2019
+
+This release incorporates functionality up to the 5.0 kernel, and adds a number of bug fixes and improvements.
+
+Highlights include a migration path for the new dax-bus ABI, several cleanups to ndctl-monitor, support for firmware status translation, displaying the supported\_alignments attribute, and using it in the namespace creation process, and support for security operations as defined in the Intel DSM specification.
+
+**Commands:** 
+
+* inject-smart: check the firmware status for errors 
+* zero-labels: correctly handle firmware errors 
+* create-namespace: use supported\_alignments when available 
+* Add new security commands
+
+**Tests:** 
+
+* security.sh: new test for security commands 
+* device-dax: fix intermittent poison handling failures 
+* dsm-fail: cleanup leftover debug
+
+**APIs:** 
+
+* ndctl\_cmd\_submit\_xlat 
+* ndctl\_cmd\_xlat\_firmware\_status 
+* ndctl\_dax\_get\_num\_alignments 
+* ndctl\_dax\_get\_supported\_alignment 
+* ndctl\_dimm\_disable\_passphrase 
+* ndctl\_dimm\_freeze\_security 
+* ndctl\_dimm\_get\_security 
+* ndctl\_dimm\_master\_secure\_erase 
+* ndctl\_dimm\_overwrite 
+* ndctl\_dimm\_secure\_erase 
+* ndctl\_dimm\_update\_master\_passphrase 
+* ndctl\_dimm\_update\_passphrase 
+* ndctl\_dimm\_wait\_overwrite 
+* ndctl\_pfn\_get\_num\_alignments 
+* ndctl\_pfn\_get\_supported\_alignment
+
 ## v63.0 - 7th October, 2018
 
 This release incorporates functionality up to the 4.20 kernel, and a number of bug fixes and improvements.
