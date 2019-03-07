@@ -39,11 +39,5 @@ Application developers can use traditional system calls such as memcpy\(\), memm
 
 Managing persistent memory devices on Linux is achieved using the `ndctl` utility. Read the [NDCTL Introduction](what-is-ndctl.md), [Installing NDCTL](installing-ndctl.md), then [NDCTL Users Guide](../ndctl-users-guide/) within this collection. Windows users can use the `Get-PhysicalDisk` power-shell command. More information can be found on the [Microsoft Documents](https://docs.microsoft.com/en-us/windows/desktop/persistent-memory-programming-in-windows---nvml-integration) site.
 
-## Reading Collection
 
-The following is a list of documents in this collection in the suggested reading order:
-
-* [**Getting Started Guide**](./) \(this document\): Describes how to install and configure the Persistent Memory Development Kit \(PMDK\) and Non-Volatile Device Control \(NDCTL\).  It is designed to get users up and running quickly with the software.
-* [**Changelog**](../changelog/): Describes the historical log or record of all notable changes made to the projects.
-* [**NDCTL Users Guide**](../ndctl-users-guide/)**:** Describes how to use the ndctl, daxctl, and daxio utilities to configure, manage, and monitor real or emulated Non-Volatile Devices.
 
