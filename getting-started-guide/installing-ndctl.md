@@ -237,7 +237,7 @@ $ sudo apt-get install -y git gcc g++ autoconf automake asciidoc asciidoctor bas
 
 ### 2. Clone the GitHub Repository
 
-1. If you're behind a company proxy, configure git to work with your proxy server first. The following configures a HTTP and HTTPS proxy for all users.  Refer to the [git-config documentation](https://git-scm.com/docs/git-config) for more options and information.  
+2.1\) If you're behind a company proxy, configure git to work with your proxy server first. The following configures a HTTP and HTTPS proxy for all users.  Refer to the [git-config documentation](https://git-scm.com/docs/git-config) for more options and information.  
 
 ```text
 $ git config --global http.proxy http://proxyUsername:proxyPassword@proxy.server.com:port
@@ -245,14 +245,14 @@ $ git config --global http.proxy http://proxyUsername:proxyPassword@proxy.server
 $ git config --global https.proxy https://proxyUsername:proxyPassword@proxy.server.com:port
 ```
 
-1. Create a working directory to clone the ndctl GitHub repository to, eg: 'downloads'
+2.2\) Create a working directory to clone the ndctl GitHub repository to, eg: 'downloads'
 
 ```text
 $ sudo mkdir /downloads
 $ sudo chmod +w /downloads
 ```
 
-1. Clone the repository:
+2.3\) Clone the repository:
 
 ```text
 $ cd /downloads
