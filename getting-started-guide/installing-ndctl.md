@@ -224,7 +224,7 @@ $ sudo apt-get install -y git gcc g++ autoconf automake asciidoc asciidoctor bas
 ```
 
 {% hint style="info" %}
-Note: libfabric is not available on older releases
+Earlier releases of Ubuntu and Debian do not have libfabric1 or libfabric-dev available in the repository. If these libraries are required, you should compile them yourself. See [https://github.com/ofiwg/libfabric](https://github.com/ofiwg/libfabric)
 {% endhint %}
 {% endtab %}
 {% endtabs %}
