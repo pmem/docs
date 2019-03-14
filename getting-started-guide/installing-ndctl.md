@@ -217,9 +217,15 @@ $ sudo zypper install -y git gcc gcc-c++ autoconf automake asciidoc bash-complet
 {% endtab %}
 
 {% tab title="Ubuntu & Debian" %}
+For Ununtu 18.04 \(Bionic\) and Debian 9 \(Stretch\) or later
+
 ```text
 $ sudo apt-get install -y git gcc g++ autoconf automake asciidoc asciidoctor bash-completion xmlto libtool pkg-config libglib2.0-0 libglib2.0-dev libfabric1 libfabric-dev doxygen graphviz pandoc libncurses5 libkmod2 libkmod-dev libudev-dev uuid-dev libjson-c-dev libkeyutils-dev
 ```
+
+{% hint style="info" %}
+Note: libfabric is not available on older releases
+{% endhint %}
 {% endtab %}
 {% endtabs %}
 
