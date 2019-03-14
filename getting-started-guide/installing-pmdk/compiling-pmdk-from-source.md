@@ -32,15 +32,23 @@ $ sudo dnf install autoconf automake pkg-config glib2 glib2-devel libfabric libf
 {% endtab %}
 
 {% tab title="Ubuntu & Debian" %}
-For Ubuntu 18.04 \(Bionic\) or Debian 9 \(Stretch\) or later
+**For Ubuntu 18.04 \(Bionic\) or Debian 9 \(Stretch\) or later**
 
 ```text
 $ sudo apt install autoconf automake pkg-config libglib2.0-0 libglib2.0-dev libfabric1 libfabric-dev doxygen graphviz pandoc libncurses5
 ```
 
+**For Ubuntu 16.04 \(Xenial\) and Debian 8 \(Jessie\):** 
+
 {% hint style="info" %}
 Earlier releases of Ubuntu and Debian do not have libfabric1 or libfabric-dev available in the repository.  If these libraries are required, you should compile them yourself. See [https://github.com/ofiwg/libfabric](https://github.com/ofiwg/libfabric)
 {% endhint %}
+
+```text
+$ sudo apt install autoconf automake pkg-config libglib2.0-0 libglib2.0-dev doxygen graphviz pandoc libncurses5
+```
+
+\*\*\*\*
 {% endtab %}
 
 {% tab title="FreeBSD" %}
