@@ -18,10 +18,11 @@ Directly accessing the physical media introduces new programming challenges and 
 * [**libpmemobj**](http://pmem.io/pmdk/libpmemobj/)**:**  provides a transactional object store, providing memory allocation, transactions, and general facilities for persistent memory programming.
 * [**libpmemblk**](http://pmem.io/pmdk/libpmemblk/)**:**  supports arrays of pmem-resident blocks, all the same size, that are atomically updated.
 * [**libpmemlog**](http://pmem.io/pmdk/libpmemlog/)**:**  provides a pmem-resident log file.
-* [**libvmem**](http://pmem.io/pmdk/libvmem/)**:**  turns a pool of persistent memory into a volatile memory pool, similar to the system heap but kept separate and with its own malloc-style API.
+* [**libvmem**](http://pmem.io/pmdk/libvmem/) **\[deprecated\]:**  turns a pool of persistent memory into a volatile memory pool, similar to the system heap but kept separate and with its own malloc-style API.  Since persistent memory support has been integrated into [libmemkind](https://github.com/memkind/memkind), that library is the recommended choice for any volatile implementations.  [Libmemkind](https://github.com/memkind/memkind) combines support for multiple types of volatile memory into a single, convenient API.
 * [**libvmmalloc**](http://pmem.io/pmdk/libvmmalloc/)**:**  library transparently converts all the dynamic memory allocations into persistent memory allocations.
 * [**libpmempool**](http://pmem.io/pmdk/libpmempool/)**:**  provides support for off-line pool management and diagnostics.
-* [**librmem**](http://pmem.io/pmdk/librpmem/)**:**  provides low-level support for remote access to _persistent memory_ utilizing RDMA-capable RNICs.
+* [**librmem**](http://pmem.io/pmdk/librpmem/)**:**  provides low-level support for remote access to persistent memory utilizing RDMA-capable RNICs.
+* \*\*\*\*[**libvmemcache**](https://github.com/pmem/vmemcache)**:** is an embeddable and lightweight in-memory caching solution. It's designed to fully take advantage of large capacity memory, such as Persistent Memory with DAX, through memory mapping in an efficient and scalable way.
 
 **Available Utilities**:
 
