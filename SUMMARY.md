@@ -26,9 +26,6 @@
     * [Installing PMDK using Linux Packages](getting-started-guide/installing-pmdk/installing-pmdk-using-linux-packages.md)
     * [Installing PMDK from Source on Linux](getting-started-guide/installing-pmdk/compiling-pmdk-from-source.md)
     * [Installing PMDK on Windows](getting-started-guide/installing-pmdk/installing-pmdk-on-windows.md)
-* [Changelogs](changelog/README.md)
-  * [PMDK Changelog](changelog/pmdk.md)
-  * [NDCTL Changelog](changelog/ndctl.md)
 * [NDCTL User Guide](ndctl-users-guide/README.md)
   * [Concepts](ndctl-users-guide/concepts/README.md)
     * [NVDIMM Devices](ndctl-users-guide/concepts/nvdimm-devices.md)
@@ -46,4 +43,7 @@
   * [Troubleshooting](ndctl-users-guide/troubleshooting.md)
   * [Glossary](ndctl-users-guide/glossary.md)
   * [References](ndctl-users-guide/references.md)
+* [Changelogs](changelog/README.md)
+  * [PMDK Changelog](changelog/pmdk.md)
+  * [NDCTL Changelog](changelog/ndctl.md)
 
