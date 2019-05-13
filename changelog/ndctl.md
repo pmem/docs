@@ -2,6 +2,30 @@
 
 The master index can be found at [https://github.com/pmem/ndctl/releases](https://github.com/pmem/ndctl/releases)
 
+## v65.0 - 10th May, 2019
+
+This release incorporates functionality up to the 5.1 kernel, and adds a number of bug fixes and improvements.
+
+Highlights include a new command to clear errors on a given namespace, a new travis YAML configuration to enable travis builds for Ubuntu, an example QEMU script in contrib/ for HMAT emulation, an optional poll interval for wait-scrub, several fixes related to the security commands, support for the HYPER-V family of DSM commands, and several fixes to tests, documentation, and related to building.
+
+Commands: 
+
+* clear-errors: new command to clear errors on a namespace 
+* monitor: remove the requirement of a default config 
+* sanitize-dimm: allow a zero-key for secure-erase 
+* sanitize-dimm: preserve keys after an overwrite 
+* load-keys: fix for non-TPM keys
+
+Tests: 
+
+* security: add a new testlet for load-keys 
+* test-core: add dax\_pmem\* modules 
+* misc: fix sys/mman.h vs linux/mman.h includes
+
+APIs: 
+
+* ndctl\_bus\_poll\_scrub\_completion
+
 ## v64.1 - 5th February, 2019
 
 **Fixes:** 
