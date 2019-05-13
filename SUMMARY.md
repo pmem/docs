@@ -18,6 +18,7 @@
       * [Using QEMU Virtualization](getting-started-guide/creating-development-environments/virtualization/qemu.md)
       * [VMware VSphere/ESXi](getting-started-guide/creating-development-environments/virtualization/vmware-vsphere-esxi.md)
     * [Cloud Environments](getting-started-guide/creating-development-environments/cloud-environments/README.md)
+      * [Microsoft Azure Cloud](getting-started-guide/creating-development-environments/cloud-environments/microsoft-azure-cloud.md)
       * [Google Cloud Platform \(GCP\)](getting-started-guide/creating-development-environments/cloud-environments/google-cloud-platform-gcp.md)
   * [Installing NDCTL](getting-started-guide/installing-ndctl.md)
   * [Installing PMDK](getting-started-guide/installing-pmdk/README.md)
