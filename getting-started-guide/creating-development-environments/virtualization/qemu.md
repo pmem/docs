@@ -26,9 +26,13 @@ $  dnf install @virtualization
 {% endtab %}
 
 {% tab title="RHEL/CentOS" %}
-```text
-$ yum install qemu-kvm
-```
+{% hint style="info" %}
+Persistent Memory/NVDIMM support was introduced in to QEMU 2.6.0.  See the qemu  documentation here - [https://github.com/qemu/qemu/blob/master/docs/nvdimm.txt](https://github.com/qemu/qemu/blob/master/docs/nvdimm.txt).
+
+The version of qemu provided in CentOS 7.x package repository is v1.5.0 and therefore will not support NVDIMMs.   
+
+It is recommended to download and build the latest QEMU source code from [https://www.qemu.org/download/\#source](https://www.qemu.org/download/#source).
+{% endhint %}
 {% endtab %}
 
 {% tab title="SUSE" %}
