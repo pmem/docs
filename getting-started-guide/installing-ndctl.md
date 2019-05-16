@@ -180,13 +180,13 @@ To install these prerequisites, use:
 Fedora 21 or earlier
 
 ```text
-sudo yum install -y git gcc gcc-c++ autoconf automake asciidoc asciidoctor xmlto libtool pkg-config glib2 glib2-devel libfabric libfabric-devel doxygen graphviz pandoc ncurses kmod kmod-devel libudev-devel libuuid-devel json-c-devel keyutils-libs-devel
+sudo yum install git gcc gcc-c++ autoconf automake asciidoc asciidoctor xmlto libtool pkg-config glib2 glib2-devel libfabric libfabric-devel doxygen graphviz pandoc ncurses kmod kmod-devel libudev-devel libuuid-devel json-c-devel keyutils-libs-devel
 ```
 
 Fedora 22 or later
 
 ```text
-sudo dnf install -y git gcc gcc-c++ autoconf automake asciidoc asciidoctor xmlto libtool pkg-config glib2 glib2-devel libfabric libfabric-devel doxygen graphviz pandoc ncurses kmod kmod-devel libudev-devel libuuid-devel json-c-devel keyutils-libs-devel
+sudo dnf install git gcc gcc-c++ autoconf automake asciidoc asciidoctor xmlto libtool pkg-config glib2 glib2-devel libfabric libfabric-devel doxygen graphviz pandoc ncurses kmod kmod-devel libudev-devel libuuid-devel json-c-devel keyutils-libs-devel
 ```
 {% endtab %}
 
@@ -200,13 +200,13 @@ $ yum repolist
 If the EPEL repository is not listed, install and activate it using:
 
 ```text
-$ sudo yum -y install epel-release
+$ sudo yum install epel-release
 ```
 
 Install the required packages
 
 ```text
-$ sudo yum install -y git gcc gcc-c++ autoconf automake asciidoc asciidoctor bash-completion xmlto libtool pkg-config glib2 glib2-devel libfabric libfabric-devel doxygen graphviz pandoc ncurses kmod kmod-devel libudev-devel libuuid-devel json-c-devel rubygem-asciidoctor keyutils-libs-devel
+$ sudo yum install git gcc gcc-c++ autoconf automake asciidoc asciidoctor bash-completion xmlto libtool pkgconfig glib2 glib2-devel libfabric libfabric-devel doxygen graphviz pandoc ncurses kmod kmod-devel libudev-devel libuuid-devel json-c-devel rubygem-asciidoctor keyutils-libs-devel
 ```
 {% endtab %}
 
@@ -256,7 +256,7 @@ $ sudo chmod +w /downloads
 
 ```text
 $ cd /downloads
-$ sudo git clone https://github.com/pmem/ndctl
+$ git clone https://github.com/pmem/ndctl
 $ cd ndctl
 ```
 

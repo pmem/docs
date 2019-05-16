@@ -2,7 +2,11 @@
 
 ## Overview
 
-This procedure describes how to clone the source code from the pmdk github repository and compile, then install it.
+This procedure describes how to clone the source code from the pmdk github repository and compile, then install it.  
+
+{% hint style="info" %}
+**Note:** We recommend [installing NDCTL](../installing-ndctl.md) first so PMDK builds all features.  If the ndctl development packages and header files are not installed, PMDK will build successfully, but will disable some of the RAS \(Reliability, Availability and Serviceability\) features.
+{% endhint %}
 
 If your system is behind a firewall and requires a proxy to access the Internet, configure your package manager to use a proxy.
 
@@ -28,6 +32,26 @@ To build the PMDK libraries on Linux, you may need to install the following requ
 {% tab title="Fedora" %}
 ```
 $ sudo dnf install autoconf automake pkg-config glib2 glib2-devel libfabric libfabric-devel doxygen graphviz pandoc ncurses
+```
+{% endtab %}
+
+{% tab title="RHEL/CentOS" %}
+Some of the required packages can be found in the EPEL repository. Verify the EPEL repository is active:
+
+```text
+$ sudo yum repolist
+```
+
+If the EPEL repository is not listed, install and activate it using:
+
+```text
+$ sudo yum -y install epel-release
+```
+
+To install the prerequisite packages, run:
+
+```text
+$ sudo yum install autoconf automake pkgconfig glib2 glib2-devel libfabric libfabric-devel doxygen graphviz pandoc ncurses
 ```
 {% endtab %}
 
@@ -90,13 +114,25 @@ The following packages are required only by selected PMDK components or features
 
 A C/C++ Compiler is required. GCC/G++ will be used in this documentation but you may use a different compiler then set the `CC` and `CXX` shell environments accordingly.
 
+{% tabs %}
+{% tab title="Fedora" %}
 ```text
 $ sudo dnf install gcc gcc-c++
 ```
+{% endtab %}
 
+{% tab title="RHELCentOS" %}
+```text
+$ sudo yum install gcc gcc-c++
+```
+{% endtab %}
+
+{% tab title="Ubuntu/Debian" %}
 ```text
 $ sudo apt install gcc g++
 ```
+{% endtab %}
+{% endtabs %}
 
 ## Clone the PMDK GitHub Repository
 
