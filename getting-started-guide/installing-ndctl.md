@@ -149,7 +149,7 @@ To successfully compile ndctl from source with documentation, the following pack
 
 * autoconf 
 * automake 
-* asciidoc 
+* asciidoc \(asciidoctor\)
 * bash-completion
 * doxygen 
 * gcc 
@@ -206,7 +206,7 @@ $ sudo yum install epel-release
 Install the required packages
 
 ```text
-$ sudo yum install git gcc gcc-c++ autoconf automake asciidoc asciidoctor bash-completion xmlto libtool pkgconfig glib2 glib2-devel libfabric libfabric-devel doxygen graphviz pandoc ncurses kmod kmod-devel libudev-devel libuuid-devel json-c-devel rubygem-asciidoctor keyutils-libs-devel
+$ sudo yum install git gcc gcc-c++ autoconf automake asciidoc bash-completion xmlto libtool pkgconfig glib2 glib2-devel libfabric libfabric-devel doxygen graphviz pandoc ncurses kmod kmod-devel libudev-devel libuuid-devel json-c-devel rubygem-asciidoctor keyutils-libs-devel
 ```
 {% endtab %}
 
