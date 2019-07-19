@@ -10,6 +10,29 @@ This changelog uses the following conventions
 * Changes are prefixed with a tag denoting the area, if any, they relate to.  For example: 'doc' \(documentation\), 'obj' \(libpmemobj\), 'pool' \(libpmempool\), etc
 * Bugs and new features may link to [PMDK issue repository](https://github.com/pmem/issues/issues) using '\(\#nnn\)' or external bug repositories such as the Red Hat Bugzilla \(RHBZ\).
 
+## Version 1.6.0
+
+Released this on Mar 26 · [304 commits](https://github.com/pmem/pmdk/compare/1.6...master) to master since this release
+
+This release:
+
+* Enables unsafe shutdown and bad block detection on Linux on systems with libndctl &gt;= 63. It is expected that systems with libndctl &gt;= 63 has necessary kernel support \(Linux &gt;= 4.20\). However, due to bugs in libndctl = 63 and Linux = 4.20, it is recommended to use libndctl &gt;= 64.1 and Linux &gt;= 5.0.4. On systems with libndctl &lt; 63, PMDK uses old superuser-only interfaces. Support for old or new interfaces is chosen at BUILD time.
+* Introduces arena control interface in pmemobj, allowing applications to tweak performance and scalability of heap operations. See pmemobj\_ctl\_get man page \("heap" namespace\) for details.
+* Introduces copy\_on\_write mode, which allows testing applications using pmemobj with pmreorder. See pmemobj\_ctl\_get man page \("copy\_on\_write" namespace\) for details.
+
+Other changes:
+
+* allocate file space when creating a pool on existing file \([pmem/issues\#167](https://github.com/pmem/issues/issues/167)\)
+* initial support for testing using fault injection
+* initial Python test framework
+* improve performance of pmemobj\_pool\_by\_ptr
+
+Bug fixes:
+
+* common: work around tmpfs bug during pool creation \([pmem/issues\#1018](https://github.com/pmem/issues/issues/1018)\)
+* pool: race-free pmempool create --max-size
+* obj: don't modify remote pools in pmemobj\_check
+
 ## Version 1.5.1
 
 Tue Feb 19 2018 Marcin Ślusarz &lt;marcin.slusarz@intel.com&gt;
