@@ -2,7 +2,7 @@
 
 The master index can be found at [https://github.com/pmem/ndctl/releases](https://github.com/pmem/ndctl/releases)
 
-## v65.0 - 10th May, 2019
+## v65.0 - 9th May, 2019
 
 This release incorporates functionality up to the 5.1 kernel, and adds a number of bug fixes and improvements.
 
