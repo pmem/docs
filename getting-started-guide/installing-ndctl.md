@@ -256,7 +256,7 @@ $ sudo chmod +w /downloads
 
 ```text
 $ cd /downloads
-$ git clone https://github.com/pmem/ndctl
+$ sudo git clone https://github.com/pmem/ndctl
 $ cd ndctl
 ```
 
