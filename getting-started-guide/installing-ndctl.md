@@ -265,9 +265,9 @@ $ cd ndctl
 The following configures ndctl to be installed in to the /usr/local directory.
 
 ```text
-$ ./autogen.sh
-$ ./configure CFLAGS='-g -O2' --prefix=/usr/local --sysconfdir=/etc --libdir=/usr/local/lib64
-$ make
+$ sudo ./autogen.sh
+$ sudo ./configure CFLAGS='-g -O2' --prefix=/usr/local --sysconfdir=/etc --libdir=/usr/local/lib64
+$ sudo make
 ```
 
 #### **Build using an alternative compiler**
@@ -285,9 +285,9 @@ These variables are independent and setting CC=clang does not set CXX=clang++.
 To compile ndctl with debugging, use the `--enable-debug` option:
 
 ```text
-$ ./autogen.sh
-$ ./configure CFLAGS='-g -O2' --enable-debug --prefix=/usr/local --sysconfdir=/etc --libdir=/usr/local/lib64
-$ make
+$ sudo ./autogen.sh
+$ sudo ./configure CFLAGS='-g -O2' --enable-debug --prefix=/usr/local --sysconfdir=/etc --libdir=/usr/local/lib64
+$ sudo make
 ```
 
 For a full list of configure options use:
