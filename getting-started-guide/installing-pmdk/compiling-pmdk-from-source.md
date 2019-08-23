@@ -201,7 +201,7 @@ Installing the library is more convenient since it installs man pages and librar
 
 {% tabs %}
 {% tab title="Linux & FreeBSD" %}
-To install the libraries to the default `/usr` location:
+To install the libraries to the default `/usr/local` location:
 
 ```text
 $ sudo make install
@@ -210,7 +210,7 @@ $ sudo make install
 To install this library into other locations, you can use the `prefix=path` option, e.g:
 
 ```text
-$ sudo make install prefix=/usr/local
+$ sudo make install prefix=/usr
 ```
 
 To update all users shell environment, add the following to `/etc/profile.d/custom.sh` \(create the file if it doesn't already exist\). Note: This location may differ depending on the Linux Distribution you're using. Check the documentation for your specific distro and version.
