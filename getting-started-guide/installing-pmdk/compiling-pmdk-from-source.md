@@ -213,14 +213,13 @@ To install this library into other locations, you can use the `prefix=path` opti
 $ sudo make install prefix=/usr
 ```
 
-To update all users shell environment, add the following to `/etc/profile.d/custom.sh` \(create the file if it doesn't already exist\). Note: This location may differ depending on the Linux Distribution you're using. Check the documentation for your specific distro and version.
+If you installed to non-standard directory (anything other than /usr) you may need to add $prefix/lib or $prefix/lib64 (depending on the distribution you use) to the list of directories searched by the linker:
 
 ```text
-# PMDK
-export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/local/lib:/usr/local/lib64
+sudo sh -c "echo /usr/local/lib >> /etc/ld.so.conf"
+sudo sh -c "echo /usr/local/lib64 >> /etc/ld.so.conf"
+sudo ldconfig
 ```
 
-Otherwise add to the users profile or .bashrc \(or the users shell equivalent environment file\)
 {% endtab %}
 {% endtabs %}
-
