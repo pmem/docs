@@ -172,7 +172,7 @@ $ make
 src/common.inc:370: *** libndctl(version >= 60.1) is missing -- see README.  Stop.
 ```
 
-This can occur when ndctl was installed in a directory other than the /usr/bin default location.
+This can occur when libndctl was installed in a directory other than the /usr location.
 
 To resolve this issue, the PKG\_CONFIG\_PATH is a environment variable that specifies additional paths in which pkg-config will search for its .pc files.
 
