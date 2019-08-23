@@ -16,22 +16,18 @@ To build the PMDK libraries on Linux, you may need to install the following requ
 
 * autoconf
 * automake
-* doxygen
 * gcc
 * gcc-c++
-* glib2
 * glib2-devel
-* graphviz
-* libfabric
 * libfabric-devel
 * pandoc
 * pkg-config
-* ncurses
+* ncurses-devel
 
 {% tabs %}
 {% tab title="Fedora" %}
 ```
-$ sudo dnf install autoconf automake pkg-config glib2 glib2-devel libfabric libfabric-devel doxygen graphviz pandoc ncurses
+$ sudo dnf install autoconf automake pkg-config glib2-devel libfabric-devel pandoc ncurses-devel
 ```
 {% endtab %}
 
@@ -51,7 +47,7 @@ $ sudo yum -y install epel-release
 To install the prerequisite packages, run:
 
 ```text
-$ sudo yum install autoconf automake pkgconfig glib2 glib2-devel libfabric libfabric-devel doxygen graphviz pandoc ncurses
+$ sudo yum install autoconf automake pkgconfig glib2-devel libfabric-devel pandoc ncurses-devel
 ```
 {% endtab %}
 
@@ -59,17 +55,17 @@ $ sudo yum install autoconf automake pkgconfig glib2 glib2-devel libfabric libfa
 **For Ubuntu 18.04 \(Bionic\) or Debian 9 \(Stretch\) or later**
 
 ```text
-$ sudo apt install autoconf automake pkg-config libglib2.0-0 libglib2.0-dev libfabric1 libfabric-dev doxygen graphviz pandoc libncurses5
+$ sudo apt install autoconf automake pkg-config libglib2.0-dev libfabric-dev pandoc libncurses5-dev
 ```
 
 **For Ubuntu 16.04 \(Xenial\) and Debian 8 \(Jessie\):** 
 
 {% hint style="info" %}
-Earlier releases of Ubuntu and Debian do not have libfabric1 or libfabric-dev available in the repository.  If these libraries are required, you should compile them yourself. See [https://github.com/ofiwg/libfabric](https://github.com/ofiwg/libfabric)
+Earlier releases of Ubuntu and Debian do not have libfabric-dev available in the repository.  If this library is required, you should compile it yourself. See [https://github.com/ofiwg/libfabric](https://github.com/ofiwg/libfabric)
 {% endhint %}
 
 ```text
-$ sudo apt install autoconf automake pkg-config libglib2.0-0 libglib2.0-dev doxygen graphviz pandoc libncurses5
+$ sudo apt install autoconf automake pkg-config libglib2.0-dev pandoc libncurses5-dev
 ```
 
 \*\*\*\*
@@ -82,7 +78,6 @@ To build and test the PMDK library on FreeBSD, you may need to install the follo
 * bash
 * binutils
 * coreutils
-* doxygen
 * e2fsprogs-libuuid
 * gmake
 * glib2
@@ -93,7 +88,7 @@ To build and test the PMDK library on FreeBSD, you may need to install the follo
 * pkgconf
 
 ```text
-$ sudo pkg install autoconf automake bash coreutils doxygen e2fsprogs-libuuid graphviz glib2 glib2-devel gmake libunwind pandoc ncurses pkg-config
+$ sudo pkg install autoconf automake bash coreutils e2fsprogs-libuuid glib2 glib2-devel gmake libunwind pandoc ncurses pkg-config
 ```
 
 \(\*\) The pkg version of ncurses is required for proper operation; the base version included in FreeBSD is not sufficient.
