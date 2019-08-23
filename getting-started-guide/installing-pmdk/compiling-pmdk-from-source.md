@@ -146,7 +146,7 @@ $ cd pmdk
 Alternatively you may download the source code as a [zip file](https://github.com/pmem/pmdk/archive/master.zip) from the [GitHub website](https://github.com/pmem/pmdk).
 
 ```text
-$ wget 
+$ wget https://github.com/pmem/pmdk/archive/master.zip
 $ unzip master.zip
 $ cd pmdk-master
 ```
