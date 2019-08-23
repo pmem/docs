@@ -1,4 +1,4 @@
-# Installing PMDK from Source on Linux
+# Installing PMDK from Source on Linux and FreeBSD
 
 ## Overview
 

@@ -6,14 +6,14 @@ description: Installing the Persistent Memory Development Kit
 
 ## Introduction
 
-The Persistent Memory Development Kit \(PMDK\) is available on Supported Operating Systems in package and source code formats. Some features of the PMDK require additional packages. Prerequisite packages and utilities are describe in the [Installing PMDK from Source on Linux](compiling-pmdk-from-source.md) section.
+The Persistent Memory Development Kit \(PMDK\) is available on Supported Operating Systems in package and source code formats. Some features of the PMDK require additional packages. Prerequisite packages and utilities are describe in the [Installing PMDK from Source on Linux and FreeBSD](compiling-pmdk-from-source.md) section.
 
 ## Contents
 
 ### Linux
 
 * [Installing PMDK using Linux Packages](installing-pmdk-using-linux-packages.md)
-* [Installing PMDK from Source on Linux](compiling-pmdk-from-source.md)
+* [Installing PMDK from Source on Linux and FreeBSD](compiling-pmdk-from-source.md)
 
 ### Windows
 
