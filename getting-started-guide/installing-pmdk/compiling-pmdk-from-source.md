@@ -192,7 +192,7 @@ To check the PKG\_CONFIG\_PATH value use this command:
 To set the PKG\_CONFIG\_PATH value use:
 
 ```text
-$ export PKG_CONFIG_PATH=/usr/local/lib64/pkgconfig:/usr/local/lib/pkgconfig:/usr/lib64/pkgconfig:/usr/lib/pkgconfig
+$ export PKG_CONFIG_PATH=/usr/local/lib64/pkgconfig:/usr/local/lib/pkgconfig:${PKG_CONFIG_PATH}
 ```
 
 Now execute the `make` command again.
