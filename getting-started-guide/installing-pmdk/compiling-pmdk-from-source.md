@@ -1,4 +1,4 @@
-# Installing PMDK from Source on Linux
+# Installing PMDK from Source on Linux and FreeBSD
 
 ## Overview
 
@@ -16,22 +16,18 @@ To build the PMDK libraries on Linux, you may need to install the following requ
 
 * autoconf
 * automake
-* doxygen
 * gcc
 * gcc-c++
-* glib2
 * glib2-devel
-* graphviz
-* libfabric
 * libfabric-devel
 * pandoc
 * pkg-config
-* ncurses
+* ncurses-devel
 
 {% tabs %}
 {% tab title="Fedora" %}
 ```
-$ sudo dnf install autoconf automake pkg-config glib2 glib2-devel libfabric libfabric-devel doxygen graphviz pandoc ncurses
+$ sudo dnf install autoconf automake pkg-config glib2-devel libfabric-devel pandoc ncurses-devel
 ```
 {% endtab %}
 
@@ -51,7 +47,7 @@ $ sudo yum -y install epel-release
 To install the prerequisite packages, run:
 
 ```text
-$ sudo yum install autoconf automake pkgconfig glib2 glib2-devel libfabric libfabric-devel doxygen graphviz pandoc ncurses
+$ sudo yum install autoconf automake pkgconfig glib2-devel libfabric-devel pandoc ncurses-devel
 ```
 {% endtab %}
 
@@ -59,17 +55,17 @@ $ sudo yum install autoconf automake pkgconfig glib2 glib2-devel libfabric libfa
 **For Ubuntu 18.04 \(Bionic\) or Debian 9 \(Stretch\) or later**
 
 ```text
-$ sudo apt install autoconf automake pkg-config libglib2.0-0 libglib2.0-dev libfabric1 libfabric-dev doxygen graphviz pandoc libncurses5
+$ sudo apt install autoconf automake pkg-config libglib2.0-dev libfabric-dev pandoc libncurses5-dev
 ```
 
 **For Ubuntu 16.04 \(Xenial\) and Debian 8 \(Jessie\):** 
 
 {% hint style="info" %}
-Earlier releases of Ubuntu and Debian do not have libfabric1 or libfabric-dev available in the repository.  If these libraries are required, you should compile them yourself. See [https://github.com/ofiwg/libfabric](https://github.com/ofiwg/libfabric)
+Earlier releases of Ubuntu and Debian do not have libfabric-dev available in the repository.  If this library is required, you should compile it yourself. See [https://github.com/ofiwg/libfabric](https://github.com/ofiwg/libfabric)
 {% endhint %}
 
 ```text
-$ sudo apt install autoconf automake pkg-config libglib2.0-0 libglib2.0-dev doxygen graphviz pandoc libncurses5
+$ sudo apt install autoconf automake pkg-config libglib2.0-dev pandoc libncurses5-dev
 ```
 
 \*\*\*\*
@@ -82,7 +78,6 @@ To build and test the PMDK library on FreeBSD, you may need to install the follo
 * bash
 * binutils
 * coreutils
-* doxygen
 * e2fsprogs-libuuid
 * gmake
 * glib2
@@ -93,7 +88,7 @@ To build and test the PMDK library on FreeBSD, you may need to install the follo
 * pkgconf
 
 ```text
-$ sudo pkg install autoconf automake bash coreutils doxygen e2fsprogs-libuuid graphviz glib2 glib2-devel gmake libunwind pandoc ncurses pkg-config
+$ sudo pkg install autoconf automake bash coreutils e2fsprogs-libuuid glib2 glib2-devel gmake libunwind pandoc ncurses pkg-config
 ```
 
 \(\*\) The pkg version of ncurses is required for proper operation; the base version included in FreeBSD is not sufficient.
@@ -139,9 +134,6 @@ $ sudo apt install gcc g++
 The following uses the `git` utility to clone the repository.
 
 ```text
-$ sudo mkdir /downloads
-$ sudo chmod +w /downloads
-$ cd /downloads
 $ git clone https://github.com/pmem/pmdk
 $ cd pmdk
 ```
@@ -149,10 +141,7 @@ $ cd pmdk
 Alternatively you may download the source code as a [zip file](https://github.com/pmem/pmdk/archive/master.zip) from the [GitHub website](https://github.com/pmem/pmdk).
 
 ```text
-$ sudo mkdir /downloads
-$ sudo chmod +w /downloads
-$ cd /downloads
-$ wget 
+$ wget https://github.com/pmem/pmdk/archive/master.zip
 $ unzip master.zip
 $ cd pmdk-master
 ```
@@ -183,7 +172,7 @@ $ make
 src/common.inc:370: *** libndctl(version >= 60.1) is missing -- see README.  Stop.
 ```
 
-This can occur when ndctl was installed in a directory other than the /usr/bin default location.
+This can occur when libndctl was installed in a directory other than the /usr location.
 
 To resolve this issue, the PKG\_CONFIG\_PATH is a environment variable that specifies additional paths in which pkg-config will search for its .pc files.
 
@@ -198,7 +187,7 @@ To check the PKG\_CONFIG\_PATH value use this command:
 To set the PKG\_CONFIG\_PATH value use:
 
 ```text
-$ export PKG_CONFIG_PATH=/usr/local/lib64/pkgconfig:/usr/local/lib/pkgconfig:/usr/lib64/pkgconfig:/usr/lib/pkgconfig
+$ export PKG_CONFIG_PATH=/usr/local/lib64/pkgconfig:/usr/local/lib/pkgconfig:${PKG_CONFIG_PATH}
 ```
 
 Now execute the `make` command again.
@@ -212,7 +201,7 @@ Installing the library is more convenient since it installs man pages and librar
 
 {% tabs %}
 {% tab title="Linux & FreeBSD" %}
-To install the libraries to the default `/usr` location:
+To install the libraries to the default `/usr/local` location:
 
 ```text
 $ sudo make install
@@ -221,17 +210,16 @@ $ sudo make install
 To install this library into other locations, you can use the `prefix=path` option, e.g:
 
 ```text
-$ sudo make install prefix=/usr/local
+$ sudo make install prefix=/usr
 ```
 
-To update all users shell environment, add the following to `/etc/profile.d/custom.sh` \(create the file if it doesn't already exist\). Note: This location may differ depending on the Linux Distribution you're using. Check the documentation for your specific distro and version.
+If you installed to non-standard directory (anything other than /usr) you may need to add $prefix/lib or $prefix/lib64 (depending on the distribution you use) to the list of directories searched by the linker:
 
 ```text
-# PMDK
-export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/local/lib:/usr/local/lib64
+sudo sh -c "echo /usr/local/lib >> /etc/ld.so.conf"
+sudo sh -c "echo /usr/local/lib64 >> /etc/ld.so.conf"
+sudo ldconfig
 ```
 
-Otherwise add to the users profile or .bashrc \(or the users shell equivalent environment file\)
 {% endtab %}
 {% endtabs %}
-
