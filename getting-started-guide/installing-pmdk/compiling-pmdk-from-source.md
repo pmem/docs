@@ -139,9 +139,6 @@ $ sudo apt install gcc g++
 The following uses the `git` utility to clone the repository.
 
 ```text
-$ sudo mkdir /downloads
-$ sudo chmod +w /downloads
-$ cd /downloads
 $ git clone https://github.com/pmem/pmdk
 $ cd pmdk
 ```
@@ -149,9 +146,6 @@ $ cd pmdk
 Alternatively you may download the source code as a [zip file](https://github.com/pmem/pmdk/archive/master.zip) from the [GitHub website](https://github.com/pmem/pmdk).
 
 ```text
-$ sudo mkdir /downloads
-$ sudo chmod +w /downloads
-$ cd /downloads
 $ wget 
 $ unzip master.zip
 $ cd pmdk-master
