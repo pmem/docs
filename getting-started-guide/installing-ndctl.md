@@ -97,10 +97,14 @@ $ sudo apt-get install ndctl
 
 {% tab title="Debian" %}
 {% hint style="info" %}
-The ndctl package is currently in testing and is not available in the master repository. See [https://tracker.debian.org/pkg/ndctl](https://tracker.debian.org/pkg/ndctl) for up to date information.
+The ndctl package is available on Debian 10 \(Buster\) or later. See [https://tracker.debian.org/pkg/ndctl](https://tracker.debian.org/pkg/ndctl) for up to date information.
 {% endhint %}
 
-1\) Enable the 'testing' repository using these instructions - [https://wiki.debian.org/DebianTesting](https://wiki.debian.org/DebianTesting). Do this at your own risk!
+1\) Query available versions in configured repos:
+
+```text
+$ apt policy ndctl
+```
 
 2\) Query the repository to identify if ndctl is delivered using either the aptitude, apt-cache, or apt utilities
 
