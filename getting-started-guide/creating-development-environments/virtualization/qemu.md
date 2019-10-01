@@ -317,3 +317,6 @@ If the vNVDIMM backend is in host persistent memory that can be accessed in [SNI
 -object memory-backend-file,id=nv_mem,mem-path=/XXX/yyy,size=4G,pmem=on
 ```
 
+## CPUID Flags
+
+By default, qemu claims the guest machine supports only `clflush`.  As any modern machine (starting with Skylake and Pinnacle Ridge) has `clflushopt` or `clwb` (Cannon Lake), you can significantly improve performance by passing a `-cpu` flag to qemu.  Unless you require live migrating, `-cpu host` is a good choice.
