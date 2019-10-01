@@ -27,16 +27,16 @@ $  dnf install @virtualization
 
 {% tab title="RHEL/CentOS" %}
 {% hint style="info" %}
-Persistent Memory/NVDIMM support was introduced in to QEMU 2.6.0.  See the qemu  documentation here - [https://github.com/qemu/qemu/blob/master/docs/nvdimm.txt](https://github.com/qemu/qemu/blob/master/docs/nvdimm.txt).
+Persistent Memory/NVDIMM support was introduced in to QEMU 2.6.0. See the qemu documentation here - [https://github.com/qemu/qemu/blob/master/docs/nvdimm.txt](https://github.com/qemu/qemu/blob/master/docs/nvdimm.txt).
 
-The version of qemu provided in the CentOS 7.x package repository is v1.5.0 and therefore will not support Persistent Memory/NVDIMMs.   
+The version of qemu provided in the CentOS 7.x package repository is v1.5.0 and therefore will not support Persistent Memory/NVDIMMs.
 
 It is recommended to download and build the latest QEMU source code from [https://www.qemu.org/download/\#source](https://www.qemu.org/download/#source).
 {% endhint %}
 
 ## Installing QEMU from source code
 
-Download and build the latest QEMU source code from [https://www.qemu.org/download/\#source](https://www.qemu.org/download/#source).  We use QEMU 4.0.0 as an example:
+Download and build the latest QEMU source code from [https://www.qemu.org/download/\#source](https://www.qemu.org/download/#source). We use QEMU 4.0.0 as an example:
 
 ```text
 $ wget https://download.qemu.org/qemu-4.0.0.tar.xz
@@ -54,7 +54,6 @@ $ sudo make install
 # ./configure --prefix=/usr/local/
 
 ERROR: glib-2.40 gthread-2.0 is required to compile QEMU
-
 ```
 
 The solution is to install `gtk2-devel`:
@@ -67,7 +66,7 @@ You can now re-execute the `configure` command and it should work now
 {% endhint %}
 
 {% hint style="info" %}
-**Note 2:** The `--enable-libpmem` option for `configure` requires that `libpmem` from the Persistent Memory Development Kit \(PMDK\) be installed as a prerequisite.  See [Installing PMDK](../../installing-pmdk/) for instructions.
+**Note 2:** The `--enable-libpmem` option for `configure` requires that `libpmem` from the Persistent Memory Development Kit \(PMDK\) be installed as a prerequisite. See [Installing PMDK](../../installing-pmdk/) for instructions.
 {% endhint %}
 {% endtab %}
 
@@ -118,35 +117,35 @@ Where,
 
 * `maxmem=$MAX_SIZE` should be equal to or larger than the total size
 
-   of normal RAM devices and vNVDIMM devices, e.g. $MAX\_SIZE should be
+  of normal RAM devices and vNVDIMM devices, e.g. $MAX\_SIZE should be
 
-   &gt;= $RAM\_SIZE + $NVDIMM\_SIZE here.
+  &gt;= $RAM\_SIZE + $NVDIMM\_SIZE here.
 
 * `object memory-backend-file,id=mem1,share=on,mem-path=$PATH,size=$NVDIMM_SIZE` creates a backend storage of size `$NVDIMM_SIZE` on a file `$PATH`. All
 
-   accesses to the virtual NVDIMM device go to the file `$PATH`.
+  accesses to the virtual NVDIMM device go to the file `$PATH`.
 
   * `share=on/off` controls the visibility of guest writes. If
 
-     `share=on`, then guest writes will be applied to the backend
+    `share=on`, then guest writes will be applied to the backend
 
-     file. If another guest uses the same backend file with option
+    file. If another guest uses the same backend file with option
 
-     `share=on`, then above writes will be visible to it as well. If
+    `share=on`, then above writes will be visible to it as well. If
 
-     `share=off`, then guest writes won't be applied to the backend
+    `share=off`, then guest writes won't be applied to the backend
 
-     file and thus will be invisible to other guests.
+    file and thus will be invisible to other guests.
 
 * `device nvdimm,id=nvdimm1,memdev=mem1` creates a virtual NVDIMM
 
-   device whose storage is provided by above memory backend device.
+  device whose storage is provided by above memory backend device.
 
 Multiple vNVDIMM devices can be created if multiple pairs of `-object` and `-device` are provided. See Example 1 below.
 
 ### **Creating a Guest with Two Emulated vNVDIMMs**
 
-The following example creates a Fedora 27 guest with two 4GiB vNVDIMMs, 4GiB of DDR Memory, 4 vCPUs, a VNC Server on port 0 for console access, and ssh traffic redirected from port 2222 on the host to port 22 in the guest for direct ssh access from a remote system.  
+The following example creates a Fedora 27 guest with two 4GiB vNVDIMMs, 4GiB of DDR Memory, 4 vCPUs, a VNC Server on port 0 for console access, and ssh traffic redirected from port 2222 on the host to port 22 in the guest for direct ssh access from a remote system.
 
 ```text
 # sudo qemu-img create -f raw /virtual-machines/qemu/fedora27.raw 20G
@@ -167,7 +166,7 @@ The following example creates a Fedora 27 guest with two 4GiB vNVDIMMs, 4GiB of 
 
 For a detailed description of the options shown above, and many others, refer to the [QEMU User's Guide](https://qemu.weilnetz.de/doc/qemu-doc.html).
 
-When creating a brand new QEMU guest with a blank OS disk image file, an ISO will need to be presented to the guest from which the OS can then be installed. A guest can access a local or remote ISO using: 
+When creating a brand new QEMU guest with a blank OS disk image file, an ISO will need to be presented to the guest from which the OS can then be installed. A guest can access a local or remote ISO using:
 
 Local ISO:
 
@@ -183,7 +182,7 @@ Remote ISO:
 
 #### Open Firewall Ports
 
-To access the guests remotely, the firewall on the host system needs to be opened to allow remote access for VNC and SSH.  In the following examples, we open a range of ports to accommodate several guests.  You only need to open the ports for the number of guests you plan to use.
+To access the guests remotely, the firewall on the host system needs to be opened to allow remote access for VNC and SSH. In the following examples, we open a range of ports to accommodate several guests. You only need to open the ports for the number of guests you plan to use.
 
 {% tabs %}
 {% tab title="Fedora" %}
@@ -213,9 +212,9 @@ $ sudo systemctl restart firewalld
 
 #### Connecting to the Guest VM using VNS and SSH
 
-Use a VNC Viewer to access the console to complete the OS installation and access the guest.  The default VNC port starts at 5900.  The example used`-vnc :0` which equates to port 5900.
+Use a VNC Viewer to access the console to complete the OS installation and access the guest. The default VNC port starts at 5900. The example used`-vnc :0` which equates to port 5900.
 
-Additionally you can connect to the guest once the operating system has been configured via SSH.  Specify the username configured during the guest OS installation process and the hostname or IP address of the host system, eg:
+Additionally you can connect to the guest once the operating system has been configured via SSH. Specify the username configured during the guest OS installation process and the hostname or IP address of the host system, eg:
 
 ```text
 # ssh user@hostname -p 2222
@@ -262,15 +261,15 @@ For example, the following commands add another 4GB vNVDIMM device to the guest 
 
 Each hotplugged vNVDIMM device consumes one memory slot. Users should always ensure the memory option "-m ...,slots=N" specifies enough number of slots, i.e.
 
-N &gt;= number of RAM devices +   
-    number of statically plugged vNVDIMM devices +  
-    number of hotplugged vNVDIMM devices
+N &gt;= number of RAM devices +  
+number of statically plugged vNVDIMM devices +  
+number of hotplugged vNVDIMM devices
 
 The similar is required for the memory option "-m ...,maxmem=M", i.e.
 
 M &gt;= size of RAM devices +  
-    size of statically plugged vNVDIMM devices +  
-    size of hotplugged vNVDIMM devices
+size of statically plugged vNVDIMM devices +  
+size of hotplugged vNVDIMM devices
 
 More detailed information about the HotPlug feature can be found in the [QEMU Memory HotPlug Documentation](https://github.com/qemu/qemu/blob/master/docs/memory-hotplug.txt).
 
@@ -289,7 +288,7 @@ For example, device dax require the 2 MB alignment, so we can use following QEMU
 
 Though QEMU supports multiple types of vNVDIMM backends on Linux, the only backend that can guarantee the guest write persistence is:
 
-A. DAX device \(e.g., /dev/dax0.0\) or   
+A. DAX device \(e.g., /dev/dax0.0\) or  
 B. DAX file \(mounted with the `-o dax` option\)
 
 When using B \(A file supporting direct mapping of persistent memory\) as a backend, write persistence is guaranteed if the host kernel has support for the MAP\_SYNC flag in the `mmap` system call \(available since Linux 4.15 and on certain distro kernels\) and additionally both 'pmem' and 'share' flags are set to 'on' on the backend.
@@ -319,4 +318,5 @@ If the vNVDIMM backend is in host persistent memory that can be accessed in [SNI
 
 ## CPUID Flags
 
-By default, qemu claims the guest machine supports only `clflush`.  As any modern machine (starting with Skylake and Pinnacle Ridge) has `clflushopt` or `clwb` (Cannon Lake), you can significantly improve performance by passing a `-cpu` flag to qemu.  Unless you require live migrating, `-cpu host` is a good choice.
+By default, qemu claims the guest machine supports only `clflush`. As any modern machine \(starting with Skylake and Pinnacle Ridge\) has `clflushopt` or `clwb` \(Cannon Lake\), you can significantly improve performance by passing a `-cpu` flag to qemu. Unless you require live migrating, `-cpu host` is a good choice.
+

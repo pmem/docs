@@ -1,6 +1,6 @@
 # Changelogs
 
-This section contains the changelogs describing bug fixes, optimizations, bug fixes, and new features for both pmdk and ndctl.
+This section covers changelogs. It describes bug fixes, optimizations, and new features for both PMDK and ndctl.
 
 * [PMDK Changelog](pmdk.md)
 * [NDCTL Changelog](ndctl.md)

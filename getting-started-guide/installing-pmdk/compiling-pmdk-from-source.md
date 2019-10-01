@@ -1,11 +1,11 @@
-# Installing PMDK from Source on Linux and FreeBSD
+# Installing PMDK from Source on Linux
 
 ## Overview
 
-This procedure describes how to clone the source code from the pmdk github repository and compile, then install it.  
+This procedure describes how to clone the source code from the pmdk github repository and compile, then install it.
 
 {% hint style="info" %}
-**Note:** We recommend [installing NDCTL](../installing-ndctl.md) first so PMDK builds all features.  If the ndctl development packages and header files are not installed, PMDK will build successfully, but will disable some of the RAS \(Reliability, Availability and Serviceability\) features.
+**Note:** We recommend [installing NDCTL](../installing-ndctl.md) first so PMDK builds all features. If the ndctl development packages and header files are not installed, PMDK will build successfully, but will disable some of the RAS \(Reliability, Availability and Serviceability\) features.
 {% endhint %}
 
 If your system is behind a firewall and requires a proxy to access the Internet, configure your package manager to use a proxy.
@@ -26,7 +26,7 @@ To build the PMDK libraries on Linux, you may need to install the following requ
 
 {% tabs %}
 {% tab title="Fedora" %}
-```
+```text
 $ sudo dnf install autoconf automake pkg-config glib2-devel libfabric-devel pandoc ncurses-devel
 ```
 {% endtab %}
@@ -58,10 +58,10 @@ $ sudo yum install autoconf automake pkgconfig glib2-devel libfabric-devel pando
 $ sudo apt install autoconf automake pkg-config libglib2.0-dev libfabric-dev pandoc libncurses5-dev
 ```
 
-**For Ubuntu 16.04 \(Xenial\) and Debian 8 \(Jessie\):** 
+**For Ubuntu 16.04 \(Xenial\) and Debian 8 \(Jessie\):**
 
 {% hint style="info" %}
-Earlier releases of Ubuntu and Debian do not have libfabric-dev available in the repository.  If this library is required, you should compile it yourself. See [https://github.com/ofiwg/libfabric](https://github.com/ofiwg/libfabric)
+Earlier releases of Ubuntu and Debian do not have libfabric-dev available in the repository. If this library is required, you should compile it yourself. See [https://github.com/ofiwg/libfabric](https://github.com/ofiwg/libfabric)
 {% endhint %}
 
 ```text
@@ -213,13 +213,13 @@ To install this library into other locations, you can use the `prefix=path` opti
 $ sudo make install prefix=/usr
 ```
 
-If you installed to non-standard directory (anything other than /usr) you may need to add $prefix/lib or $prefix/lib64 (depending on the distribution you use) to the list of directories searched by the linker:
+If you installed to non-standard directory \(anything other than /usr\) you may need to add $prefix/lib or $prefix/lib64 \(depending on the distribution you use\) to the list of directories searched by the linker:
 
 ```text
 sudo sh -c "echo /usr/local/lib >> /etc/ld.so.conf"
 sudo sh -c "echo /usr/local/lib64 >> /etc/ld.so.conf"
 sudo ldconfig
 ```
-
 {% endtab %}
 {% endtabs %}
+
