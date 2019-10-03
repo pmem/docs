@@ -105,7 +105,7 @@ $ sudo mount -v | grep /pmem
 ```text
 $ sudo mkfs.xfs /dev/pmem0
 $ sudo mkdir /pmem
-$ sudo mount -o dax /dev/pmem0 /mnt/dax
+$ sudo mount -o dax /dev/pmem0 /pmem
 $ sudo mount -v | grep /pmem
 /dev/pmem0 on /pmem type xfs (rw,relatime,seclabel,attr2,dax,inode64,noquota)
 ```
