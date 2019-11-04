@@ -10,6 +10,44 @@ This changelog uses the following conventions
 * Changes are prefixed with a tag denoting the area, if any, they relate to.  For example: 'doc' \(documentation\), 'obj' \(libpmemobj\), 'pool' \(libpmempool\), etc
 * Bugs and new features may link to [PMDK issue repository](https://github.com/pmem/issues/issues) using '\(\#nnn\)' or external bug repositories such as the Red Hat Bugzilla \(RHBZ\).
 
+## Version 1.7.0
+
+
+
+This release:
+
+* Introduces new APIs in libpmemobj for managing space used by transactions.
+
+  \(see pmemobj\_tx\_log\_append\_buffer man page for details\)
+
+* Introduces new APIs in librpmem, splitting rpmem\_persist into rpmem\_flush
+
+  and rpmem\_drain, allowing applications to use the flush + drain model
+
+  already known from libpmem. \(libpmemobj does not use this feature yet\)
+
+* Optimizes large libpmemobj transactions by significantly reducing
+
+  the amount of memory modified at the commit phase.
+
+* Optimizes tracking of libpmemobj reservations.
+* Adds new flags for libpmemobj's pmemobj\_tx\_xadd\_range\[\_direct\] API: POBJ\_XADD\_NO\_SNAPSHOT and POBJ\_XADD\_ASSUME\_INITIALIZED, allowing applications to optimize how memory is tracked by the library.
+
+To support some of the above changes the libpmemobj on-media layout had to be changed, which means that old pools have to be converted using pmdk-convert &gt;= 1.7.
+
+Other changes:
+
+* obj: fix merging of ranges when NOFLUSH flag is used \(\#1100\)
+* rpmem: fix closing of ssh connection \(\#995, \#1060\)
+* obj: abort transaction on pmemobj\_tx\_publish failure
+
+Internal changes:
+
+* test: fault injection tests for pmemblk, pmemlog, and pmemobj
+* test: improved Python testing framework
+* test: support real pmem in bad blocks tests
+* common: allow not building examples and benchmarks
+
 ## Version 1.6.0
 
 Released this on Mar 26 · [304 commits](https://github.com/pmem/pmdk/compare/1.6...master) to master since this release
