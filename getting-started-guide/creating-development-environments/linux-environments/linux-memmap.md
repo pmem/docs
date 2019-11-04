@@ -84,11 +84,9 @@ On UEFI-based machines:
 **Note:** If more than one persistent memory namespace is required, specify a memmap entry for each namespace. For example, "memmap=2G!12G memmap=2G!14G" will create two 2GB namespaces, one in the 12GB-14GB memory address offsets, the other at 14GB-16GB.
 {% endhint %}
 
-2. Reboot the host
-
-3. After the host has been rebooted, a new `/dev/pmem{N}` device should exist, one for each memmap region specified in the GRUB config. These can be shown using `ls /dev/pmem*`. Naming convention starts at `/dev/pmem0` and increments for each device. The `/dev/pmem{N}` devices can be used to create a DAX filesystem.
-
-4. Create and mount a filesystem using /dev/pmem device\(s\), then verify the `dax` flag is set for the mount point to confirm the DAX feature is enabled. The following shows how to create and mount an EXT4 or XFS filesystem.
+1. Reboot the host
+2. After the host has been rebooted, a new `/dev/pmem{N}` device should exist, one for each memmap region specified in the GRUB config. These can be shown using `ls /dev/pmem*`. Naming convention starts at `/dev/pmem0` and increments for each device. The `/dev/pmem{N}` devices can be used to create a DAX filesystem.
+3. Create and mount a filesystem using /dev/pmem device\(s\), then verify the `dax` flag is set for the mount point to confirm the DAX feature is enabled. The following shows how to create and mount an EXT4 or XFS filesystem.
 
 {% tabs %}
 {% tab title="EXT4" %}

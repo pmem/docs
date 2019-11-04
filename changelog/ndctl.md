@@ -2,6 +2,76 @@
 
 The master index can be found at [https://github.com/pmem/ndctl/releases](https://github.com/pmem/ndctl/releases)
 
+## v67.0
+
+This release incorporates functionality up to the 5.4 kernel, and adds a number of bug fixes, and improvements.
+
+Highlights include small changes for PowerPC compatibility, improvements to the dax.sh unit test to detect failures in mapping huge pages, support for the 'security frozen' attribute, user experience improvements for the daxctl-reconfigure-device command, including an option to specify movable vs. non-movable state for onlining memory, and an option to allow create-namespaces to create a maximal configuration until it exhausts all available region capacity.
+
+Commands: 
+
+* create-namespace: add --continue option 
+* daxctl-reconfigure-device: add --no-movable option 
+* daxctl-reconfigure-device: display movable state in listings 
+* daxctl-reconfigure-device: detect races in memory onlining 
+* security: support for 'security frozen' attribute
+
+Tests: 
+
+* dax.sh: add detection for huge page failures 
+* dax.sh: add XFS reflink dependency 
+* daxctl-devices.sh: skip on older kernels
+
+APIs: 
+
+* ndctl\_dimm\_security\_is\_frozen 
+* daxctl\_memory\_is\_movable
+* daxctl\_memory\_online\_no\_movable
+
+## v66.0 - 7th August, 2019
+
+This release incorporates functionality up to the 5.3 kernel, and adds a number of bug fixes, and improvements.
+
+Highlights include a new command to reconfigure dax devices to different modes \(devdax - default, and system-ram - to hotplug the dax device as system memory\), improvements to ndctl-{read,write,init}-labels allowing smaller sized reads/writes, usability fixes to ndctl-monitor, and ndctl-create-namespace, and a fix to ndctl-check-namespace allowing it to be used on systems with different page sizes.
+
+Commands: 
+
+* daxctl-reconfigure-device: new command for device mode management 
+* daxctl-{on,off}line-memory: new commands for devices in system-ram mode 
+* monitor: logging improvements, allow sending to background 
+* inject-error: refuse to operate on active BTT namespaces 
+* \*-labels: improvements to minimize data transfer 
+* create-namespace: usability improvements around region search
+
+Tests: 
+
+* security.sh: handle backup keys, mark test as 'destructive' 
+* device-dax: fix bus-model detection 
+* daxctl-devices: new test for daxctl-reconfigure-device
+
+APIs: 
+
+* ndctl\_cmd\_cfg\_read\_set\_extent 
+* ndctl\_cmd\_cfg\_write\_set\_extent 
+* ndctl\_dimm\_read\_label\_extent 
+* ndctl\_dimm\_read\_label\_index 
+* ndctl\_dimm\_zero\_label\_extent 
+* daxctl\_dev\_disable 
+* daxctl\_dev\_enable\_devdax 
+* daxctl\_dev\_enable\_ram 
+* daxctl\_dev\_get\_ctx 
+* daxctl\_dev\_get\_memory 
+* daxctl\_dev\_get\_resource 
+* daxctl\_dev\_get\_target\_node 
+* daxctl\_dev\_is\_enabled 
+* daxctl\_memory\_get\_block\_size 
+* daxctl\_memory\_get\_dev 
+* daxctl\_memory\_get\_node\_path 
+* daxctl\_memory\_is\_online 
+* daxctl\_memory\_num\_sections 
+* daxctl\_memory\_offline 
+* daxctl\_memory\_online
+
 ## v65.0 - 9th May, 2019
 
 This release incorporates functionality up to the 5.1 kernel, and adds a number of bug fixes and improvements.
