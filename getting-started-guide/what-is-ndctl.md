@@ -8,7 +8,7 @@ Operations supported by the tool include provisioning capacity \(namespaces\), a
 
 ## Get Started
 
-To get started with the ndctl utility, first follow the [Installing NDCTL](installing-ndctl.md) document then the [NDCTL Users Guide]() and [man pages]().
+To get started with the ndctl utility, first follow the [Installing NDCTL](installing-ndctl.md) document then the [NDCTL User Guide](https://docs.pmem.io/ndctl-user-guide/) and [man pages](https://docs.pmem.io/ndctl-user-guide/man-pages).
 
 ## **Supporting Documents**
 
