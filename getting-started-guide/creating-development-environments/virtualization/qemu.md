@@ -236,7 +236,7 @@ QEMU v2.7.0 and later implement the label support for vNVDIMM devices. To enable
 The minimal label size is 128KB. which is enough to store approximately 1000 labels. Labels are never overwritten in-place. New labels or updates to existing labels are written to new labels slots within the label storage area.
 {% endhint %}
 
-Label information can be accessed using the `ndctl` command utility which needs to be installed within the guest. See the [NDCTL Users Guide](../../../ndctl-users-guide/) for more details.
+Label information can be accessed using the `ndctl` command utility which needs to be installed within the guest. See the [NDCTL Users Guide]() for more details.
 
 ## NVDIMM HotPlug Feature
 
