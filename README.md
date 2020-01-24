@@ -26,3 +26,5 @@ The [NVDIMM Driver Writers Guide](http://pmem.io/documents/NVDIMM_DriverWritersG
 
 The [NVDIMM DSM Interface](http://pmem.io/documents/NVDIMM_DSM_Interface-V1.8.pdf), Version 1.8, is targeted to writers of BIOS and OS drivers for NVDIMMs whose design adheres to the NFIT Tables in the ACPI specification. The document specifically discusses the NVDIMM Device Specific Method \(\_DSM\) example.
 
+The [Dirty Shutdown Handling guide](https://pmem.io/documents/Dirty_Shutdown_Handling-V1.0.pdf) describes the \(hopefully rare\) error case where flushes to persistent memory did not go as expected on power failure or system crash.  The guide describes how this failure is detected, and how it is communicated to applications via the **dirty shutdown count.**
+
