@@ -24,7 +24,7 @@ Before the above two standards were developed, the [NVDIMM Namespace Specificati
 
 The [NVDIMM Driver Writers Guide](http://pmem.io/documents/NVDIMM_DriverWritersGuide-July-2016.pdf) is targeted to driver writers for NVDIMMs that adhere to the NFIT tables in the Advanced Configuration and Power Interface \(ACPI\) V6.0 specification, the Device Specific Method \(DSM\) specification, and the NVDIMM Namespace Specification. This document specifically discusses the block window HW interface and persistent memory interface that Intel is proposing for NVDIMMs. A version of the document with [change bars](http://pmem.io/documents/NVDIMM_DriverWritersGuide-July-2016_wChanges.pdf) \[pdf\] from the previous version is also available.
 
-The [NVDIMM DSM Interface](http://pmem.io/documents/NVDIMM_DSM_Interface-V1.8.pdf), Version 1.8, is targeted to writers of BIOS and OS drivers for NVDIMMs whose design adheres to the NFIT Tables in the ACPI specification. The document specifically discusses the NVDIMM Device Specific Method \(\_DSM\) example.
+The [Intel Optane PMem DSM Interface](https://pmem.io/documents/IntelOptanePMem_DSM_Interface-V2.0.pdf), Version 2.0, describes the NVDIMM Device Specific Methods \(\_DSM\) that pertain to Optane PMem modules. This document is provided as a reference for BIOS and OS driver writers supporting NVDIMMs and similar devices that appear in the ACPI NFIT table.
 
 The [Dirty Shutdown Handling guide](https://pmem.io/documents/Dirty_Shutdown_Handling-V1.0.pdf) describes the \(hopefully rare\) error case where flushes to persistent memory did not go as expected on power failure or system crash.  The guide describes how this failure is detected, and how it is communicated to applications via the **dirty shutdown count.**
 
