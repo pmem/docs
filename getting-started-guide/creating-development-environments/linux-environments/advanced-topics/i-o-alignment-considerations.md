@@ -176,14 +176,14 @@ Device       Start     End Sectors Size Type
 {% tabs %}
 {% tab title="EXT4" %}
 ```text
-$ sudo mkfs.ext4 -b 4096 -E stride=512 -F /dev/pmem0
+$ sudo mkfs.ext4 -b 4096 -E stride=512 -F /dev/pmem0p1
 $ sudo mount -o dax /dev/pmem0p1 /mnt/dax
 ```
 {% endtab %}
 
 {% tab title="XFS" %}
 ```text
-$ sudo mkfs.xfs -f -d su=2m,sw=1 /dev/pmem0
+$ sudo mkfs.xfs -f -d su=2m,sw=1 /dev/pmem0p1
 $ sudo mount -o dax /dev/pmem0p1 /mnt/dax
 $ sudo xfs_io -c "extsize 2m" /mnt/dax
 ```
