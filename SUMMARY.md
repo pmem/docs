@@ -19,7 +19,7 @@
       * [VMware VSphere/ESXi](getting-started-guide/creating-development-environments/virtualization/vmware-vsphere-esxi.md)
     * [Cloud Environments](getting-started-guide/creating-development-environments/cloud-environments/README.md)
       * [Microsoft Azure Cloud](getting-started-guide/creating-development-environments/cloud-environments/microsoft-azure-cloud.md)
-      * [Google Cloud Platform \(GCP\)](getting-started-guide/creating-development-environments/cloud-environments/google-cloud-platform-gcp.md)
+      * [Google Cloud Platform (GCP)](getting-started-guide/creating-development-environments/cloud-environments/google-cloud-platform-gcp.md)
   * [Installing NDCTL](getting-started-guide/installing-ndctl.md)
   * [Installing PMDK](getting-started-guide/installing-pmdk/README.md)
     * [PMDK Directory Structure](getting-started-guide/installing-pmdk/pmdk-directory-structure.md)
@@ -28,7 +28,3 @@
     * [Installing PMDK on Windows](getting-started-guide/installing-pmdk/installing-pmdk-on-windows.md)
 * [IPMCTL User Guide](https://docs.pmem.io/ipmctl-user-guide/)
 * [NDCTL User Guide](https://docs.pmem.io/ndctl-user-guide/)
-* [Changelogs](changelog/README.md)
-  * [PMDK Changelog](changelog/pmdk.md)
-  * [NDCTL Changelog](changelog/ndctl.md)
-
