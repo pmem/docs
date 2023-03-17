@@ -15,7 +15,7 @@ ipmctl show [OPTIONS] -topology [TARGETS]
 ### **Example**
 
 ```text
-$ ipmctl show -topology
+$ sudo ipmctl show -topology
 
  DimmID | MemoryType                  | Capacity  | PhysicalID| DeviceLocator
 ==============================================================================

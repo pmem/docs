@@ -30,12 +30,12 @@ The default is to display all performance metrics.
 Show all performance metrics for all modules in the server
 
 ```text
-$ ipmctl show -dimm -performance
+$ sudo ipmctl show -dimm -performance
 ```
 
 Show the number of 64 byte reads since last AC cycle for all modules in the server
 
 ```text
-$ ipmctl show -dimm -performance MediaReads
+$ sudo ipmctl show -dimm -performance MediaReads
 ```
 

@@ -21,13 +21,13 @@ ipmctl start [OPTIONS] -diagnostic (Quick|Config|Security|FW) -dimm(DIMMIDs)
 Run all diagnostics
 
 ```text
-$ ipmctl start -diagnostic
+$ sudo ipmctl start -diagnostic
 ```
 
 Run the quick check diagnostic on module 0x0001
 
 ```text
-$ ipmctl start -diagnostic Quick -dimm 0x0001
+$ sudo ipmctl start -diagnostic Quick -dimm 0x0001
 ```
 
 ### **Return Data**

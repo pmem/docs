@@ -3,7 +3,7 @@
 Shows the platform configuration data for one or more persistent memory modules.
 
 ```text
-$ ipmctl show [OPTIONS] -dimm (DimmIds) -pcd (Config|LSA)
+ipmctl show [OPTIONS] -dimm (DimmIds) -pcd (Config|LSA)
 ```
 
 ### **Targets**
@@ -18,7 +18,7 @@ $ ipmctl show [OPTIONS] -dimm (DimmIds) -pcd (Config|LSA)
 Show the configuration information from the platform configuration data for all manageable modules
 
 ```text
-$ ipmctl show -dimm -pcd
+$ sudo ipmctl show -dimm -pcd
 ```
 
 Show the configuration information from the platform configuration data for module 0x0001

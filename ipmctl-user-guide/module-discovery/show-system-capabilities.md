@@ -9,7 +9,7 @@ ipmctl show [OPTIONS] -system -capabilities
 ### **Example**
 
 ```text
-$ ipmctl show -system -capabilities
+$ sudo ipmctl show -system -capabilities
 
 PlatformConfigSupported=1
 Alignment=1.0 GiB

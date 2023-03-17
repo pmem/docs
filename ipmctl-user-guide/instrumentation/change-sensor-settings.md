@@ -3,7 +3,7 @@
 Changes the non-critical threshold or enabled state for one or more persistent memory module sensors. Use the command [Show Sensor](show-sensor.md) to view the current settings.
 
 ```text
-$ ipmctl set [OPTIONS] -sensor (SENSORS) [TARGETS] NonCriticalThreshold=(temperature) EnabledState=(0|1)
+ipmctl set [OPTIONS] -sensor (SENSORS) [TARGETS] NonCriticalThreshold=(temperature) EnabledState=(0|1)
 ```
 
 ### **Sensors**

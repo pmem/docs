@@ -3,7 +3,7 @@
 Shows health statistics for one or more persistent memory modules.
 
 ```text
-$ ipmctl show [OPTOINS] -sensor [SENSORS] [TARGETS]
+ipmctl show [OPTOINS] -sensor [SENSORS] [TARGETS]
 ```
 
 ### **Sensors**
@@ -28,13 +28,13 @@ $ ipmctl show [OPTOINS] -sensor [SENSORS] [TARGETS]
 Get all sensor information for all modules
 
 ```text
-$ ipmctl show -sensor
+$ sudo ipmctl show -sensor
 ```
 
 Show the media temperature sensor for the specified module
 
 ```text
-$ ipmctl show -sensor MediaTemperature -dimm 0x0011
+$ sudo ipmctl show -sensor MediaTemperature -dimm 0x0011
 ```
 
 ### **Return Data**

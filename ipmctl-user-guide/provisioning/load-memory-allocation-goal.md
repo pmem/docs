@@ -7,7 +7,7 @@ Load a memory allocation goal from a file onto one or more persistent memory mod
 > > Changing a memory allocation goal modifies how the platform firmware maps persistent memory in the system address space \(SPA\), which may result in data loss or inaccessible data, but does not explicitly delete or modify user data found in persistent memory.
 
 ```text
-$ ipmctl load [OPTIONS] -source (path) -goal [TARGETS]
+ipmctl load [OPTIONS] -source (path) -goal [TARGETS]
 ```
 
 ### **Targets**
@@ -20,19 +20,19 @@ $ ipmctl load [OPTIONS] -source (path) -goal [TARGETS]
 Load the configuration settings stored in "config.txt" onto all modules in the system as a memory allocation goal to be applied by the BIOS on the next reboot.
 
 ```text
-$ ipmctl load -source config.txt -goal
+$ sudo ipmctl load -source config.txt -goal
 ```
 
 Load the configuration settings stored in "config.txt" onto modules 1, 2, and 3 in the system as a memory allocation goal to be applied by the BIOS on the next reboot.
 
 ```text
-$ ipmctl load -source config.txt -goal -dimm 1,2,3
+$ sudo ipmctl load -source config.txt -goal -dimm 1,2,3
 ```
 
 Load the configuration settings stored in "config.txt" onto all manageable modules on sockets 1 and 2 as a memory allocation goal to be applied by the BIOS on the next reboot.
 
 ```text
-$ ipmctl load -source config.txt -goal -socket 1,2
+$ sudo ipmctl load -source config.txt -goal -socket 1,2
 ```
 
 ### **Limitations**

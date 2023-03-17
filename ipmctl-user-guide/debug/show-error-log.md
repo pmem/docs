@@ -3,7 +3,7 @@
 Shows thermal or media errors on the specified persistent memory modules.
 
 ```text
-$ ipmctl show [OPTIONS] -error (Thermal|Media) [TARGETS] [PROPERTIES]
+ipmctl show [OPTIONS] -error (Thermal|Media) [TARGETS] [PROPERTIES]
 ```
 
 ### **Targets**
@@ -23,13 +23,13 @@ $ ipmctl show [OPTIONS] -error (Thermal|Media) [TARGETS] [PROPERTIES]
 Show all high thermal error log entries
 
 ```text
-$ ipmctl show -error Thermal Level=High
+$ sudo ipmctl show -error Thermal Level=High
 ```
 
 Show all low media error log entries
 
 ```text
-$ ipmctl show -error Thermal Level=Low
+$ sudo ipmctl show -error Thermal Level=Low
 ```
 
 ### **Sample Output**

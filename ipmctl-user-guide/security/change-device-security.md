@@ -3,7 +3,7 @@
 Changes the data-at-rest security lock state for the persistent memory on one or more persistent memory modules.
 
 ```text
-$ ipmctl set [OPTIONS] -dimm [TARGETS] Lockstate=(Unlocked|Disabled|Frozen) Passphrase=(string)
+ipmctl set [OPTIONS] -dimm [TARGETS] Lockstate=(Unlocked|Disabled|Frozen) Passphrase=(string)
 ```
 
 ### **Targets**
@@ -23,7 +23,7 @@ $ ipmctl set [OPTIONS] -dimm [TARGETS] Lockstate=(Unlocked|Disabled|Frozen) Pass
 Unlock device 0x0001
 
 ```text
-$ ipmctl set -dimm 0x0001 LockState=Unlocked Passphrase=""
+$ sudo ipmctl set -dimm 0x0001 LockState=Unlocked Passphrase=""
 ```
 
 Unlock device 0x0001 by supplying the passphrase in the file "mypassphrase.file".

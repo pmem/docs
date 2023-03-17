@@ -3,7 +3,7 @@
 Shows persistent memory module related events. The options, targets, and properties can be used to filter the events. If no filters are provided, the default is to display up to 50 events. Refer to the Event Log Specification for detailed information about events.
 
 ```text
-$ ipmctl show [OPTIONS] -event [TARGETS] [PROPERTIES]
+ipmctl show [OPTIONS] -event [TARGETS] [PROPERTIES]
 ```
 
 ### **Targets**
@@ -35,13 +35,13 @@ $ ipmctl show [OPTIONS] -event [TARGETS] [PROPERTIES]
 Display the 50 most recent events.
 
 ```text
-$ ipmctl show -event
+$ sudo ipmctl show -event
 ```
 
 Show the 10 most recent error events. With the exception that this call limits the output to 10, this is equivalent to calling `ipmctl show -error`.
 
 ```text
-$ ipmctl show -event count=10 severity=error
+$ sudo ipmctl show -event count=10 severity=error
 ```
 
 ### **Return Data** 

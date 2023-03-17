@@ -11,7 +11,7 @@ ipmctl show [OPTIONS] -memoryresources
 Show persistent memory module resource allocation.
 
 ```text
-$ ipmctl show -memoryresources
+$ sudo ipmctl show -memoryresources
 
 Capacity=1517.0 GiB
 MemoryCapacity=0.0 GiB
