@@ -20,7 +20,7 @@ ipmctl dump [OPTIONS] -destination (file_prefix) [-dict (file)] -debug -dimm (Di
 Dump and decode the debug log from persistent memory modules 0x0001 and 0x0011 using the dictionary file.
 
 ```text
-$ ipmctl dump -destination file_prefix -dict nlog_dict.txt -debug -dimm 0x0001,0x0011
+$ sudo ipmctl dump -destination file_prefix -dict nlog_dict.txt -debug -dimm 0x0001,0x0011
 ```
 
 ### **Sample Output**

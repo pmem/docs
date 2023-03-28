@@ -5,7 +5,7 @@ When `Config` is specified, the `Current`, `Input Data Size`, `Output Data Size`
 > Warning: This command may result in data loss. Data should be backed up to other storage before executing this command.
 
 ```text
-$ ipmctl delete [OPTIONS] -dimm (DimmIds) -pcd (Config)
+ipmctl delete [OPTIONS] -dimm (DimmIds) -pcd (Config)
 ```
 
 ### **Targets**

@@ -21,19 +21,19 @@ ipmctl set [OPTIONS] -dimm [TARGETS] Passphrase=(string) NewPassphrase=(string) 
 Change the passphrase from `mypassphrase` to `mynewpassphrase` on all modules.
 
 ```text
-$ ipmctl set -dimm Passphrase=mypassphrase NewPassphrase=mynewpassphrase ConfirmPassphrase=mynewpassphrase
+$ sudo ipmctl set -dimm Passphrase=mypassphrase NewPassphrase=mynewpassphrase ConfirmPassphrase=mynewpassphrase
 ```
 
 Change the passphrase on all modules by having the CLI prompt for the current and new passphrases.
 
 ```text
-$ ipmctl set -dimm Passphrase="" NewPassphrase="" ConfirmPassphrase=""
+$ sudo ipmctl set -dimm Passphrase="" NewPassphrase="" ConfirmPassphrase=""
 ```
 
 Change the passphrase on all modules by supplying the current and new passphrases from the specified file.
 
 ```text
-$ ipmctl set -source passphrase.file -dimm Passphrase="" NewPassphrase="" ConfirmPassphrase=""
+$ sudo ipmctl set -source passphrase.file -dimm Passphrase="" NewPassphrase="" ConfirmPassphrase=""
 ```
 
 In the previous example, the format of the file would be:

@@ -3,7 +3,7 @@
 Erases the persistent data on one or more module.
 
 ```text
-$ ipmctl delete [OPTIONS] -dimm [TARGETS] Passphrase=(string)
+ipmctl delete [OPTIONS] -dimm [TARGETS] Passphrase=(string)
 ```
 
 ### **Targets**
@@ -19,19 +19,19 @@ $ ipmctl delete [OPTIONS] -dimm [TARGETS] Passphrase=(string)
 Security disabled modules: Erase all persistent data on all modules in the system
 
 ```text
-$ ipmctl delete -dimm
+$ sudo ipmctl delete -dimm
 ```
 
 Security enabled specifics: Erase all the persistent data on all modules in the system
 
 ```text
-$ ipmctl delete -dimm Passphrase=123
+$ sudo ipmctl delete -dimm Passphrase=123
 ```
 
 Erase all the persistent data on all modules using the CLI prompt for the current passphrase.
 
 ```text
-$ ipmctl delete -dimm Passphrase=""
+$ sudo ipmctl delete -dimm Passphrase=""
 ```
 
 ### **Limitations**

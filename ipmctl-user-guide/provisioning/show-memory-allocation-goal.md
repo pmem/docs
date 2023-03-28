@@ -14,11 +14,11 @@ ipmctl show [OPTIONS] -goal [TARGETS] [PROPERTIES]
 **Examples**
 
 ```text
-$ ipmctl show -goal
+$ sudo ipmctl show -goal
 ```
 
 ```text
-$ ipmctl show -goal -socket 1
+$ sudo ipmctl show -goal -socket 1
 ```
 
 **Return Data**

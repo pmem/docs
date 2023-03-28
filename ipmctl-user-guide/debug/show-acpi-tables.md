@@ -3,7 +3,7 @@
 Shows the system ACPI tables related to persistent memory modules.
 
 ```text
-$ ipmctl show [OPTIONS] -system (NFIT|PCAT|PMTT)
+ipmctl show [OPTIONS] -system (NFIT|PCAT|PMTT)
 ```
 
 ### **Targets**
@@ -20,7 +20,7 @@ $ ipmctl show [OPTIONS] -system (NFIT|PCAT|PMTT)
 Show the ACPI NFIT
 
 ```text
-$ ipmctl show -system NFIT
+$ sudo ipmctl show -system NFIT
 ```
 
 ### **Return Data** 

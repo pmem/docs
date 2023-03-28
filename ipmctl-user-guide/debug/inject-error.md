@@ -50,48 +50,48 @@ This command supports setting or clearing one type of error at a time
 Set the media temperature on all manageable modules to 100 degrees Celsius.
 
 ```text
-$ ipmctl set -dimm Temperature=100
+$ sudo ipmctl set -dimm Temperature=100
 ```
 
 Clear the injected media temperature on all manageable modules
 
 ```text
-$ ipmctl set -dimm Clear=1 Temperature=1
+$ sudo ipmctl set -dimm Clear=1 Temperature=1
 ```
 
 Poison address 0x10000100 on module 1234
 
 ```text
-$ ipmctl set -dimm 1234 Poison=0x10000200
+$ sudo ipmctl set -dimm 1234 Poison=0x10000200
 ```
 
 Clear the injected poison of address 0x10000200 on module 1234.
 
 ```text
-$ ipmctl set -dimm 1234 Poison=0x10000200 Clear=1
+$ sudo ipmctl set -dimm 1234 Poison=0x10000200 Clear=1
 ```
 
 Trigger an artificial package sparing on all manageable modules.
 
 ```text
-$ ipmctl set -dimm PackageSparing=1
+$ sudo ipmctl set -dimm PackageSparing=1
 ```
 
 Set the life remaining percentage on all manageable modules to 10%.
 
 ```text
-$ ipmctl set -dimm PercentageRemaining=10
+$ sudo ipmctl set -dimm PercentageRemaining=10
 ```
 
 Clear the injected remaining life percentage on all manageable modules. The value of PercentageRemaining is irrelevant.
 
 ```text
-$ ipmctl set -dimm PercentageRemaining=10 Clear=1
+$ sudo ipmctl set -dimm PercentageRemaining=10 Clear=1
 ```
 
 Trigger an artificial ADR failure on all manageable modules, which will result in a dirty shutdown on each module on the next reboot.
 
 ```text
-$ ipmctl set -dimm DirtyShutdown=1
+$ sudo ipmctl set -dimm DirtyShutdown=1
 ```
 

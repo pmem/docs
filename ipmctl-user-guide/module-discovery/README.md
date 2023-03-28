@@ -5,9 +5,9 @@ Persistent memory modules are uniquely referenced by one of two IDs: `DimmHandle
 For example, each of the following are equivalent:
 
 ```text
-    $ ipmctl show -d DimmHandle,DimmUID -dimm 8089-a2-1748-00000001
-    $ ipmctl show -d DimmHandle,DimmUID -dimm 0x0001
-    $ ipmctl show -d DimmHandle,DimmUID -dimm 1
+$ sudo ipmctl show -d DimmHandle,DimmUID -dimm 8089-a2-1748-00000001
+$ sudo ipmctl show -d DimmHandle,DimmUID -dimm 0x0001
+$ sudo ipmctl show -d DimmHandle,DimmUID -dimm 1
 ```
 
 For simplicity, this document will primarily use `DimmUID`.
@@ -15,14 +15,14 @@ For simplicity, this document will primarily use `DimmUID`.
 The `-dimm` option accepts a single DimmUID or a comma separated list of DimmUIDs to filter the results. For example, the following `ipmctl show` command displays the `DimmHandle` and `DimmUID` properties for two modules with IDs of `0x0001` and `0x1001`:
 
 ```text
-    $ ipmctl show -d DimmHandle,DimmUID -dimm 0x0001,0x1001
+$ sudo ipmctl show -d DimmHandle,DimmUID -dimm 0x0001,0x1001
 
-    ---DimmID=0x0001---
-     DimmHandle=0x0001
-     DimmUID=8089-a2-1748-00000001
-    ---DimmID=0x1001---
-     DimmHandle=0x1001
-     DimmUID=8089-a2-1748-00000002
+---DimmID=0x0001---
+ DimmHandle=0x0001
+ DimmUID=8089-a2-1748-00000001
+---DimmID=0x1001---
+ DimmHandle=0x1001
+ DimmUID=8089-a2-1748-00000002
 ```
 
 #### DimmHandle

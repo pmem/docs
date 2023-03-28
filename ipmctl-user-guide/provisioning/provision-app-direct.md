@@ -5,10 +5,10 @@ Creates a memory allocation goal for App Direct in either one fully interleaved 
 **Examples**
 
 ```text
-$ ipmctl create -goal PersistentMemoryType=AppDirect
+$ sudo ipmctl create -goal PersistentMemoryType=AppDirect
 ```
 
 ```text
-$ ipmctl create -goal PersistentMemoryType=AppDirectNotInterleaved
+$ sudo ipmctl create -goal PersistentMemoryType=AppDirectNotInterleaved
 ```
 

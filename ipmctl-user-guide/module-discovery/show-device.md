@@ -17,7 +17,7 @@ ipmctl show [OPTIONS] -dimm [TARGETS]
 List a few key fields for each persistent memory module.
 
 ```text
-$ ipmctl show -dimm
+$ sudo ipmctl show -dimm
 
  DimmID | Capacity  | HealthState | ActionRequired | LockState | FWVersion
 ==============================================================================
@@ -38,13 +38,13 @@ $ ipmctl show -dimm
 List all properties for module 0x0001.
 
 ```text
-$ ipmctl show -a -dimm 0x0001
+$ sudo ipmctl show -a -dimm 0x0001
 ```
 
 Retrieve specific properties for each module.
 
 ```text
-$ ipmctl show -d HealthState,LockState -dimm 0x0001
+$ sudo ipmctl show -d HealthState,LockState -dimm 0x0001
 
 ---DimmID=0x0001---
    LockState=Disabled

@@ -3,7 +3,7 @@
 Deletes the memory allocation goal from one or more persistent memory modules. This command deletes a memory allocation goal request that has not yet been processed by the BIOS.
 
 ```text
-$ ipmctl delete [OPTIONS] -goal [TARGETS]
+ipmctl delete [OPTIONS] -goal [TARGETS]
 ```
 
 ### **Targets**
@@ -14,6 +14,6 @@ $ ipmctl delete [OPTIONS] -goal [TARGETS]
 ### **Example**
 
 ```text
-$ ipmctl delete -goal
+$ sudo ipmctl delete -goal
 ```
 
