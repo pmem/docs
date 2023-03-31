@@ -2,20 +2,22 @@
 
 Shows the topology of DDR and persistent memory modules installed in the host server.
 
-```text
+```
 ipmctl show [OPTIONS] -topology [TARGETS]
 ```
 
-### **Targets**
+## **Targets**
 
 * `-dimm [(DimmIDs)]`: Restricts output to specific DIMMs by optionally supplying the DIMM target and one or more comma-separated DIMM identifiers. The default is to display all DIMMs.
 * `-socket (SocketIDs)`: Restricts output to the DIMMs installed on specific sockets by supplying the socket target and one or more comma-separated socket identifiers. The default is to display all sockets.
   * If ACPI PMTT table is not present, then DDR4 memory will not be displayed in the filtered socket list.
 
-### **Example**
+## **Examples**
 
-```text
-$ sudo ipmctl show -topology
+Display all DDR and Optane persistent memory modules installed in the system
+
+```
+$ ipmctl show -topology
 
  DimmID | MemoryType                  | Capacity  | PhysicalID| DeviceLocator
 ==============================================================================
@@ -45,3 +47,32 @@ $ sudo ipmctl show -topology
  N/A    | DDR4                        | 16.0 GiB  | 0x0058    | CPU2_DIMM_F1
 ```
 
+Display all DDR and Optane persistent memory installed in CPU Socket 0
+
+```
+# ipmctl show -topology -socket 0
+ DimmID | MemoryType                  | Capacity    | PhysicalID| DeviceLocator
+================================================================================
+ 0x0001 | Logical Non-Volatile Device | 252.438 GiB | 0x0026    | CPU1_DIMM_A2
+ 0x0011 | Logical Non-Volatile Device | 252.438 GiB | 0x0028    | CPU1_DIMM_B2
+ 0x0021 | Logical Non-Volatile Device | 252.438 GiB | 0x002a    | CPU1_DIMM_C2
+ 0x0101 | Logical Non-Volatile Device | 252.438 GiB | 0x002c    | CPU1_DIMM_D2
+ 0x0111 | Logical Non-Volatile Device | 252.438 GiB | 0x002e    | CPU1_DIMM_E2
+ 0x0121 | Logical Non-Volatile Device | 252.438 GiB | 0x0030    | CPU1_DIMM_F2
+ N/A    | DDR4                        | 32.000 GiB  | 0x0025    | CPU1_DIMM_A1
+ N/A    | DDR4                        | 32.000 GiB  | 0x0027    | CPU1_DIMM_B1
+ N/A    | DDR4                        | 32.000 GiB  | 0x0029    | CPU1_DIMM_C1
+ N/A    | DDR4                        | 32.000 GiB  | 0x002b    | CPU1_DIMM_D1
+ N/A    | DDR4                        | 32.000 GiB  | 0x002d    | CPU1_DIMM_E1
+ N/A    | DDR4                        | 32.000 GiB  | 0x002f    | CPU1_DIMM_F1
+```
+
+&#x20;Display information for Optane persistent memory modules 0x0001 and 0x101
+
+```
+# ipmctl show -topology -dimm 0x0001,0x0101
+ DimmID | MemoryType                  | Capacity    | PhysicalID| DeviceLocator
+================================================================================
+ 0x0001 | Logical Non-Volatile Device | 252.438 GiB | 0x0026    | CPU1_DIMM_A2
+ 0x0101 | Logical Non-Volatile Device | 252.438 GiB | 0x002c    | CPU1_DIMM_D2
+```

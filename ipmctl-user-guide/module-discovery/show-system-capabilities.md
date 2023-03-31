@@ -2,14 +2,14 @@
 
 Shows the platform supported Intel Optane DC persistent memory capabilities across the server.
 
-```text
+```
 ipmctl show [OPTIONS] -system -capabilities
 ```
 
-### **Example**
+## **Example**
 
-```text
-$ sudo ipmctl show -system -capabilities
+```
+$ ipmctl show -system -capabilities
 
 PlatformConfigSupported=1
 Alignment=1.0 GiB
@@ -18,7 +18,7 @@ CurrentVolatileMode=1LM
 AllowedAppDirectMode=App Direct
 ```
 
-### **Return Data**
+## **Return Data**
 
 * `PlatformConfigSupported`: Whether the platform level configuration of persistent memory modules can be modified with the host software. One of:
   * 0: Changes must be made in the BIOS.
@@ -36,4 +36,3 @@ AllowedAppDirectMode=App Direct
   * Disabled: App Direct support is currently disabled by the BIOS.
   * App Direct: App Direct support is currently enabled by the BIOS.
   * Unknown: The current App Direct support cannot be determined.
-

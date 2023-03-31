@@ -2,11 +2,11 @@
 
 Shows health statistics for one or more persistent memory modules.
 
-```text
-ipmctl show [OPTOINS] -sensor [SENSORS] [TARGETS]
+```
+$ ipmctl show [OPTIONS] -sensor [SENSORS] [TARGETS]
 ```
 
-### **Sensors**
+## **Sensors**
 
 * `Health`: The current module health as reported in the SMART log
 * `MediaTemperature`: The current module media temperature in Celsius
@@ -19,30 +19,30 @@ ipmctl show [OPTOINS] -sensor [SENSORS] [TARGETS]
 * `PowerCycles`: The number of power cycles over the lifetime of the module
 * `FwErrorCount`: The total number of firmware error log entries
 
-### **Targets**
+## **Targets**
 
 * `dimm (DimmIDs)`: Show only the sensors on specific modules by supplying the DIMM target and one or more comma-separated DimmIDs. The default is to display sensors for all manageable modules.
 
-### **Examples** 
+## **Examples**
 
 Get all sensor information for all modules
 
-```text
-$ sudo ipmctl show -sensor
+```
+$ ipmctl show -sensor
 ```
 
 Show the media temperature sensor for the specified module
 
-```text
-$ sudo ipmctl show -sensor MediaTemperature -dimm 0x0011
+```
+$ ipmctl show -sensor MediaTemperature -dimm 0x0011
 ```
 
-### **Return Data**
+## **Return Data**
 
 * `DimmID`: The persistent memory module identifier
 * `Type`: The sensor type. Refer to the Sensors list above
-* `CurrentValue`: The current reading followed by the units of measurement \(e.g., 57 °C or 25%\)
-* `CurrentState`: The current value in relation to the threshold settings \(if supported\). One of:
+* `CurrentValue`: The current reading followed by the units of measurement (e.g., 57 °C or 25%)
+* `CurrentState`: The current value in relation to the threshold settings (if supported). One of:
   * `Unknown`: The state cannot be determined
   * `Normal`: The current reading is within the normal range. This is the default when the sensor does not support thresholds
   * `NonCritical`: The current reading is within the non-critical range. For example, an alarm threshold has been reached
@@ -66,4 +66,3 @@ $ sudo ipmctl show -sensor MediaTemperature -dimm 0x0011
   * 0: Disabled
   * 1: Enabled
   * N/A
-

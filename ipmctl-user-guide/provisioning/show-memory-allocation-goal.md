@@ -2,7 +2,7 @@
 
 Shows the memory allocation goal on one or more persistent memory modules. Once the goal is successfully applied by the BIOS, it is no longer displayed. Use the command Show Memory Resources to view the system-wide memory resources.
 
-```text
+```
 ipmctl show [OPTIONS] -goal [TARGETS] [PROPERTIES]
 ```
 
@@ -13,12 +13,12 @@ ipmctl show [OPTIONS] -goal [TARGETS] [PROPERTIES]
 
 **Examples**
 
-```text
-$ sudo ipmctl show -goal
+```
+$ ipmctl show -goal
 ```
 
-```text
-$ sudo ipmctl show -goal -socket 1
+```
+$ ipmctl show -goal -socket 1
 ```
 
 **Return Data**
@@ -35,4 +35,3 @@ $ sudo ipmctl show -goal -socket 1
   * `Failed - Not enough resources`: There were not enough resources for the BIOS to process the memory allocation goal.
   * `Failed - Firmware error`: The BIOS failed to process the memory allocation goal due to a firmware error.
   * `Failed - Unknown`: The BIOS failed to process the memory allocation goal due to an unknown error.
-

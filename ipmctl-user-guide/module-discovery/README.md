@@ -4,28 +4,28 @@ Persistent memory modules are uniquely referenced by one of two IDs: `DimmHandle
 
 For example, each of the following are equivalent:
 
-```text
-$ sudo ipmctl show -d DimmHandle,DimmUID -dimm 8089-a2-1748-00000001
-$ sudo ipmctl show -d DimmHandle,DimmUID -dimm 0x0001
-$ sudo ipmctl show -d DimmHandle,DimmUID -dimm 1
+```
+    $ ipmctl show -d DimmHandle,DimmUID -dimm 8089-a2-1748-00000001
+    $ ipmctl show -d DimmHandle,DimmUID -dimm 0x0001
+    $ ipmctl show -d DimmHandle,DimmUID -dimm 1
 ```
 
 For simplicity, this document will primarily use `DimmUID`.
 
 The `-dimm` option accepts a single DimmUID or a comma separated list of DimmUIDs to filter the results. For example, the following `ipmctl show` command displays the `DimmHandle` and `DimmUID` properties for two modules with IDs of `0x0001` and `0x1001`:
 
-```text
-$ sudo ipmctl show -d DimmHandle,DimmUID -dimm 0x0001,0x1001
+```
+    $ ipmctl show -d DimmHandle,DimmUID -dimm 0x0001,0x1001
 
----DimmID=0x0001---
- DimmHandle=0x0001
- DimmUID=8089-a2-1748-00000001
----DimmID=0x1001---
- DimmHandle=0x1001
- DimmUID=8089-a2-1748-00000002
+    ---DimmID=0x0001---
+     DimmHandle=0x0001
+     DimmUID=8089-a2-1748-00000001
+    ---DimmID=0x1001---
+     DimmHandle=0x1001
+     DimmUID=8089-a2-1748-00000002
 ```
 
-#### DimmHandle
+## DimmHandle
 
 The `DimmHandle` is equivalent to the `DimmUID` and is formatted as 0xABCD, where A, B, C, and D are defined as follows:
 
@@ -34,12 +34,11 @@ The `DimmHandle` is equivalent to the `DimmUID` and is formatted as 0xABCD, wher
 * C = Channel
 * D = Slot
 
-#### DimmUID
+## DimmUID
 
-The `DimmUID` is a unique identifier specific to each physical module. The unique identifier of an Intel Optane DC persistent memory module is formatted as VVVV-ML-MMYYSNSNSNSN or VVVV-SNSNSNSN \(if the manufacturing information is not available\) where:
+The `DimmUID` is a unique identifier specific to each physical module. The unique identifier of an Intel Optane persistent memory module is formatted as VVVV-ML-MMYYSNSNSNSN or VVVV-SNSNSNSN (if the manufacturing information is not available) where:
 
 * VVVV = VendorID
 * ML = Manufacturing Location
 * MMYY = Manufacturing Date
 * SNSNSNSN = Serial Number
-
